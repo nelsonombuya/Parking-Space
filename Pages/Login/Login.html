@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<!--Validation Javascript Script-->
+	<script type="text/javascript" src="Code/Javascript/Login Validation.js"></script>
+	<!--The Poppins Font
+		<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	-->
+	<!--Monsterrat Font-->
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+	
+	<!--CSS-->
+	<link rel="stylesheet" type="text/css" href="Code/CSS/Style.css">
+	
+	<!--Javascript (From Fontawesome)-->
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	
+	<!--Page Metadata-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<!--The Background Wave Layer-->
+	<img class="wave" src="Media/Images/Wave.png">
+
+	<!--The Page Content Container-->
+	<div class="container">
+		<!--Image contained on top of the wave layer-->
+		<div class="img">
+			<img src="Media/Images/Authentication.svg">
+		</div>
+
+		<!--The Login Box-->
+		<div class="login-content">
+			<form name="login_form" onsubmit = "return login_validation();" action="Login.html" method="POST"><!--Come back here to link the form with JS and PHP-->
+				<img src="Media/Images/Avatar.svg">
+				<h2 class="title">Sign In</h2>
+				   
+				<!--Username-->
+				<div class="input-div username">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Username</h5>
+           		   		<input type="text" name="login_username" class="input"/>
+           		   </div>
+           		</div>
+				   
+				<!--Password-->
+				<div class="input-div password">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password</h5>
+           		    	<input type="password" name="login_password" class="input">
+            	   </div>
+            	</div>
+            	<a href="#">Forgot Password?</a> <!--Come back here to link to the password recovery page-->
+            	<input type="submit" class="btn" value="Sign In">
+            </form>
+        </div>
+	</div>
+	
+	<!--Linking the Transitions script-->
+	<script type="text/javascript" src="Code/Javascript/Transitions.js"></script>
+</body>
+</html>
