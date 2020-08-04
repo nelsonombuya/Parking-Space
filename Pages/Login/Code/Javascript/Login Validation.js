@@ -16,9 +16,28 @@ function login_validation()
 		username_box.focus();
 		return false;
 	}
-	else if (password_box.value === "" || username_box.value === null)
+	else if (password_box.value === "" || password_box.value === null)
 	{
 		alert("The password cannot be blank!");
+		password_box.focus();
+		return false;
+	}
+
+	//Anything below this is a scam! 😂
+	/*
+		Username is admin
+		Password is 1234
+	*/
+	//Adding a login trick
+	else if (username_box.value != "admin")
+	{
+		alert("User does not exist");
+		username_box.focus();
+		return false;
+	}
+	else if (password_box.value != "1234")
+	{
+		alert("Wrong Password");
 		password_box.focus();
 		return false;
 	}
