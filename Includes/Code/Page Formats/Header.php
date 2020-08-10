@@ -8,7 +8,7 @@
                 <h1>#Driver ID</h1>
             </div>
             <div class="user_id">
-                <h2>#<?php echo $_SESSION['username'];?></h2>
+                <h2># <?php echo $_SESSION['username'];?></h2>
             </div>
         </div>
 

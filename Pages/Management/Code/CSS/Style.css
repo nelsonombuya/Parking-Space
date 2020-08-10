@@ -1,0 +1,24 @@
+.heading-space{
+    display: flex;
+    justify-content: flex-end;
+}
+.heading-space h1{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    border-bottom: 2px black solid;
+    width: max-content;
+    font-size: 2em;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.account-details h2{
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5em;
+    padding-right: 1em;
+}
+.container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}

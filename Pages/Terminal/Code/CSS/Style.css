@@ -1,13 +1,10 @@
-/*Importing Main CSS File*/
-@import "Includes/Code/CSS/Style.css";
-
 /*The Huge Question*/
 .question{
     display: flex;
     justify-content: space-evenly;
     padding: 10px;
     padding-top: 4em;
-}   /*We might need to add a way for Tooltips that organize themselves*/
+}   /*TODO: We might need to add a way for Tooltips that organize themselves*/
 .question h1{
     font-size: 3em;
     font-weight: 400;
