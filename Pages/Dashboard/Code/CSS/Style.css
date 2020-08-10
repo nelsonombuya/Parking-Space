@@ -15,14 +15,16 @@ body{
 /*The Header*/
 #top_header{
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     font-size: larger;
     padding: 1%;
-    flex-basis:100%;
+    width:100%;
+    flex-wrap: nowrap;
 }
 #top_header > div{
-    flex-basis: 30%;
+    width: 30%;
     margin: auto;
 }
 
@@ -37,6 +39,7 @@ body{
 .settings{
     display: flex;
     justify-content: flex-end;
+    align-items: flex-start;
 }
 
 /*Settings Icon*/
@@ -60,6 +63,7 @@ body{
 .driver_details{
     display: flex;
     flex-direction: column;
+    flex-shrink: 2;
     overflow: hidden;
     font-family: 'Montserrat', sans-serif;
 }
@@ -80,25 +84,15 @@ body{
     justify-content: space-evenly;
     padding: 10px;
     padding-top: 4em;
-}   /*We might need to add a way for Tooltips that organize themselves*/
+}
 .question h1{
     font-size: 3em;
     font-weight: 400;
     text-transform: uppercase;
 }
 .options{
-    display: grid;
-    margin: 0 100px;
-    /*We can use MinMax in these Options*/
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr); 
-    grid-gap: 1em;
-}
-.options_buttons{   /*Has the buttons used in the terminal*/
-    display: grid;
-    margin: 10px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    display: flex;
+    justify-content: space-evenly;
 }
 
 /*Formatting for smaller screens*/
@@ -124,7 +118,6 @@ body{
     }
 }
 
-
 @media screen and (max-width: 480px){
     .question{
         border-top: black solid 2px;
@@ -134,8 +127,6 @@ body{
         height: min-content;
     }
 }
-
-
 @media screen and (max-width: 400px){
     .question{
         border-top: none;
