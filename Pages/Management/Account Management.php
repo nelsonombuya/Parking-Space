@@ -8,7 +8,10 @@
 <body>
     <h1>Account Management</h1>
     <div class="container">
-
+        <!--Container that'll hold the Account holder's details-->
+        <div class="account-details">
+            <h2>My Details</h2>
+        </div>
     </div>
 </body>
 </html>
