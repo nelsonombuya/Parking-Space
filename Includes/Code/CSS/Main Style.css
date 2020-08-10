@@ -74,33 +74,6 @@ body{
     font-weight: 400;
 }
 
-/*The Huge Question*/
-.question{
-    display: flex;
-    justify-content: space-evenly;
-    padding: 10px;
-    padding-top: 4em;
-}   /*We might need to add a way for Tooltips that organize themselves*/
-.question h1{
-    font-size: 3em;
-    font-weight: 400;
-    text-transform: uppercase;
-}
-.options{
-    display: grid;
-    margin: 0 100px;
-    /*We can use MinMax in these Options*/
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr); 
-    grid-gap: 1em;
-}
-.options_buttons{   /*Has the buttons used in the terminal*/
-    display: grid;
-    margin: 10px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-}
-
 /*Formatting for smaller screens*/
 /*Tablets*/
 @media screen and (max-width: 900px){

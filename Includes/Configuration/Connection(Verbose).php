@@ -12,6 +12,11 @@
                     PASS VARCHAR(50) NOT NULL)",
     ];
 
+    $users = [
+        "admin" => "INSERT INTO USERS (USERNAME, PASS) 
+                    VALUES ('admin', '1234')",
+    ];
+
     //Connection Scripts
     //Connecting to DB Server
     $connect = mysqli_connect(server, server_user, server_password);
@@ -79,7 +84,7 @@
                 //Checking whether the table exists
                 if ($GLOBALS['connect'] -> query("DESCRIBE $table"))
                 {
-                    echo "<br>The table $table exists<br>";
+                    echo "<br>The table [$table] exists<br>";
                 }
                 else
                 {   
@@ -96,8 +101,25 @@
                     }
                 }
             }
+
+            //TODO: Make a way to add data to all necessary tables
+            //FIXME: Probably needs a nested array
+            //Once Table Creation is done, add a default users
+            echo "<br><u>Table Data</u>";
+            foreach ($GLOBALS['users'] as $user => $details)
+            {
+                if ($GLOBALS['connect'] -> query("SELECT * FROM USERS WHERE USERNAME = '$user'"))
+                {
+                    echo "<br>User [$user] exists.";
+                }
+                else
+                {
+                    $GLOBALS['connect'] -> query($details);
+                    echo "<br>Added the user [$user]";
+                }
+            }
         }
         //Finished Making the Tables
-        echo "<br>The database tables have been made.<br>Redirecting...";
+        echo "<br><br>The database tables have been made.<br>Redirecting...";
     }
 ?>
