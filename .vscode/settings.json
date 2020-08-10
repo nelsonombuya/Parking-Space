@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "connectionTimeout": 60,
+            "database": "Car_Parking_System",
+            "driver": "MySQL",
+            "group": "Team Project",
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "name": "Car Parking System",
+            "password": "1234",
+            "port": 3306,
+            "previewLimit": 50,
+            "server": "localhost",
+            "username": "root"
+        }
+    ]
+}
