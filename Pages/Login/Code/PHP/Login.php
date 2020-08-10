@@ -20,9 +20,12 @@
         {
             if ($user['USERNAME'] == $username && $user['PASS'] == $password)
             {
-                //TODO: Code to use for the session
+                //Start Session
+                session_start();
+                $_SESSION['username'] = $username;
+                
                 //Redirect to Account Management Page
-                header("Location: ../../../Management/Account Management.html");
+                header("Location: ../../../Management/Account Management.php");
             }
             else
             {
