@@ -3,10 +3,7 @@
     display: flex;
     justify-content: space-evenly;
 }
-.container{
-    display: grid;
-    grid-template-columns: 1fr;
-}
+
 .report-heading-space h1{
     display: flex;
     justify-content: center;
@@ -18,32 +15,44 @@
     text-transform: uppercase;
 }
 
-/*The Account's Stuff*/
-.account-settings div{
-    background-color: rgba(255, 255, 255, 0.75);
+/*Report Title*/
+.report-title{
+    display: flex;
+    justify-content: space-evenly;
 }
-.account-settings h2{
+.report-title h2{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    width: max-content;
+    font-size: 1.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.column-titles{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.column-titles h3{
     display: flex;
     justify-content: flex-start;
-    align-content: center;
-    padding: 0.5em;
-    padding-left: 1em;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-transform: uppercase;
 }
-.account-details h2{
+.column{
     display: flex;
-    justify-content: flex-end;
-    align-content: center;
-    padding: 0.5em;
-    padding-right: 1em;
-}
-
-
-.report{
-    display: grid;
-    padding: 5%;
+    flex-direction: column;
     justify-content: center;
 }
-
-.report h2{
-    
+.report-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 1em;
+    padding: 0.5em 1em;
+    background-color: rgba(245,245,245,0.75)
 }

@@ -27,6 +27,21 @@
     padding: 0.5em;
     padding-left: 1em;
 }
+
+.user-settings{
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    padding: 0.5em;
+    padding-left: 1em;
+}
+
+.pages{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
 .account-details h2{
     display: flex;
     justify-content: flex-end;
@@ -34,10 +49,10 @@
     padding: 0.5em;
     padding-right: 1em;
 }
-.container{
+.container{ /*TODO: Change layouts to use flexbox*/
     display: grid;
     grid-template-columns: 30% 70%;
-    grid-auto-rows: 7% 6%;
+    grid-auto-rows: 7% 60%;
     margin: 0 20px;
 }
 

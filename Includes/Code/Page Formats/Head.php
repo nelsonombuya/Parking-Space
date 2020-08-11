@@ -1,35 +1,30 @@
-<?php   // Session
+<?php
+    // Session
     session_start();
-
     function logout()
     {
         unset($_SESSION['username']);
         session_destroy();
+        session_start();
+        $_SESSION['username'] = "guest";
     }
-
-    //TODO: No user logged in output
+    //TODO: No user logged in output FIXME: Might be redundant
     function session_outputs($output)
     {
-        if ($_SESSION[$output] === "")
+        if ($_SESSION[$output] === "guest")
         {
-            return "User Not Logged In";
+            return "Guest";
         }
         else
         {
             return $_SESSION[$output];
         }
     }
-    //TODO: Already Logged In
+    
+    //TODO: Already Logged In //FIXME: Issues with moving to login Page
     function already_logged_in()
     {
-        if ($_SESSION['username'] !== "")
-        {
-            header("../../Pages/Login/Login.html");
-        }
-        else
-        {
-            echo "<script> alert ('You're already logged in as'" . $_SESSION['username'] . ")</script>";
-        }
+        return header("../../Pages/Login/Login.html");
     }
 ?>
 <!DOCTYPE html>
@@ -45,11 +40,7 @@
     <!--CSS-->
     <!--From the Pages Folder-->
     <link rel="stylesheet" type="text/css" href="../../Includes/Code/CSS/Main Style.css">
-
-    <!-- Javascript (From Fontawesome) [Has the Username And Password Icons] -->
-    <!-- <script src="https://kit.fontawesome.com/a81368914c.js"></script> -->
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $_SESSION['page_title'] ?></title>
 </head>

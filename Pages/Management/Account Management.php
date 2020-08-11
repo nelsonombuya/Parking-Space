@@ -19,10 +19,18 @@
             <h2>Settings</h2>
         </div>
         <div class="account-details">
-            <h2><?php echo $_SESSION['username']; ?>'s Details</h2>
+            <h2><?php echo session_outputs('username');?>'s Details</h2>
         </div>
-        <div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis dolor, autem ea deleniti aliquid neque atque ipsa! Odio officia animi laborum aperiam reprehenderit, deserunt et perspiciatis. Officia qui ut aut amet soluta ratione totam quisquam sit placeat iure, nam quibusdam.</p>
+        <div class="user-settings">
+            <ul>
+                <li><h3>Lorem</h3></li>
+                <li><h3>Lorem</h3></li>
+                <li><h3>Lorem</h3></li>
+                <li><h3>Lorem</h3></li>
+            </ul>
+        </div>
+        <div class="Pages">
+            <h3><a href="Parking Spots Report.php">Parking Spots Report</a></h3>
         </div>
     </div>
 </body>
