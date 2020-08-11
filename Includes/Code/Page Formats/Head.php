@@ -1,5 +1,36 @@
 <?php   // Session
     session_start();
+
+    function logout()
+    {
+        unset($_SESSION['username']);
+        session_destroy();
+    }
+
+    //TODO: No user logged in output
+    function session_outputs($output)
+    {
+        if ($_SESSION[$output] === "")
+        {
+            return "User Not Logged In";
+        }
+        else
+        {
+            return $_SESSION[$output];
+        }
+    }
+    //TODO: Already Logged In
+    function already_logged_in()
+    {
+        if ($_SESSION['username'] !== "")
+        {
+            header("../../Pages/Login/Login.html");
+        }
+        else
+        {
+            echo "<script> alert ('You're already logged in as'" . $_SESSION['username'] . ")</script>";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +45,6 @@
     <!--CSS-->
     <!--From the Pages Folder-->
     <link rel="stylesheet" type="text/css" href="../../Includes/Code/CSS/Main Style.css">
-    
-    <!--The Page's Unique CSS-->
-    <link rel="stylesheet" type="text/css" href="Code/CSS/Style.css">
 
     <!-- Javascript (From Fontawesome) [Has the Username And Password Icons] -->
     <!-- <script src="https://kit.fontawesome.com/a81368914c.js"></script> -->

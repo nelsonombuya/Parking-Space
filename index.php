@@ -17,28 +17,30 @@
         <!--The Driver's Details Container-->
         <div class="driver_details">
             <div class="driver_number">
-                <h1>#Driver ID</h1>
+                <h1>#<?php echo session_outputs('username');?></h1>
             </div>
             <div class="user_id">
-                <h2>#<?php echo $_SESSION['username'];?></h2>
+            <a href="Pages\Management\Account Management.php"><h2><?php echo session_outputs('username');?></h2></a>
             </div>
         </div>
 
         <!--The Logo Container-->
         <div class="logo">
-            <img src="Includes\Media\Images\Logo.png" alt="Logo">
+            <a href="index.php">
+                <img src="Includes\Media\Images\Logo.png" alt="Logo">
+            </a>
         </div>
 
         <!--The Settings Cog Container-->
         <div class="settings">
-            <a href="Pages\Login\Login.html"><img src="Includes\Media\Images\Settings.png" alt="Settings"></a>
+            <a href="<?php echo already_logged_in(); ?>"><img src="Includes\Media\Images\Settings.png" alt="Settings"></a>
         </div>
     </header>
 
     <!-- Proceed with the Rest of the Body Container -->
     <div class="container">
         <div class="question">
-            <h1>Dynamic Questions</h1>
+            <h1>Welcome to Bueno Mall</h1>
         </div>
         <div class="options">
             <strong><h2>Dynamic Buttons</h2></strong>

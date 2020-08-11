@@ -1,11 +1,15 @@
 /*The Page Heading*/
-.heading-space{
+.report-heading-space{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-evenly;
 }
-.heading-space h1{
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.report-heading-space h1{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 10px;
     border-bottom: 2px black solid;
     width: max-content;
@@ -15,10 +19,8 @@
 }
 
 /*The Account's Stuff*/
-.account-settings{
-    background-color: rgba(255, 255, 255, 0.90);
-    height: 28em;
-    width: 20em;
+.account-settings div{
+    background-color: rgba(255, 255, 255, 0.75);
 }
 .account-settings h2{
     display: flex;
@@ -34,12 +36,7 @@
     padding: 0.5em;
     padding-right: 1em;
 }
-.container{
-    display: grid;
-    grid-template-columns: 30% 70%;
-    grid-auto-rows: 7% 6%;
-    margin: 0 20px;
-}
+
 
 .report{
     display: grid;

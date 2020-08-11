@@ -10,6 +10,10 @@
         "USERS" =>  "CREATE TABLE IF NOT EXISTS USERS (
                     USERNAME VARCHAR(50) NOT NULL PRIMARY KEY,
                     PASS VARCHAR(50) NOT NULL)",
+        "PARKING" => "CREATE TABLE IF NOT EXISTS PARKING (
+                    P_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                    P_TYPE VARCHAR(12) NOT NULL,
+                    P_STATUS VARCHAR(6) NOT NULL)",
     ];
 
     $users = [

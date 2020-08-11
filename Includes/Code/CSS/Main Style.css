@@ -48,7 +48,7 @@ body{
     display: flex;
     justify-content: center;
 }
-.logo img{
+.logo img a{
     position: absolute;
     width: 80px;
     height: 80px;
@@ -69,6 +69,7 @@ body{
     font-weight: 600;
 }
 .user_id h2{
+    margin-left: 25px;
     overflow: hidden;
     font-size: 1em;
     font-weight: 400;
@@ -94,6 +95,9 @@ body{
     }
     .question h1{
         font-size: 2.5em;
+    }
+    .user_id h2{
+        margin-left: 15%;
     }
 }
 
