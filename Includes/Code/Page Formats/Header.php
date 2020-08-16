@@ -21,7 +21,7 @@
 
         <!--The Settings Cog Container-->
         <div class="settings">
-            <a href="..\..\Pages\Login\Login.html"><img src="..\..\Includes\Media\Images\Settings.png" alt="Settings"></a>
+            <a href="..\..\Pages\Login\Sign In.php"><img src="..\..\Includes\Media\Images\Settings.png" alt="Settings"></a>
             <a href="<?php logout() ?>"><img src="..\..\Includes\Media\Images\logout.svg" alt="Logout"></a>
         </div>
         <!--TODO: Set a sign out button-->

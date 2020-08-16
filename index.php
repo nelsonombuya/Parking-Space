@@ -75,9 +75,9 @@
                         <h3>Parking Terminal</h3>
                     </div>
                 </a>
-                <a href="Pages\Management\Account Management.php">
+                <a href="Pages\Login\Code\PHP\Login.php">
                     <div class="column">
-                        <img src="Includes\Media\Images\User.png" alt="User Settings">
+                        <img src="Includes\Media\Images\User.png" alt="Account Management">
                         <h3>Account Management</h3>
                     </div>
                 </a>
