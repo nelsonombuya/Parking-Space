@@ -56,20 +56,30 @@
 }
 .row {
     display: grid;
-    justify-content: space-evenly;
-    grid-template-columns: repeat(2, 46%);
-    grid-template-rows: auto;
-}
-.row a {
-    padding: 5%;
-    margin-top: 8%;
-    margin-bottom: 8%;
+    justify-content: space-around;
+    grid-template-columns: repeat(2, 35%);
 }
 .row h3 {
     margin-top: 1em;
     font-family: "Poppins", sans-serif;
 }
 
-.footer {
-    display: flex;
+/* Links */
+.row a {
+    padding: 5%;
+    margin: 8% 4%;
+    justify-content: center;
+    text-decoration: none;
+}
+.row a:hover {
+    background-color: rgba(226, 226, 226, 0.4);
+    border: none;
+    margin: 7.9% 4%;
+    text-decoration: underline;
+}
+.row a:active {
+    background-color: rgba(226, 226, 226, 0.9);
+    border: 1px solid grey;
+    margin: 7.9% 4%;
+    text-decoration: underline;
 }
