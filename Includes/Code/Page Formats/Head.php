@@ -1,36 +1,9 @@
-<?php
-    // Session
-    session_start();
-    function logout()
-    {
-        unset($_SESSION['username']);
-        session_destroy();
-        session_start();
-        $_SESSION['username'] = "guest";
-    }
-    //TODO: No user logged in output FIXME: Might be redundant
-    function session_outputs($output)
-    {
-        if ($_SESSION[$output] === "guest")
-        {
-            return "Guest";
-        }
-        else
-        {
-            return $_SESSION[$output];
-        }
-    }
-    
-    //TODO: Already Logged In //FIXME: Issues with moving to login Page
-    function already_logged_in()
-    {
-        return header("../../Pages/Login/Login.html");
-    }
-?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--Stuff To Include-->
+    <!-- Stuff To Include -->
     <!--Monsterrat Font-->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     

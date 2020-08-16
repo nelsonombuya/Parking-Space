@@ -1,0 +1,75 @@
+/* Page Title */
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    padding-top: 2em;
+} /*TODO: We might need to add a way for Tooltips that organize themselves*/
+.title h1 {
+    font-size: 3em;
+    font-weight: 400;
+    text-transform: uppercase;
+    justify-content: center;
+}
+
+/* Container */
+.container {
+    display: flex;
+    margin: 0 5%;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: rgba(0, 0, 0, 0.8), solid;
+}
+
+/* Question Box */
+.question {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+}
+
+/* Options */
+.options {
+    margin-top: 2em;
+}
+.emphasis {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+.column {
+    /*Has the buttons used in the terminal*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.column img {
+    width: 120px;
+    height: 120px;
+}
+.row {
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(2, 46%);
+    grid-template-rows: auto;
+}
+.row a {
+    padding: 5%;
+    margin-top: 8%;
+    margin-bottom: 8%;
+}
+.row h3 {
+    margin-top: 1em;
+    font-family: "Poppins", sans-serif;
+}
+
+.footer {
+    display: flex;
+}
