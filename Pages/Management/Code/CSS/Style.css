@@ -1,11 +1,12 @@
 /*The Page Heading*/
-.heading-space{
+.heading-space {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
 }
-.heading-space h1{
+.heading-space h1 {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-evenly;
     padding: 10px;
     border-bottom: 2px black solid;
     width: max-content;
@@ -13,55 +14,49 @@
     font-weight: 400;
     text-transform: uppercase;
 }
-
-/*The Account's Stuff*/
-.account-settings{
-    background-color: rgba(255, 255, 255, 0.90);
-    height: 28em;
-    width: 20em;
-}
-.account-settings h2{
-    display: flex;
-    justify-content: flex-start;
-    align-content: center;
-    padding: 0.5em;
-    padding-left: 1em;
-}
-
-.user-settings{
-    display: flex;
-    justify-content: flex-start;
-    align-content: center;
-    padding: 0.5em;
-    padding-left: 1em;
-}
-
-.pages{
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-}
-
-.account-details h2{
+.heading-space h2 {
     display: flex;
     justify-content: flex-end;
-    align-content: center;
-    padding: 0.5em;
+    padding: 10px;
+    width: max-content;
+    font-size: 1.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    justify-self: center;
+    margin: 0 4em;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: rgba(0, 0, 0, 0.4), solid;
+}
+
+/* The menu utems on the left */
+.settings-menu li {
+    list-style: none;
+    padding-left: 1em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+/* The page items */
+.pages {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.pages ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.pages li {
+    list-style: none;
     padding-right: 1em;
-}
-.container{ /*TODO: Change layouts to use flexbox*/
-    display: grid;
-    grid-template-columns: 30% 70%;
-    grid-auto-rows: 7% 60%;
-    margin: 0 20px;
-}
-
-.report{
-    display: grid;
-    padding: 5%;
-    justify-content: center;
-}
-
-.report h2{
-    
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
 }

@@ -5,28 +5,25 @@
         session_start();
     }
 
-    // Checking whether the session had been destroyed or doesn't exist
-    if (checkSession() == 0){
-        // Creating a guest session
-        setGuestUser();
-    }
-
-    function checkSession(){
-        if ($_SESSION['username'] === "" || $_SESSION['username'] === null)
+    // Checking whether the user is logged in
+    function isLoggedIn(){
+        if (isset($_SESSION['username']))
         {
-            // If this is a guest user, then it means no one's logged in, transferring the user to the login page
-            return 0;
+            if ($_SESSION['username'] === "guest"){
+                // TODO: Allow guest to manage their parking
+                $_SESSION['is_logged_in'] = FALSE;
+                return FALSE;   
+            }
+            $_SESSION['is_logged_in'] = TRUE;
+            return TRUE;
         }
-        else if ($_SESSION['username'] === "guest"){
-            // Might be a guest user
-            return 1;
-        }
-        else{
-            // Is probably a logged on user
-            return 2;
+        else {
+            logout();
+            return FALSE;
         }
     }
 
+    // TO: Logout the user and return the session state to guest
     function logout()
     {
         // Unsets user data and ends the session
@@ -37,6 +34,7 @@
         setGuestUser();
     }
 
+    // TO: Set the current user as guest (For when logging out or having a destroyed session)
     function setGuestUser(){
         // TO: Set the guest user's credetntials
         if (session_status() == PHP_SESSION_NONE) {
@@ -45,7 +43,6 @@
         
         $_SESSION['username'] = "guest";
     }
-    // TODO: No user logged in output
     // TODO: When user is already Logged In
     // TODO: Add session expiry
     // TODO: Using Session Confirm Hash Key to verify the account every 30 or so minutes    

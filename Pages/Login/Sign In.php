@@ -2,30 +2,41 @@
     // Defining session errors and what to do if an error had occured
     // Check for a user session
     // TODO: Select Case with Javascript Alerts
+
+    // TODO: No user logged in output
+    // $_SESSION['error'] = 0;
+    include("../../Includes/Configuration/Session.php");
     
-    // if (checkSession() == 0){
-    //     // Meaning there are no session details
-    //     echo '  <script type="text/JavaScript">  
-    //                 alert("Please Sign In or Continue as Guest"); 
-    //             </script>';  // So that they can log in
-    // }
-    // else if (checkSession() == 2){
-    //     // If it's a logged in user
-    //     $GLOBALS['username'] = $_SESSION['username'];
-    //     $GLOBALS['password'] = $_SESSION['password']; // FIXME: Here
-    //     echo '  <script type="text/JavaScript">  
-    //                 alert("Checking Session Credentials"); 
-    //             </script>';
-    // }
-    // // Else, for guest sessions and any other unchecked criteria 
-    // else{
-    //     // FIXME: Guest user accessing their own details    
-    //     // header("Location: ../../Sign In.php");  // NOTE: Will use Driver ID
-    //     echo '  <script type="text/JavaScript">  
-    //                     alert("Please, sign in or continue as guest."); 
-    //                 </script>';
-    // }
+    // Error checking
+    if (isset($_SESSION['error'])) {    // Checks if the error has happened, if not, just run the main script
+        // TO: Check the error code and display relevant error messages
+        switch ($_SESSION['error']) {
+            case 0: // In case of error code [No user login detected]
+                echo '  <script type="text/JavaScript">  
+                            alert("Incorrect username or password"); 
+                        </script>';
+            case 1: // In case of error code 1
+                echo '  <script type="text/JavaScript">  
+                            alert("Incorrect username or password"); 
+                        </script>';
+                break;
+            default:    // If a different kind of error occurs
+                echo '  <script type="text/JavaScript">  
+                            alert("Please, sign in or continue as guest."); 
+                        </script>';
+                break;
+        }
+
+        // Unsets the session error after the error message has been shown
+        unset($_SESSION['error']);
+    }
+
+    // Redirecting the user to the account management page
+    if (isLoggedIn()){
+        header("Location: ..\..\Pages\Management\Account Management.php");
+    }
 ?>
+<!-- Running the main page-->
 <!DOCTYPE html>
 <html>
 

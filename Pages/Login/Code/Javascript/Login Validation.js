@@ -8,12 +8,17 @@ function login_validation() {
         allow me to refocus on the values if they're not input
     */
 
-    // Illegal Charachters
+    // // Illegal Characters
+    illegal_characters = /[\<\>!@#\$%^&\*,]+/i; // Allows the underscore and hyphen
 
-    // alert(/[^a-zA-Z0-9-/]/.test("username_box.value"));
-
-    // Checking whether the username is blank or has any wrong charachters
-    if (username_box.value === "" || username_box.value === null) {
+    if (username_box.value.match(illegal_characters)) {
+        // TO: Check whether illegal charachters have been used in the Username Box
+        alert("The username has illegal characters!");
+        username_box.focus();
+        return false;
+    }
+    // Checking whether the username or password is blank
+    else if (username_box.value === "" || username_box.value === null) {
         alert("The username cannot be blank!");
         username_box.focus();
         return false;
@@ -22,5 +27,4 @@ function login_validation() {
         password_box.focus();
         return false;
     }
-    //TODO: Remember to add validation checks for malicious scripts
 }

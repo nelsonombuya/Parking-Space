@@ -14,7 +14,7 @@
     else
     {
         // Check for a user session
-        if (checkSession() == 1 || checkSession() == 2){
+        if ($_SESSION['is_logged_in'] === TRUE){
             // 1 is for when the session details are that of a guest
             // 2 is for when the session details are that of a user
             header("Location: ../../../Management/Account Management.php");
@@ -23,7 +23,6 @@
         header("Location: ../../Sign In.php");
     }      
 
-    // TODO: Define the way the username should be for Validation
     function login($username, $password)
     {
         //The Query for checking for the user's details in the database
@@ -36,8 +35,13 @@
             //Session Details
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $password;
-            //  FIXME: Remember to use an auto-generated hash key
+            // FIXME: Remember to use an auto-generated hash key
             
+            // Setting the user as logged in
+            isLoggedIn();
+            // Removing stored variables from $_POST
+            unset($_POST);
+
             //Redirect to Account Management Page
             header("Location: ../../../Management/Account Management.php");
         }
@@ -46,8 +50,7 @@
             //Return back to Login Page
             //TODO: Account Doesn't Exist Warning
             session_unset();
-            $_POST['login_username'] = "";
-            $_POST['login_password'] = "";
+            unset($_POST);
             $_SESSION['error'] = 1;
             header("Location: ../../../Login/Sign In.php");
         }

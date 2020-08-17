@@ -48,9 +48,9 @@ body {
     font-weight: 600;
 }
 .user_id {
-    margin-left: 25px;
+    margin-left: 27px;
     overflow: hidden;
-    font-size: 1em;
+    font-size: 0.8em;
     font-weight: 400;
 }
 
@@ -67,6 +67,15 @@ body {
 }
 
 /* User Icon */
+.settings {
+    display: flex;
+    justify-content: flex-end;
+}
+.settings img {
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+}
 .user {
     display: flex;
     justify-content: flex-end;
@@ -74,7 +83,7 @@ body {
 .user img {
     width: 60px;
     height: 60px;
-    margin: 10px;
+    margin-left: 20px;
 }
 
 /*Formatting for smaller screens*/

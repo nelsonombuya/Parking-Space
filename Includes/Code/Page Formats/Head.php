@@ -1,5 +1,6 @@
-
-
+<?php
+    require     "../../Includes/Configuration/Session.php"; // Location with relation to the Pages Folder
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
