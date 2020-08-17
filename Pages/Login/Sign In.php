@@ -1,10 +1,6 @@
 <?php
     // Defining session errors and what to do if an error had occured
     // Check for a user session
-    // TODO: Select Case with Javascript Alerts
-
-    // TODO: No user logged in output
-    // $_SESSION['error'] = 0;
     include("../../Includes/Configuration/Session.php");
     
     // Error checking

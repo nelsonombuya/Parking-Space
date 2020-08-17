@@ -48,7 +48,6 @@
         else
         {
             //Return back to Login Page
-            //TODO: Account Doesn't Exist Warning
             session_unset();
             unset($_POST);
             $_SESSION['error'] = 1;

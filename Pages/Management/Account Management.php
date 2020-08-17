@@ -17,7 +17,7 @@
     <div class="container">
         <!--Container that'll hold the Account holder's details-->
         <div class="settings-menu">
-            <h2>Settings</h2>
+            <u><h2>Settings</h2></u>
             <div class="user-settings">
                 <ul>
                     <li>
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="pages">
-            <h2>Options</h2>
+            <u><h2>Options</h2></u>
             <div>
                 <ul>
                     <li>

@@ -1,3 +1,6 @@
+<?php   // Includes 
+    require "Includes/Configuration/Session.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +38,7 @@
                 <h1>#DriverNumber</h1> <!-- TODO: Display the current driver's, or logged in user's driver no. -->
             </div>
             <div class="user_id">
-                <a href="Pages\Management\Account Management.php">#Username</h2></a> <!-- TODO: Display the username -->
+                <a href="Pages\Management\Account Management.php">#<?php echo $_SESSION['username'];?></h2></a>
             </div>
         </div>
 
@@ -51,8 +54,6 @@
             <img src="Includes\Media\Images\User.png" alt="User Settings">
             <!-- TODO: Create a menu under the profile icon -->
             <!-- NOTE: Make it include the Log In, Sign Up, Settings, Profile, Log Out in a context intelligent manner -->
-            <!-- TODO: Check whether the user is logged in -->
-            <!-- TODO: Add a logout mechanism -->
         </div>
     </header>
 

@@ -6,7 +6,7 @@
     align-items: center;
     padding: 10px;
     padding-top: 2em;
-} /*TODO: We might need to add a way for Tooltips that organize themselves*/
+}
 .title h1 {
     font-size: 3em;
     font-weight: 400;

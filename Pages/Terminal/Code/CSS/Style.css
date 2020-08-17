@@ -1,26 +1,64 @@
+/* Container */
+.container {
+    display: flex;
+    margin: 0 5%;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: rgba(0, 0, 0, 0.4), solid;
+}
+
 /*The Huge Question*/
-.question{
+.question {
     display: flex;
     justify-content: space-evenly;
     padding: 10px;
     padding-top: 4em;
-}   /*TODO: We might need to add a way for Tooltips that organize themselves*/
-.question h1{
+}
+.question h1 {
     font-size: 3em;
     font-weight: 400;
     text-transform: uppercase;
 }
-.options{
+
+/* The options */
+.options {
     display: grid;
-    margin: 0 100px;
-    /*We can use MinMax in these Options*/
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr); 
-    grid-gap: 1em;
+    grid-template-columns: 2fr 8fr;
 }
-.options_buttons{   /*Has the buttons used in the terminal*/
+
+.option {
+    display: flex;
+    justify-content: space-around;
+    margin: 1em;
+    padding: 1em;
+}
+#back {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#back img {
+    width: 60px;
+    height: 60px;
+}
+
+.select {
     display: grid;
-    margin: 10px;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    justify-content: center;
+}
+
+.option a {
+    justify-content: center;
+    text-decoration: none;
+}
+.option a:hover {
+    background-color: rgba(226, 226, 226, 0.4);
+    border: none;
+    text-decoration: underline;
+}
+.option a:active {
+    background-color: rgba(226, 226, 226, 0.9);
+    border: 1px solid grey;
+    text-decoration: underline;
 }

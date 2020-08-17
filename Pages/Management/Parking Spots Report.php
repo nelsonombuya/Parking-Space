@@ -1,7 +1,8 @@
 <?php   // Includes 
     require "../../Includes/Configuration/Connection.php";
     include "../../Includes/Code/Page Formats/Head.php";
-    include "../../Includes/Code/Page Formats/Header.php"; 
+    include "../../Includes/Code/Page Formats/Header.php";
+    // TODO: Remember to make this a general report page
 ?>
 <head>
     <!--For the Reports-->
@@ -26,6 +27,7 @@
                 <strong><h3>Status</h3></strong>
         </div>
         <div class="report-content">
+            <!-- FIXME: Use a different way, seems very code heavy and redundant -->
             <div class="column">
                 <?php
                     $query  = "SELECT * FROM PARKING";

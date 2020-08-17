@@ -27,7 +27,6 @@
                     alt="Settings"></a>
             <a href="?logout=true"><img src="..\..\Includes\Media\Images\Logout.png" alt="Logout"></a>
         </div>
-        <!--TODO: Set a sign out button-->
     </header>
 </body>
 

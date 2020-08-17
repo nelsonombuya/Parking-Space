@@ -43,7 +43,6 @@
         
         $_SESSION['username'] = "guest";
     }
-    // TODO: When user is already Logged In
     // TODO: Add session expiry
     // TODO: Using Session Confirm Hash Key to verify the account every 30 or so minutes    
     // NOTE: Will use Driver ID with guest users
