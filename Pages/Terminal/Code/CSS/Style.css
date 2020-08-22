@@ -20,6 +20,12 @@
     text-transform: uppercase;
 }
 
+/* Suggestions */
+.suggestion {
+    display: flex;
+    justify-content: center;
+}
+
 /* The options */
 .options {
     display: grid;

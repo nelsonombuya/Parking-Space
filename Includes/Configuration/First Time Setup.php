@@ -25,6 +25,8 @@
                                         //Add the user data here
                                         "admin" =>    "INSERT INTO USERS (USERNAME, PASS) 
                                                         VALUES ('admin', '1234')",
+                                        "manager" =>    "INSERT INTO USERS (USERNAME, PASS) 
+                                                        VALUES ('manager', '1234')",
                                     ),
                     ),
 
@@ -33,30 +35,31 @@
                         "SCHEMA" => "CREATE TABLE IF NOT EXISTS PARKING (
                                     P_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                     P_TYPE VARCHAR(12) NOT NULL,
-                                    P_STATUS VARCHAR(6) NOT NULL)",
+                                    P_STATUS VARCHAR(6) NOT NULL,
+                                    P_LOCATION VARCHAR(50) NOT NULL)",
                         
                         // Contains the Table's Test Data
                         "DATA" =>   array 
                                     (   
                                         // NOTE: Since it's autoincrement hakuna haja ya adding data to the Parking ID
                                         // Add new parking spots here
-                                        "1" =>    "INSERT INTO PARKING (P_TYPE, P_STATUS) 
-                                                    VALUES ('Open', 'Taken')",
+                                        "1" =>    "INSERT INTO PARKING (P_TYPE, P_STATUS, P_LOCATION) 
+                                                    VALUES ('Open', 'Free', 'Mall')",
                                         
-                                        "2" =>    "INSERT INTO PARKING (P_TYPE, P_STATUS) 
-                                                    VALUES ('Closed', 'Taken')",
+                                        "2" =>    "INSERT INTO PARKING (P_TYPE, P_STATUS, P_LOCATION) 
+                                                    VALUES ('Closed', 'Taken', 'Chemist')",
                                         
-                                        "3" =>    "INSERT INTO PARKING (P_TYPE, P_STATUS) 
-                                                    VALUES ('Pick-Up', 'Free')",
+                                        "3" =>    "INSERT INTO PARKING (P_TYPE, P_STATUS, P_LOCATION) 
+                                                    VALUES ('Pick-Up', 'Free', 'KFC')",
                                         
-                                        "4" =>    "INSERT INTO PARKING (P_TYPE, P_STATUS) 
-                                                    VALUES ('Reserved', 'Free')",
+                                        "4" =>    "INSERT INTO PARKING (P_TYPE, P_STATUS, P_LOCATION) 
+                                                    VALUES ('Reserved', 'Free', 'Equity Bank')",
                                         
-                                        "5" =>    "INSERT INTO PARKING (P_TYPE, P_STATUS) 
-                                                    VALUES ('Handicapped', 'Taken')",
+                                        "5" =>    "INSERT INTO PARKING (P_TYPE, P_STATUS, P_LOCATION) 
+                                                    VALUES ('Handicapped', 'Taken', 'Mall')",
                                         
-                                        "6" =>    "INSERT INTO PARKING (P_TYPE, P_STATUS) 
-                                                    VALUES ('Open', 'Free')",
+                                        "6" =>    "INSERT INTO PARKING (P_TYPE, P_STATUS, P_LOCATION) 
+                                                    VALUES ('Open', 'Free', 'KFC')",
                                     ),
                     ),
     ];
@@ -194,7 +197,7 @@
             else
             {
                 // Checking whether the user wants the test data (NOTE: Check the Configuration.php File)
-                if ($GLOBALS['add_test_data'] == TRUE || $table === "USERS")    // TO: Allow the admin to be added despite the system user wanting no test data (The Admin allows the system to be managed)
+                if ($GLOBALS['add_test_data'] == TRUE || $table === "USERS")    // TO: Allow the admin (or any other default user) to be added despite the system user wanting no test data (The Admin allows the system to be managed)
                 {
                     // If it is an array, it should go deeper to add the data to the table
                     addDataToTables($table, $queries);
