@@ -7,10 +7,6 @@
     if (isset($_SESSION['error'])) {    // Checks if the error has happened, if not, just run the main script
         // TO: Check the error code and display relevant error messages
         switch ($_SESSION['error']) {
-            case 0: // In case of error code [No user login detected]
-                echo '  <script type="text/JavaScript">  
-                            alert("Incorrect username or password"); 
-                        </script>';
             case 1: // In case of error code 1
                 echo '  <script type="text/JavaScript">  
                             alert("Incorrect username or password"); 

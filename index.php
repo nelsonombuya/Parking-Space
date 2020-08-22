@@ -1,4 +1,5 @@
 <?php   // Includes 
+    require "Includes/Configuration/Connection.php";
     require "Includes/Configuration/Session.php";
 ?>
 <!DOCTYPE html>
@@ -21,7 +22,7 @@
     <!-- Metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Redirecting Script -->
+    <!-- Redirecting Javacript -->
     <script src="Pages/Main Page/Code/Javascript/Countdown.js"></script>
 
     <title>Starting Page</title>

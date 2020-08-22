@@ -1,7 +1,9 @@
 <?php   // Includes 
     require "../../Includes/Configuration/Connection.php";
+    require "../../Includes/Code/PHP/Queue.php";
     include "../../Includes/Code/Page Formats/Head.php";
     include "../../Includes/Code/Page Formats/Header.php";
+
 
     // The array with the data
     $questions = [

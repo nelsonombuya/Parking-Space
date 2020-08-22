@@ -7,6 +7,9 @@
         Username    => "root"
         Password    => "1234"
         Database    => "Car_Parking_System"
+
+        NOTE: If you have your own db settings and don't want them changed on your end, you can add this line to .gitignore
+        Includes/Configuration/Configuration.php
     */
 
     $server_mysql_server = "localhost";

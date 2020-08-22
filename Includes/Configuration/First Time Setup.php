@@ -3,7 +3,8 @@
 <?php
     // Requirements
     require "Configuration.php";    // Has the necessary server details to create a connection
-    
+    require "Session.php";          // To start a new session
+
     // Query to connect to the MySQL Server
     $connect = mysqli_connect(server, server_user, server_password);
 
@@ -136,7 +137,7 @@
                             LEVEL 3 => Test Data
 
                 Each Foreach loop represents access to one of the levels
-                NOTE: I split the Nested Loops into their own functions in order to save on time complexity
+                NOTE: I split the Nested Loops into their own functions for simplicity
             */
             // Creating the Tables
             foreach ($GLOBALS['tables'] as $table => $options)  //Options being either the SCHEMA or the DATA
@@ -156,8 +157,12 @@
             }
         }
         //Finished Making the Tables
-        $GLOBALS['first_run_is_done'] = TRUE;   // TODO: Add a .ini File to register when the first run has been done
-        echo "<br><br>The database tables have been made.<br>Redirecting...";
+        logout();   // Creates the guest session
+        echo '  <script type="text/JavaScript">  
+                    alert("The system has been set up, you will be redirected to the Starting Page in a moment"); 
+                </script>';
+        echo "<h2>Setup is complete<br>Redirecting...</h2>";
+        header("refresh:5; url=../../index.php");
         
     }
 

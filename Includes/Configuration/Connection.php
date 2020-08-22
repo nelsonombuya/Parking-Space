@@ -26,7 +26,7 @@
             Therefore we run the First Time Setup.php script
         */
 
-        //Redirecting to first time setup script
-        header("Location: First Time Setup.php");
+        //Redirecting to first time setup script (From the Terminal)
+        header("Location: ../../Includes/Configuration/First Time Setup.php");
     }
 ?>

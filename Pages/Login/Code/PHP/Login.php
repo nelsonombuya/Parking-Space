@@ -15,11 +15,10 @@
     {
         // Check for a user session
         if ($_SESSION['is_logged_in'] === TRUE){
-            // 1 is for when the session details are that of a guest
-            // 2 is for when the session details are that of a user
+            // Redirect to Account Management Page
             header("Location: ../../../Management/Account Management.php");
         }
-        // This condition focuses on anyone other than those who we haven't mentioned
+        // To make the user to log in
         header("Location: ../../Sign In.php");
     }      
 
