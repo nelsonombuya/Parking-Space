@@ -22,14 +22,6 @@
 
 /* Suggestions */
 .suggestion {
-    display: grid;
-    grid-template-columns: 2fr 8fr;
-}
-.suggestion h2 {
-    display: flex;
-    justify-self: center;
-}
-.suggestion em {
     display: flex;
     justify-content: center;
 }

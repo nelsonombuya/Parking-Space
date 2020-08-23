@@ -3,9 +3,6 @@
     include "../../Includes/Code/Page Formats/Head.php";
     include "../../Includes/Code/Page Formats/Header.php";
 
-    // Initializing Array of Selected Options
-    $selected_array = array();
-
     // The array with the data
     $questions_array = [  // This is the Questions Array
         // Questions divided into groups
@@ -47,10 +44,20 @@
                 "No",
             ),
         ),
+
+        4 => array
+        (
+            "question"  =>  "Would you like another spot?",
+            "answers"   =>  array
+            (
+                "Yes",
+                "No",
+            ),
+        ),
     ];
 
     // Helps the questions array be modifiable without modifying the code
-    $last_question = count($questions_array) - 1;
+    $last_question = count($questions_array) - 2;
 ?>
 
 <head>
@@ -66,7 +73,6 @@
             <h1><?php echo currentQuestion(); ?></h1>
         </div>
         <div class="suggestion">
-            <em>Image of tick or error goes here</em>
             <h2><?php echo suggestions() ?></h2>
         </div>
         <div class="selection-box">
@@ -114,11 +120,18 @@
         /* 
             Gives an array of answers for the given question
             Then outputs that array on the HTML
+            Also helps store the user input once an option is selected
         */ 
 
         // Initializing Variables
         $counter = 0;
         $list = array();
+
+        // Setting Session Variables as blanks to avoid errors
+        if (!isset($_SESSION['selected'][$_GET['question_group']]))
+        {
+            $_SESSION['selected'][$_GET['question_group']] = "";
+        }
 
         foreach ($GLOBALS['questions_array'][$_GET['question_group']]['answers'] as $options => $option)
         {
@@ -133,7 +146,6 @@
             echo    "<div class='option'>".
                         "<a href='?question_group=" . ($_GET['question_group'] + 1) .
                             "&selected=". $list[$counter] .
-                            "&set=". ($_GET['question_group'] + 1) .
                             "'>".
                             $list[$counter].
                         "</a>".
@@ -141,15 +153,10 @@
         }
 
         // Adding the values to the session array
-        if (isset($_GET['set']) && $_GET['set'] > 0)
+        if ($_GET['question_group'] > 0)
         {
-            selected(($_GET['question_group'] - 1), $_GET['selected']);
+            $_SESSION['selected'][($_GET['question_group'] - 1)] = $_GET['selected'];
         }
-    }
-
-    function selected($question, $value)
-    {
-        $_SESSION['selected'][$question] = $value;
     }
 
     function suggestions()
@@ -158,18 +165,18 @@
         if ($_GET['question_group'] >= $GLOBALS['last_question'])
         {
             // The parking location
-            $parking_location = $_GET['selected_0'];
+            $parking_location = $_SESSION['selected'][0];
 
             // The type of parking spot
-            if ($_GET['selected_2'] === "Yes")
+            if ($_SESSION['selected'][2] === "Yes")
             {
                 // If they're handicapped, prioritise a handicapped parking
                 $parking_type = "Handicapped";
             }
-            else if ($_GET['selected_1'] === "Less than 30 Minutes")
+            else if ($_SESSION['selected'][1] === "Less than 30 Minutes")
             {
                 // If they're coming for a short time, prioritise Pick Up Parking
-                $parking_type = "Pick Up";
+                $parking_type = "Pick-Up";
             }
             else
             {
@@ -193,7 +200,7 @@
             else
             {
                 // If there is a parking spot, return the first spot on the list
-                return $result[0];
+                return "Parking Spot " . $result[0]["P_ID"] . " is Free";
             }
         }
     }
@@ -202,8 +209,9 @@
     echo "<pre>";
     // print_r (suggestions());
     // print_r ($questions_array[0]["answers"]);
-    print_r ($_SESSION['selected']);
-    echo $_GET['selected'];
+    // print_r ($_SESSION['selected']);
+    // print_r(suggestions());
+    // echo $_GET['selected'];
     echo "</pre>";
     // selected($_GET['question_group'] - 1, $_GET["selected_".$_GET['question_group'].""])
     // "&selected_".$_GET['question_group']."=". $list[$counter] .
