@@ -1,32 +1,33 @@
 <?php   // Includes 
     require "../../Includes/Configuration/Connection.php";
-    require "../../Includes/Code/PHP/Algorithms.php";
     include "../../Includes/Code/Page Formats/Head.php";
     include "../../Includes/Code/Page Formats/Header.php";
 
+    // Initializing Array of Selected Options
+    $selected_array = array();
 
     // The array with the data
     $questions_array = [  // This is the Questions Array
         // Questions divided into groups
-        "Location" => array
+        0 => array
         (
             "question"  =>  "Where do you want go?",
-            "answers"   =>  getFromDatabase("Location")
+            "answers"   =>  getLocationsFromDatabase()
         ),
 
         // Whether they're just picking up
-        "Pick Up" => array
+        1 => array
         (
-            "question"  =>  "Are you coming to pick up something?",
+            "question"  =>  "How long will you stay?",
             "answers"   =>  array
             (
-                "Yes",
-                "No",
+                "Less than 30 Minutes",
+                "More than 30 Minutes",
             ),
         ),
 
         // If they're handicapped
-        "Handicap" => array
+        2 => array
         (
             "question"  =>  "Are you Handicapped?",
             "answers"   =>  array
@@ -37,7 +38,7 @@
         ),
 
         // Should be the last question in the array
-        "Spot" => array
+        3 => array
         (
             "question"  =>  "Would you like this spot?",
             "answers"   =>  array
@@ -47,6 +48,9 @@
             ),
         ),
     ];
+
+    // Helps the questions array be modifiable without modifying the code
+    $last_question = count($questions_array) - 1;
 ?>
 
 <head>
@@ -63,11 +67,11 @@
         </div>
         <div class="suggestion">
             <em>Image of tick or error goes here</em>
-            <h2>Suggestion Goes here</h2>
+            <h2><?php echo suggestions() ?></h2>
         </div>
         <div class="selection-box">
             <div id="back">
-                <a href="#"><img src="Media/Images/Back.png" alt="Back"></a>
+                <a href="javascript:history.back()"><img src="Media/Images/Back.png" alt="Back"></a>
             </div>
             <div class="options">
                 <?php currentOptions(); ?>
@@ -83,10 +87,26 @@
         // Outputs the current question according to the associative array and user input
         if (!isset($_GET['question_group']))
         {
-            $_GET['question_group'] = "Location";
+            $_GET['question_group'] = 0;
 
         }
         return $GLOBALS['questions_array'][$_GET['question_group']]['question']; 
+    }
+
+    function getLocationsFromDatabase()
+    {
+        // Gets the data from the database and converts it into a format the webpage can work with 
+        $query = "SELECT DISTINCT P_LOCATION FROM PARKING";
+        $fetched = mysqli_query($GLOBALS['connect'], $query);
+        $arrays = mysqli_fetch_all($fetched, MYSQLI_ASSOC);
+        
+        // Converting the array
+        for ($counter = 0; $counter < count($arrays); $counter++)
+        {
+            $result[$counter] = $arrays[$counter]["P_LOCATION"];
+        }
+        
+        return $result;
     }
 
     function currentOptions()
@@ -109,54 +129,82 @@
 
         // Displays the output
         for($counter = 0; $counter < count($list); $counter++)
-        {
+        {  
             echo    "<div class='option'>".
-                        "<a href='#'>".
+                        "<a href='?question_group=" . ($_GET['question_group'] + 1) .
+                            "&selected=". $list[$counter] .
+                            "&set=". ($_GET['question_group'] + 1) .
+                            "'>".
                             $list[$counter].
                         "</a>".
                     "</div>";
         }
-    }
 
-    function querySelector($question_group)
-    {
-        // Returns the query I need for the results
-        switch ($question_group)
+        // Adding the values to the session array
+        if (isset($_GET['set']) && $_GET['set'] > 0)
         {
-            case "Location":
-                return "SELECT DISTINCT P_LOCATION FROM PARKING";
-                break;
-            default:
-                echo '  <script type="text/JavaScript">  
-                            alert("No valid query."); 
-                        </script>';
-                break;
+            selected(($_GET['question_group'] - 1), $_GET['selected']);
         }
     }
 
-    function getFromDatabase($question_group)
+    function selected($question, $value)
     {
-        // Gets the data from the database and converts it into a format the webpage can work with 
-        $query = querySelector($question_group);
-        $fetched = mysqli_query($GLOBALS['connect'], $query);
-        $arrays = mysqli_fetch_all($fetched, MYSQLI_ASSOC);
-        
-        // Check the type of answers we need
-        if ($question_group === "Location")
+        $_SESSION['selected'][$question] = $value;
+    }
+
+    function suggestions()
+    {
+        // Suggesting Parking Spots
+        if ($_GET['question_group'] >= $GLOBALS['last_question'])
         {
-            for ($counter = 0; $counter < count($arrays); $counter++)
+            // The parking location
+            $parking_location = $_GET['selected_0'];
+
+            // The type of parking spot
+            if ($_GET['selected_2'] === "Yes")
             {
-                $result[$counter] = $arrays[$counter]["P_LOCATION"];
+                // If they're handicapped, prioritise a handicapped parking
+                $parking_type = "Handicapped";
+            }
+            else if ($_GET['selected_1'] === "Less than 30 Minutes")
+            {
+                // If they're coming for a short time, prioritise Pick Up Parking
+                $parking_type = "Pick Up";
+            }
+            else
+            {
+                // If it's not Pick Up, and not Handicapped, give them any open parking
+                $parking_type = "Open";
+            }
+
+            $query = "SELECT P_ID FROM PARKING
+                        WHERE P_TYPE = '$parking_type'
+                        AND P_STATUS = 'Free'
+                        AND P_LOCATION = '$parking_location'";
+            $fetched = mysqli_query($GLOBALS['connect'], $query);
+            $result = mysqli_fetch_all($fetched, MYSQLI_ASSOC);
+
+            if (empty($result))
+            {
+                // If there's no parking spot found, we need to give them the next available parking spot
+                // TODO: Next available parking spot;
+                return "No Parking Spot Found";
+            }
+            else
+            {
+                // If there is a parking spot, return the first spot on the list
+                return $result[0];
             }
         }
-        
-        return $result;
     }
 
     // TODO: Edit this out later
-    // echo "<pre>";
-    // print_r (getFromDatabase("Location"));
-    // print_r ($questions_array["Location"]["answers"]);
-    // print_r (getFromDatabase("Location"));
-    // echo "</pre>";
+    echo "<pre>";
+    // print_r (suggestions());
+    // print_r ($questions_array[0]["answers"]);
+    print_r ($_SESSION['selected']);
+    echo $_GET['selected'];
+    echo "</pre>";
+    // selected($_GET['question_group'] - 1, $_GET["selected_".$_GET['question_group'].""])
+    // "&selected_".$_GET['question_group']."=". $list[$counter] .
 ?>
