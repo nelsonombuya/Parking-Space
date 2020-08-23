@@ -22,22 +22,23 @@
 
 /* Suggestions */
 .suggestion {
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+}
+.suggestion h2 {
+    display: flex;
+    justify-self: center;
+}
+.suggestion em {
     display: flex;
     justify-content: center;
 }
-
 /* The options */
-.options {
+.selection-box {
     display: grid;
     grid-template-columns: 2fr 8fr;
 }
 
-.option {
-    display: flex;
-    justify-content: space-around;
-    margin: 1em;
-    padding: 1em;
-}
 #back {
     display: flex;
     justify-content: space-around;
@@ -48,10 +49,16 @@
     height: 60px;
 }
 
-.select {
+.options {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
+}
+.option {
+    display: flex;
+    justify-content: space-around;
+    margin: 1em;
+    padding: 1em;
 }
 
 .option a {
