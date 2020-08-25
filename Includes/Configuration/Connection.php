@@ -29,4 +29,15 @@
         //Redirecting to first time setup script (From the Terminal)
         header("Location: ../../Includes/Configuration/First Time Setup.php");
     }
+
+    // Function for running queries and directly returning results
+    function runQuery($query){
+        $fetched = mysqli_query($GLOBALS['connect'], $query);
+        if (is_bool($fetched)){
+            $result = $fetched;
+        } else {
+            $result = mysqli_fetch_all($fetched, MYSQLI_ASSOC);
+        }
+        return $result;
+    }
 ?>

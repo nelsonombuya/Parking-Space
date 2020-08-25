@@ -10,6 +10,8 @@
 
         NOTE: If you have your own db settings and don't want them changed on your end, you can add this line to .gitignore
         Includes/Configuration/Configuration.php
+        
+        Then adjust this document as you please
     */
 
     $server_mysql_server = "localhost";
@@ -33,4 +35,7 @@
         [Default is TRUE => ON]
     */
     $add_test_data = TRUE;
+
+    // Setting Default Time Zone
+    date_default_timezone_set('Africa/Nairobi');
 ?>

@@ -48,7 +48,7 @@
                                                     VALUES ('Open', 'Free', 'Mall')",
                                         
                                         "2" =>    "INSERT INTO PARKING (P_TYPE, P_STATUS, P_LOCATION) 
-                                                    VALUES ('Closed', 'Taken', 'Chemist')",
+                                                    VALUES ('Open', 'Taken', 'Chemist')",
                                         
                                         "3" =>    "INSERT INTO PARKING (P_TYPE, P_STATUS, P_LOCATION) 
                                                     VALUES ('Pick-Up', 'Free', 'KFC')",
@@ -63,6 +63,26 @@
                                                     VALUES ('Open', 'Free', 'KFC')",
                                     ),
                     ),
+        "DRIVERS" =>array
+                    (   
+                        // Defines the table's attributes
+                        "SCHEMA" => "CREATE TABLE IF NOT EXISTS DRIVERS (
+                                            DRIVER_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                                            USERNAME VARCHAR(50),
+                                            P_ID INT NOT NULL,
+                                            TIME_IN DATETIME NOT NULL,
+                                            TIME_OUT DATETIME)",
+
+                        // Contains the Table's Test Data
+                        "DATA" =>   array 
+                                    (   
+                                        //Add the user data here
+                                        "1" =>    "INSERT INTO DRIVERS (USERNAME, P_ID, TIME_IN)
+                                                    VALUES ('admin', 2, '2020-08-11 13:23:44')",
+                                        "2" =>    "INSERT INTO DRIVERS (USERNAME, P_ID, TIME_IN)
+                                                    VALUES ('guest', 5, '2020-08-11 16:23:44')",            
+                                    ),
+                    ),      
     ];
 
     function createDB()
