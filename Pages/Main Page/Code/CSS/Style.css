@@ -41,7 +41,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 .column {
@@ -58,10 +58,12 @@
     display: flex;
     justify-content: space-evenly;
     justify-self: center;
+    margin: 2px;
 }
 .row h3 {
     margin-top: 1em;
     font-family: "Poppins", sans-serif;
+    white-space: nowrap;
 }
 
 /* Links */

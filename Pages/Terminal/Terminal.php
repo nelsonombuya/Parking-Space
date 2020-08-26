@@ -1,9 +1,8 @@
 <?php   // Includes 
-    require "../../Includes/Configuration/Connection.php";
+    include "../../Includes/Code/Page Formats/Head.php";
     require "Code/PHP/Globals.php";
     require "Code/PHP/Booking.php";
     require "Code/PHP/Outputs.php";
-    include "../../Includes/Code/Page Formats/Head.php";
     include "../../Includes/Code/Page Formats/Header.php";
 
     // Initializing the variables if they don't exist

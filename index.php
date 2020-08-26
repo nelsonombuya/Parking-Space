@@ -77,7 +77,7 @@
                         <h3>Parking Terminal</h3>
                     </div>
                 </a>
-                <a href="Pages/Terminal/Checkout.php">
+                <a href="Pages/Checkout/Checkout.php">
                     <div class="column">
                         <img src="Includes\Media\Images\Checkout.png" alt="Checkout Terminal">
                         <h3>Check Out Terminal</h3>

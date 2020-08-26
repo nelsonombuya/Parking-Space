@@ -1,5 +1,4 @@
 <?php   // Includes 
-    require "../../Includes/Configuration/Connection.php";
     include "../../Includes/Code/Page Formats/Head.php";
     include "../../Includes/Code/Page Formats/Header.php";
     // TODO: Remember to make this a general report page
