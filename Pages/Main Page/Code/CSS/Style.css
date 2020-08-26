@@ -55,9 +55,9 @@
     height: 120px;
 }
 .row {
-    display: grid;
-    justify-content: space-around;
-    grid-template-columns: repeat(2, 35%);
+    display: flex;
+    justify-content: space-evenly;
+    justify-self: center;
 }
 .row h3 {
     margin-top: 1em;
@@ -66,20 +66,20 @@
 
 /* Links */
 .row a {
-    padding: 5%;
-    margin: 8% 4%;
+    padding: 3%;
+    margin: 3% 2%;
     justify-content: center;
     text-decoration: none;
 }
 .row a:hover {
     background-color: rgba(226, 226, 226, 0.4);
     border: none;
-    margin: 7.9% 4%;
+    margin: 2.9% 2%;
     text-decoration: underline;
 }
 .row a:active {
     background-color: rgba(226, 226, 226, 0.9);
     border: 1px solid grey;
-    margin: 7.9% 4%;
+    margin: 2.9% 2%;
     text-decoration: underline;
 }
