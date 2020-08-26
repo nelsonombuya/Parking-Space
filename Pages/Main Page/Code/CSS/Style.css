@@ -74,12 +74,10 @@
 .row a:hover {
     background-color: rgba(226, 226, 226, 0.4);
     border: none;
-    margin: 2.9% 2%;
     text-decoration: underline;
 }
 .row a:active {
     background-color: rgba(226, 226, 226, 0.9);
     border: 1px solid grey;
-    margin: 2.9% 2%;
     text-decoration: underline;
 }
