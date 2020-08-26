@@ -25,7 +25,7 @@
         </div>
         <div class="selection-box">
             <div id="back">
-                <a href="javascript:history.back()"><img src="Media/Images/Back.png" alt="Back"></a>
+                <a href="javascript:history.back()"><img src="../../Includes/Media/Images/Back.png" alt="Back"></a>
             </div>
             <div class="options">
                 <?php printCurrentAnswers($_GET['position']); ?>

@@ -9,7 +9,7 @@ function login_validation() {
     */
 
     // // Illegal Characters
-    illegal_characters = /[\<\>!@#\$%^&\*,]+/i; // Allows the underscore and hyphen
+    illegal_characters = /[\<\>!@#\$%^&\*,]+/i; // Allows the underscore
 
     if (username_box.value.match(illegal_characters)) {
         // TO: Check whether illegal charachters have been used in the Username Box
