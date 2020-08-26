@@ -15,7 +15,7 @@
 
 <body>
     <div class="container">
-        <form name="checkout_form" onsubmit="return checkoutValidation();" action="" method="post">
+        <form name="checkout_form" onsubmit="return checkoutValidation();" action="Code/PHP/Confirm Checkout.php" method="post">
             <div class="question">
                 <h1>Input your Parking Ticket Number </h1>
             </div>

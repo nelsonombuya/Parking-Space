@@ -5,9 +5,8 @@ function checkoutValidation() {
         I kept them as boxes rather than as the direct value so as to
         allow me to refocus on the values if they're not input
     */
-
     // Illegal Characters
-    illegal_characters = /[\<\>!@#\$%^&-\_\*,]+/i;
+    illegal_characters = /[\<\>!@#\$%\_^&\*,\-]+/i; // Allows the underscore and dash
 
     if (parking_id_box.value.match(illegal_characters)) {
         alert(
