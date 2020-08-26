@@ -1,22 +1,11 @@
-<?php   // Includes 
+<?php   
+    // Includes 
     include "../../Includes/Code/Page Formats/Head.php";
     require "Code/PHP/Globals.php";
+    initializeGlobals();
     require "Code/PHP/Booking.php";
     require "Code/PHP/Outputs.php";
     include "../../Includes/Code/Page Formats/Header.php";
-
-    // Initializing the variables if they don't exist
-    if (!isset($_GET['position'])){
-        $_GET['position'] = 0;
-    }
-    if (!isset($_SESSION['selection'])){
-        $_SESSION['selection'] = array();
-    }
-    for ($counter = 0; $counter < count($questions_array); $counter++){
-        if (!isset($_SESSION['selection'][$counter])){
-            $_SESSION['selection'][$counter] = "";
-        }
-    }
 ?>
 
 <head>
@@ -57,11 +46,8 @@
     // Once the parking has been confirmed, it runs the booking process
     if ($_GET['position'] >= 4){
         // // Runs the booking query and stores it's output for error checking
-        $booking = bookParking($GLOBALS['final_query']);
-        
-        // Checking for errors during booking
-        $errors = errorChecker($booking);
-        
+        bookParking();
+        $_SESSION['booked'] = TRUE;
         header("refresh:5; url=Terminal.php");
     }
 ?>
