@@ -36,7 +36,7 @@
         <!-- The Driver's Details Container -->
         <div class="driver_details">
             <div class="driver_number">
-                <h1>#DriverNumber</h1> <!-- TODO: Display the current driver's, or logged in user's driver no. -->
+                <h1>#<?php echo (driverNumber() + 1); ?></h1>
             </div>
             <div class="user_id">
                 <a href="Pages\Management\Account Management.php">#<?php echo $_SESSION['username'];?></h2></a>

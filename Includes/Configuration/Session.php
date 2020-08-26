@@ -46,4 +46,17 @@
     // TODO: Add session expiry
     // TODO: Using Session Confirm Hash Key to verify the account every 30 or so minutes    
     // NOTE: Will use Driver ID with guest users
+
+    function driverNumber(){
+        $query =    "SELECT DRIVER_ID FROM DRIVERS 
+                    ORDER BY DRIVER_ID DESC
+                    LIMIT 1";
+        $result = runQuery($query);
+
+        if (is_bool($result)){
+            return "No Registered Drivers";
+        } else {
+            return $result[0]["DRIVER_ID"];
+        }
+    }
 ?>
