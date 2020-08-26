@@ -4,7 +4,7 @@
         // Questions we'll ask the driver
         0 => array(
             "question"  =>  "Where do you want go?",
-            "answers"   =>  locations()
+            "answers"   =>  getLocations()
         ),
 
         // Whether they're just picking up
@@ -19,7 +19,7 @@
             "answers"   =>  array( "Yes", "No"),
         ),
     ];
-    function locations(){
+    function getLocations(){
         // Populates the array with list of locations
         $result = runQuery("SELECT DISTINCT P_LOCATION FROM PARKING");
         $counter = 0;
@@ -28,9 +28,25 @@
             $reduced_array[$counter] = $result["P_LOCATION"];
             $counter++;
         }
-        return ($reduced_array);
+        return $reduced_array;
     }
-    
-    // Initializing the Global Final Query
-    $final_query = "";
+
+    function initializeGlobals(){
+        // Initializing the global variables if they don't exist, and cleaning up previous session
+        if (!isset($_SESSION['booked']) || $_SESSION['booked'] === TRUE){
+            $_SESSION['booked'] = FALSE;
+        }
+        if(!isset($_GET['position'])){
+            $_GET['position'] = 0;
+        }
+        if(!isset($_SESSION['selection'])){
+            $_SESSION['selection'] = array();
+
+            $counter = 0;
+            foreach ($GLOBALS['questions_array'] as $position){
+                $_SESSION['selection'][$counter] = "";
+                $counter++;
+            }
+        }
+    }
 ?>
