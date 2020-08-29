@@ -1,10 +1,11 @@
-<?php   
+<?php
     // Includes 
     include "../../Includes/Code/Page Formats/Head.php";
     include "../../Includes/Code/Page Formats/Header.php";
 ?>
 
-<head>
+    
+    <head>
     <!-- Validation Javascript Script -->
     <script type="text/javascript" src="Code/Javascript/Checkout Validation.js"></script>
 
@@ -40,3 +41,21 @@
 </body>
 
 </html>
+
+<?php
+
+    // -TEST-
+    echo "<pre>";
+    print_r($result);
+    echo "</pre>";
+
+    // Getting Parking ID from POST
+    $parking_id = htmlentities($_POST['parking-id']);
+
+    // Getting details from the database
+    $query =    "SELECT * FROM DRIVERS
+                WHERE P_ID = '$parking_id'";
+    $result = runQuery($query);
+    // After getting the details, we display them to the user for them to confirm the spot
+    // We also show the amount of time they've spent on the spot
+?>
