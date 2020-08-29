@@ -26,10 +26,10 @@
                                 alt="Back"></a>
                     </div>
                     <div class="textbox">
-                        <input type="text" name="parking-id">
+                        <input autofocus type="text" name="parking-id">
                     </div>
                     <div class="confirm">
-                        <input type="submit" value="confirm">
+                        <input type="submit" value="Confirm">
                     </div>
                 </div>
                 <div class="buttons">

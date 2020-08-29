@@ -20,6 +20,12 @@
     text-transform: uppercase;
 }
 
+/* Suggestions */
+.suggestion {
+    display: flex;
+    justify-content: center;
+}
+
 /* The options */
 .selection-box {
     display: flex;
@@ -31,6 +37,7 @@
     width: 80%;
     align-self: center;
     align-items: center;
+    margin-top: 1em;
 }
 
 #back {
