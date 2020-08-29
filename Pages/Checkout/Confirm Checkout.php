@@ -19,31 +19,68 @@
     */ 
 
     function outputParkingDetails(){
+        // FIXME: Add Error Handling
         // Substituting it for a shorter name
         $details_array = $GLOBALS['driver_and_parking_details'];
 
-        /*
-            NOTE:
-            What do we need to do?
-            1. Get the driver ID
-            2. Get the Spot
-            3. Get the Location of the spot
-        */
+        // Getting the Parking Spot's details
         $driver_id = $details_array[0]["DRIVER_ID"];
         $username = $details_array[0]["USERNAME"];
         $parking_id = $details_array[0]["P_ID"];
         $parking_location = $details_array[0]["P_LOCATION"];
+        
+        // Calculating and Formatting Time for Output
+        $elapsed_time = time_elapsed_string($details_array[0]["TIME_IN"]);
 
         // Returning the driver's details for confirmation
-        return "Driver #$driver_id ($username) with Parking Spot #$parking_id at $parking_location";
-        
+        return array(
+            "Details" => "Driver #$driver_id ($username) with Parking Spot #$parking_id at $parking_location",
+            "Time" => "You parked here $elapsed_time.",
+        );
+    }
+
+    // Calculating elapsed time
+
+    function time_elapsed_string($datetime, $full = true) {
+        $now = new DateTime;
+        $ago = new DateTime($datetime);
+        $diff = $now->diff($ago);
+    
+        $diff->w = floor($diff->d / 7);
+        $diff->d -= $diff->w * 7;
+    
+        $string = array(
+            'y' => 'year',
+            'm' => 'month',
+            'w' => 'week',
+            'd' => 'day',
+            'h' => 'hour',
+            'i' => 'minute',
+            's' => 'second',
+        );
+        foreach ($string as $k => &$v) {
+            if ($diff->$k) {
+                $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+            } else {
+                unset($string[$k]);
+            }
+        }
+    
+        if (!$full) $string = array_slice($string, 0, 1);
+        return $string ? implode(', ', $string) . ' ago' : 'just now';
+    }
+
+    function backButton(){
+        unset($_POST);
+        return "javascript:history.back()";
+    }
+
+    function saveDetailsToSession(){
+        $_SESSION['driver_and_parking_details'] = $GLOBALS['driver_and_parking_details'];
     }
 ?>
 
 <head>
-    <!-- Validation Javascript Script -->
-    <script type="text/javascript" src="Code/Javascript/Checkout Validation.js"></script>
-
     <!--The Page's Unique CSS-->
     <link rel="stylesheet" type="text/css" href="Code/CSS/Style.css">
     <title>Confirm Checkout</title>
@@ -51,12 +88,15 @@
 
 <body>
     <div class="container">
-        <form name="checkout_form" action="Finalize Checkout.php" method="post">
+        <form name="confirm_checkout_form" onsubmit="<?php saveDetailsToSession(); ?>" action="Finalize Checkout.php" method="post">
             <div class="question">
                 <h1>Is this your parking spot?</h1>
             </div>
             <div class="suggestion">
-                <h2><?php echo outputParkingDetails(); ?></h2>
+                <h2><?php echo outputParkingDetails()["Details"]; ?></h2>
+                <br>
+                <em><?php echo outputParkingDetails()["Time"]; ?></em>
+                <br>
             </div>
             <div class="selection-box">
                 <div class="inputs">
@@ -64,7 +104,7 @@
                         <input type="submit" value="Confirm">
                     </div>
                     <div>
-                        <a href="javascript:history.back()"><button type="button">No</button></a>
+                        <a href="<?php echo backButton(); ?>"><button type="button">No</button></a>
                     </div>
                 </div>
                 <div class="buttons">
@@ -75,10 +115,3 @@
 </body>
 
 </html>
-
-<!-- -TEST- For Testing -->
-<?php 
-    echo "<pre>";
-    print_r($driver_and_parking_details);
-    echo "</pre>";
-?>
