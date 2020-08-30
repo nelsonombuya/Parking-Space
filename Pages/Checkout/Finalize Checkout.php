@@ -2,7 +2,7 @@
     // Includes 
     include "../../Includes/Code/Page Formats/Head.php";
     include "../../Includes/Code/Page Formats/Header.php";
-    // TODO: Release Parking after 20 minutes
+    require "Code/PHP/Release Parking.php";
 
     // Now we start the unbooking process
     function checkout(){
@@ -11,16 +11,9 @@
         $driver_id = $details_array[0]["DRIVER_ID"];
         $parking_id = $details_array[0]["P_ID"];
         $time_out = date("Y-m-d H:i:s");
-        /*
-            NOTE:
-            What do we need to do?
-            2. Set the parking spot as free (5 minutes from now?)   TODO:
-        */
+
         // Setting the parking spot as free
-        $query =    "UPDATE PARKING
-                    SET P_STATUS = 'Free'
-                    WHERE P_ID = $parking_id";
-        runQuery($query);
+        releaseParking($parking_id, $time_out);
 
         // Updating the Driver's Time Out
         $query =    "UPDATE DRIVERS
@@ -31,15 +24,8 @@
 
     // The Processes to be run during checkout
     checkout();
-    unset($_POST);
-    unset($_SESSION['driver_and_parking_details']);
     header("refresh:7; url=Checkout.php");
-
-    // // -TEST-
-    // echo "<pre>";
-    // print_r($_POST);
-    // echo "</pre>";
-    ?>
+?>
 
 <head>
     <!-- Validation Javascript Script -->
