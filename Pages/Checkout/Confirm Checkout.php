@@ -10,37 +10,49 @@
     $query =    "SELECT DRIVER_ID, USERNAME, DRIVERS.P_ID, TIME_IN, TIME_OUT, P_TYPE, P_STATUS, P_LOCATION
                 FROM DRIVERS, PARKING
                 WHERE DRIVERS.P_ID = PARKING.P_ID 
-                AND DRIVERS.P_ID = '$parking_id'";
+                AND DRIVERS.P_ID = '$parking_id'
+                AND TIME_OUT IS NULL";
     $driver_and_parking_details = runQuery($query);
-
+    
     /*
         After getting the details, we display them to the user for them to confirm the spot
         We also show the amount of time they've spent on the spot
-    */ 
+    */
 
     function outputParkingDetails(){
-        // FIXME: Add Error Handling
-        // Substituting it for a shorter name
-        $details_array = $GLOBALS['driver_and_parking_details'];
+        if (empty($GLOBALS['driver_and_parking_details'])){
+            $parking_id = $GLOBALS['parking_id'];
+            return array(
+                "Question" => "Parking details not found.",
+                "Details" => "Parking Spot #$parking_id isn't occupied.",
+                "Time" => "Please input a correct Parking Ticket Number",
+                "Status" => FALSE,
+            );
+        } else {
+            // Substituting it for a shorter name
+            $details_array = $GLOBALS['driver_and_parking_details'];
+            
+            // Getting the Parking Spot's details
+            $driver_id = $details_array[0]["DRIVER_ID"];
+            $username = $details_array[0]["USERNAME"];
+            $parking_id = $details_array[0]["P_ID"];
+            $parking_location = $details_array[0]["P_LOCATION"];
+            
+            // Calculating and Formatting Time for Output
+            $elapsed_time = time_elapsed_string($details_array[0]["TIME_IN"]);
 
-        // Getting the Parking Spot's details
-        $driver_id = $details_array[0]["DRIVER_ID"];
-        $username = $details_array[0]["USERNAME"];
-        $parking_id = $details_array[0]["P_ID"];
-        $parking_location = $details_array[0]["P_LOCATION"];
+            // Returning the driver's details for confirmation
+            return array(
+                "Question" => "Is this your parking spot?",
+                "Details" => "Driver #$driver_id ($username) with Parking Spot #$parking_id at $parking_location",
+                "Time" => "You parked here $elapsed_time.",
+                "Status" => TRUE,
+            );
+        }
         
-        // Calculating and Formatting Time for Output
-        $elapsed_time = time_elapsed_string($details_array[0]["TIME_IN"]);
-
-        // Returning the driver's details for confirmation
-        return array(
-            "Details" => "Driver #$driver_id ($username) with Parking Spot #$parking_id at $parking_location",
-            "Time" => "You parked here $elapsed_time.",
-        );
     }
 
     // Calculating elapsed time
-
     function time_elapsed_string($datetime, $full = true) {
         $now = new DateTime;
         $ago = new DateTime($datetime);
@@ -78,6 +90,23 @@
     function saveDetailsToSession(){
         $_SESSION['driver_and_parking_details'] = $GLOBALS['driver_and_parking_details'];
     }
+
+    function confirmParkingButtons(){
+        if (outputParkingDetails()["Status"] === TRUE){
+            return  "<div class='confirm'>".
+                        "<input type='submit' value='Confirm'>".
+                    "</div>".
+                    "<div>".
+                        "<a href='" . backButton() . "'><button type='button'>No</button></a>".
+                    "</div>";
+        } else {
+            header("refresh:15; url=Checkout.php");
+            return  "<div>".
+                        "<a href='" . backButton() . "'><button type='button'>Return</button></a>".
+                    "</div>";
+                    
+        }
+    }
 ?>
 
 <head>
@@ -90,7 +119,7 @@
     <div class="container">
         <form name="confirm_checkout_form" onsubmit="<?php saveDetailsToSession(); ?>" action="Finalize Checkout.php" method="post">
             <div class="question">
-                <h1>Is this your parking spot?</h1>
+                <h1><?php echo outputParkingDetails()["Question"]; ?></h1>
             </div>
             <div class="suggestion">
                 <h2><?php echo outputParkingDetails()["Details"]; ?></h2>
@@ -100,12 +129,7 @@
             </div>
             <div class="selection-box">
                 <div class="inputs">
-                    <div class="confirm">
-                        <input type="submit" value="Confirm">
-                    </div>
-                    <div>
-                        <a href="<?php echo backButton(); ?>"><button type="button">No</button></a>
-                    </div>
+                    <?php echo confirmParkingButtons(); ?>
                 </div>
                 <div class="buttons">
                 </div>

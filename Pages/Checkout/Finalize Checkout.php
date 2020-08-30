@@ -35,7 +35,7 @@
         checkout();
         unset($_POST);
         unset($_SESSION['driver_and_parking_details']);
-        header("refresh:5; url=Checkout.php");;
+        header("refresh:5; url=Checkout.php");
     }
 ?>
 
