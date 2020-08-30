@@ -1,10 +1,10 @@
 /*The Page Heading*/
-.report-heading-space{
+.report-heading-space {
     display: flex;
     justify-content: space-evenly;
 }
 
-.report-heading-space h1{
+.report-heading-space h1 {
     display: flex;
     justify-content: center;
     padding: 10px;
@@ -16,11 +16,11 @@
 }
 
 /*Report Title*/
-.report-title{
+.report-title {
     display: flex;
     justify-content: space-evenly;
 }
-.report-title h2{
+.report-title h2 {
     display: flex;
     justify-content: center;
     padding: 10px;
@@ -30,29 +30,36 @@
     text-transform: uppercase;
 }
 
-.column-titles{
+.column-titles {
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
 }
-.column-titles h3{
+.column-titles h3 {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     padding: 10px;
     font-size: 1.2em;
     font-weight: 600;
     text-transform: uppercase;
 }
-.column{
+
+/* Report Data*/
+.report-content {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.report-content{
-    display: flex;
-    flex-direction: row;
+    /* flex-direction: column; */
     justify-content: space-around;
     margin: 0 1em;
     padding: 0.5em 1em;
-    background-color: rgba(245,245,245,0.75)
+    background-color: rgba(245, 245, 245, 0.75);
+}
+
+.column {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
 }

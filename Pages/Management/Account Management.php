@@ -31,7 +31,7 @@
             <div>
                 <ul>
                     <li>
-                        <h3><a href="Parking Spots Report.php">Parking Spots Report</a></h3>
+                        <h3><a href="Reports.php?report=parking&type=all">All Parking Spots</a></h3>
                     </li>
                 </ul>
             </div>
