@@ -7,12 +7,20 @@
     $parking_id = htmlentities($_POST['parking-id']);
 
     // Getting details from the database
-    $query =    "SELECT DRIVER_ID, USERNAME, DRIVERS.P_ID, TIME_IN, TIME_OUT, P_TYPE, P_STATUS, P_LOCATION
-                FROM DRIVERS, PARKING
-                WHERE DRIVERS.P_ID = PARKING.P_ID 
-                AND DRIVERS.P_ID = '$parking_id'
-                AND TIME_OUT IS NULL";
-    $driver_and_parking_details = runQuery($query);
+    // Checking whether the parking spot exists
+    $query =    "SELECT P_ID
+                FROM PARKING
+                WHERE P_ID = $parking_id";
+    if (empty(runQuery($query))) {
+        $driver_and_parking_details = FALSE;
+    } else {
+        $query =    "SELECT DRIVER_ID, USERNAME, DRIVERS.P_ID, TIME_IN, TIME_OUT, P_TYPE, P_STATUS, P_LOCATION
+                    FROM DRIVERS, PARKING
+                    WHERE DRIVERS.P_ID = PARKING.P_ID 
+                    AND DRIVERS.P_ID = '$parking_id'
+                    AND TIME_OUT IS NULL";
+        $driver_and_parking_details = runQuery($query);
+    }
     
     /*
         After getting the details, we display them to the user for them to confirm the spot
@@ -20,10 +28,20 @@
     */
 
     function outputParkingDetails(){
-        if (empty($GLOBALS['driver_and_parking_details'])){
-            $parking_id = $GLOBALS['parking_id'];
+        // Substituting the Global variable for a local one
+        $parking_id = $GLOBALS['parking_id'];
+
+        if ($GLOBALS['driver_and_parking_details'] === FALSE){
+            // The parking spot doesn't exist
             return array(
                 "Question" => "Parking details not found.",
+                "Details" => "Parking Spot #$parking_id doesn't exist.",
+                "Time" => "Please input a correct Parking Ticket Number",
+                "Status" => FALSE,
+            );
+        } else if (empty($GLOBALS['driver_and_parking_details'])){
+            return array(
+                "Question" => "The spot is not occupied.",
                 "Details" => "Parking Spot #$parking_id isn't occupied.",
                 "Time" => "Please input a correct Parking Ticket Number",
                 "Status" => FALSE,
@@ -82,11 +100,6 @@
         return $string ? implode(', ', $string) . ' ago' : 'just now';
     }
 
-    function backButton(){
-        unset($_POST);
-        return "javascript:history.back()";
-    }
-
     function saveDetailsToSession(){
         $_SESSION['driver_and_parking_details'] = $GLOBALS['driver_and_parking_details'];
     }
@@ -97,12 +110,12 @@
                         "<input type='submit' value='Confirm'>".
                     "</div>".
                     "<div>".
-                        "<a href='" . backButton() . "'><button type='button'>No</button></a>".
+                        "<a href='" . "javascript:history.back()" . "'><button type='button'>No</button></a>".
                     "</div>";
         } else {
             header("refresh:15; url=Checkout.php");
             return  "<div>".
-                        "<a href='" . backButton() . "'><button type='button'>Return</button></a>".
+                        "<a href='" . "javascript:history.back()" . "'><button type='button'>Return</button></a>".
                     "</div>";
                     
         }

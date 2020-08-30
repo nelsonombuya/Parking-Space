@@ -2,6 +2,7 @@
     // Includes 
     include "../../Includes/Code/Page Formats/Head.php";
     include "../../Includes/Code/Page Formats/Header.php";
+    // TODO: Release Parking after 20 minutes
 
     // Now we start the unbooking process
     function checkout(){
@@ -13,9 +14,7 @@
         /*
             NOTE:
             What do we need to do?
-            1. Set the driver's time out to now
             2. Set the parking spot as free (5 minutes from now?)   TODO:
-            3. Redirect to checkout page
         */
         // Setting the parking spot as free
         $query =    "UPDATE PARKING
@@ -30,14 +29,17 @@
         runQuery($query);         
     }
 
-    // FIXME: Add error handling
-    if (isset($_POST['Confirm'])){
-        checkout();
-        unset($_POST);
-        unset($_SESSION['driver_and_parking_details']);
-        header("refresh:5; url=Checkout.php");
-    }
-?>
+    // The Processes to be run during checkout
+    checkout();
+    unset($_POST);
+    unset($_SESSION['driver_and_parking_details']);
+    header("refresh:7; url=Checkout.php");
+
+    // // -TEST-
+    // echo "<pre>";
+    // print_r($_POST);
+    // echo "</pre>";
+    ?>
 
 <head>
     <!-- Validation Javascript Script -->
