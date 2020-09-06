@@ -11,21 +11,29 @@
             $GLOBALS["settings"]["server"]["password"] // The Host Password
         );
     }
+    
+    // Function for connecting to the Database
+    function connectToDatabase(){ 
+        // Returns TRUE if successful, FALSE if not  
+        return mysqli_connect(
+            $GLOBALS["settings"]["server"]["host"],     // The Host Name
+            $GLOBALS["settings"]["server"]["user"],     // The Host username
+            $GLOBALS["settings"]["server"]["password"], // The Host Password
+            $GLOBALS['settings']['server']['db']        // The Host Database
+        );
+    }
 
     // Function for connecting to the database
-    function connectToDatabase(){
+    function checkConnection(){
         if (connectToServer()){   
             // If the connection to the server is good, check for the database
-            $database = $GLOBALS['settings']['server']['db'];
-    
-            if (mysqli_query(connectToServer(), "USE $database"))
-            {
+            if (connectToDatabase()){
+                // If the connection to the database is good, we're set
                 return TRUE;
-            } 
-            else 
-            {
+            } else {
                 // The database doesn't exist, possibly the first time running the system
                 header("Location: Resources/Scripts/Setup.php");
+                return FALSE;
             }
         } else {
             // Exit the script if the connection to the server fails  
@@ -45,6 +53,6 @@
         return $result;
     }
 
-    // Connecting to the database each time this file is included
-    connectToDatabase();
+    // Checking the connection each time this script is run
+    checkConnection();
 ?>
