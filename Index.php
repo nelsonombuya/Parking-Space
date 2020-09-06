@@ -1,23 +1,25 @@
-<?php   // Includes
-    require "Includes/Configuration/Connection.php";
-    require "Includes/Configuration/Session.php";
+<?php   // Files to be included 
+    // require "Includes/Configuration/Connection.php";
+    // require "Includes/Configuration/Session.php";
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Parking Space</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="Pages\Main Page\Code\CSS\New Style.css">
 
-    <!--Icon for Title-->
-    <link rel="icon" href="Includes\Media\Images\Jeep (Inverted).png" type="image/icon type">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Pages\Index\CSS\Index.css">
+
+    <!-- Icon for Title -->
+    <link rel="icon" href="Resources\Images\Jeep (Inverted).png" type="image/icon type">
 </head>
 
 <body>
@@ -26,9 +28,10 @@
         <nav class="navbar navbar-expand-md navbar-dark fixed-top ">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img src="Includes\Media\Images\Jeep (Inverted).png" width="25" height="25" alt="Logo"
+                    <img src="Resources\Images\Jeep (Inverted).png" width="25" height="25" alt="Logo"
                         class="animate__bounce ">
                 </a>
+                <!-- TODO: Add Driver Number Details -->
                 <a class="navbar-brand" href="#">Parking Space</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,35 +49,34 @@
         </nav>
     </header>
 
-
     <main>
-        <!--Main Menu-->
+        <!-- Main Menu -->
         <div class="container-fluid banner ">
             <h2 class="display-4 py-4 text-center text-light">CAR PARKING SYSTEM</h2>
             <p class="lead text-center text-white font-weight-bolder pb-4"><strong>Would you like to open the terminal,
                     or manage your account?</strong></p>
-
+            <!-- TODO: Add Javascript Countdown -->
             <div class="container">
                 <div class="card-deck">
                     <div class="card text-center text-white mb-3">
-                        <a class="terminal-link text-white text-decoration-none" href="Pages/Terminal/Terminal.php">
-                            <img src="Includes\Media\Images\Parking.png" class="img-thumbnail" alt="Parking Terminal">
+                        <a class="terminal-link text-white text-decoration-none" href="Pages/Check-In/Check-In.php">
+                            <img src="Resources\Images\Parking.png" class="img-thumbnail" alt="Check-In Terminal">
                             <div class="card-body">
-                                <p>Parking Terminal</p>
+                                <p>Check-In Terminal</p>
                             </div>
                         </a>
                     </div>
                     <div class="card text-center text-white mb-3 border-0">
                         <a class="checkout-link text-white text-decoration-none" href="Pages/Checkout/Checkout.php">
-                            <img src="Includes\Media\Images\Checkout.png" class="img-thumbnail" alt="Checkout Terminal">
+                            <img src="Resources\Images\Checkout.png" class="img-thumbnail" alt="Checkout Terminal">
                             <div class="card-body">
                                 <p>Checkout Terminal</p>
                             </div>
                         </a>
                     </div>
                     <div class="card text-center text-white mb-3">
-                        <a class="account-link text-white text-decoration-none" href="Pages\Login\Code\PHP\Login.php">
-                            <img src="Includes\Media\Images\User.png" class="img-thumbnail" alt="Account Management">
+                        <a class="account-link text-white text-decoration-none" href="Pages\Management\Account.php">
+                            <img src="Resources\Images\User.png" class="img-thumbnail" alt="Account Management">
                             <div class="card-body">
                                 <p>Account Management</p>
                             </div>
@@ -89,7 +91,7 @@
 
 
 
-            <!--Section B-->
+            <!-- Our Vision -->
             <div class="container-fluid px-0 text-white ">
                 <section class="divider py-5 bg-dark">
                     <div class="row justify-content-center align-items-center">
@@ -97,9 +99,9 @@
                             <h2 class="font-weight-bolder ">Our Vision</h2>
                         </div>
                         <div class="col-md-4 ">
-                            <p class="text-muted">We want to live in a world where all minor tasks are <br>
-                                automated to make life easier for mankind. This <br>
-                                will free up our mind to do so much more for the sky is the limit.
+                            <p class="text-muted">We want to live in a world where all minor tasks are automated to make
+                                life easier for mankind.
+                                This will free up our minds to do so much more; for the sky is the limit.
                             </p>
                         </div>
                     </div>
@@ -107,7 +109,7 @@
             </div>
 
 
-            <!--About Section-->
+            <!-- About -->
             <section id="about" class="text-center text-white pb-4">
                 <h2 class="display-4 pt-4 text-center text-white">ABOUT US</h2>
                 <p class="lead text-center pb-4 text-primary">Know more about the product and the producers</p>
@@ -132,41 +134,40 @@
                         </p>
                     </div>
                     <div class="col-md-4">
-                        <img src="Includes\Media\Images\Organized.jpg" alt="organized" class="img-fluid">
+                        <img src="Resources\Images\Organized.jpg" alt="Organized" class="img-fluid">
                     </div>
                 </div>
             </section>
 
-            <!--Meet The Team-->
+            <!-- Meet The Team -->
             <div class="container-fluid">
                 <p class="lead text-center text-white font-weight-bolder pt-4"><strong>MEET THE TEAM</strong></p>
             </div>
             <div class="card-deck text-center py-4">
                 <div class="card">
-                    <img src="Includes\Media\Profile Pictures\Anonymous User.png"
-                        class="card-img-top rounded mx-auto d-block" alt="...">
+                    <img src="Resources\Profiles\Anonymous.png" class="card-img-top rounded mx-auto d-block" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title text-primary">Nelson</h5>
+                        <h5 class="card-title text-primary">Nelson Ombuya</h5>
                         <p class="card-text"><small class="text-muted">Back-End Development</small></p>
                         <p class="card-text text-white">The man. The Legend himself. Ensures that there is seemless
                             communication between the different factions</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="Includes\Media\Profile Pictures\Papi.jpg" class="card-img-top rounded mx-auto d-block"
+                    <img src="Resources\Profiles\Benji\User.jpg" class="card-img-top rounded mx-auto d-block"
                         alt="...">
                     <div class="card-body">
-                        <h5 class="card-title text-primary">Benjamin</h5>
+                        <h5 class="card-title text-primary">Benjamin Koimett</h5>
                         <p class="card-text"><small class="text-muted">Front-End Development</small></p>
-                        <p class="card-text text-white">Here to always keep the site looking hella good. Oshe de baddest
+                        <p class="card-text text-white">Here to always keep the site looking hella good. Oshe de
+                            baddest!
                         </p>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="Includes\Media\Profile Pictures\Anonymous User.png"
-                        class="card-img-top rounded mx-auto d-block" alt="...">
+                    <img src="Resources\Profiles\Anonymous.png" class="card-img-top rounded mx-auto d-block" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title text-primary">Victor</h5>
+                        <h5 class="card-title text-primary">Victor Cheruiyot</h5>
                         <p class="card-text"><small class="text-muted">Back-End Development and Documentation</small>
                         </p>
                         <p class="card-tex text-white">Victor is always updating the documentation and keeping the
@@ -196,7 +197,7 @@
                         </div>
                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                             <div class="card-body">
-                                <p>Kabarak University, but we can come through where you are at</p>
+                                <p>Kabarak University, but we can come through where you are at.</p>
                             </div>
                         </div>
                     </div>
@@ -212,7 +213,7 @@
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                             <div class="card-body">
-                                <p>Parking Space team can be called on 0725 088 244</p>
+                                <p>Our team can be called on 0725 088 244</p>
                             </div>
                         </div>
                     </div>
@@ -270,7 +271,7 @@
 
 
 
-            <!--Contacts-->
+            <!-- Contacts -->
 
 
             <h2 id="contacts" class="display-4 py-2 text-center text-white">How may we help you today?</h2>
@@ -327,7 +328,7 @@
                             <li>Tel: 0725 088 244 / 0758 466 254 </li>
                             <li>
                                 <a class="navbar-brand" href="#">
-                                    <img src="Includes\Media\Images\Jeep (Inverted).png" width="25" height="25"
+                                    <img src="Resources\Images\Jeep (Inverted).png" width="25" height="25"
                                         alt="logo">
                                 </a>
                             </li>
@@ -335,16 +336,7 @@
                     </p>
                 </div>
                 <div class="container">
-                    <ul class="list-inline">
-                        <li class="list-inline-item"><a href="https://www.facebook.com/theserenityplacerehab/"><img
-                                    src="/img/fb.png" width="25"></a></li>
-                        <li class="list-inline-item"><a href="#"><img src="/img/twitter.png" width="27"></a></li>
-                        <li class="list-inline-item"><a href="#"><img src="/img/insta.png" width="25"></a></li>
-                        <li class="list-inline-item"><a href="#"><img src="/img/gmail.png" width="25"></a></li>
-                    </ul>
-                </div>
-                <div class="container">
-                    <div class="footer text-secondary">&#169;2020 COPYRIGHT - Nelson, Benjie, Vic. </div>
+                    <div class="footer text-secondary">&#169;2020 COPYRIGHT - Nelson Ombuya, Benjamin Koimett, Victor Cheruiyot. </div>
                 </div>
 
             </div>
@@ -353,10 +345,6 @@
 
 
     </main>
-    <footer>
-
-
-    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
