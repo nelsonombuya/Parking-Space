@@ -65,16 +65,4 @@
         }
         return $result;
     }
-
-    // Function for creating the database
-    function createDatabase($database = settings['server']['db']){
-        // This will return true if the database is created successfully, and false if not
-        return runQuery("CREATE DATABASE " . $database);
-    }
-
-    function createTable($table){
-        // Used to create a table from it's schema
-        return runQuery($table["SCHEMA"]);
-    }
-
 ?>
