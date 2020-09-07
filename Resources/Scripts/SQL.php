@@ -28,16 +28,12 @@
         if (connectToServer()){   
             // If the connection to the server is good, check for the database
             if (connectToDatabase()){
-                // If the connection to the database is good, we're set
                 return TRUE;
             } else {
-                // The database doesn't exist, possibly the first time running the system
-                header("Location: Resources/Scripts/Setup.php");
                 return FALSE;
             }
         } else {
-            // Exit the script if the connection to the server fails  
-            exit("<br>Connection to server failed" . mysqli_connect_error() . "<br>");
+            return FALSE;
         }
     }
 
@@ -54,5 +50,9 @@
     }
 
     // Checking the connection each time this script is run
-    checkConnection();
+    if (checkConnection() === FALSE){
+        // Since there are connection problems using the default settings, it's possibly the first time running the system
+        // So send the user to the Setup Page
+        header("Location: Resources/Scripts/Setup.php");
+    }
 ?>
