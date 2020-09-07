@@ -6,3 +6,11 @@
     - Useful when adding a large number of users or parking spots
 
 ## Current Commit Message
+
+Fix : Error adding Tables
+
+> There was a missing closing bracket in the Tables Queries 🤦🏾‍♂️
+> Proceeding with the Setup.php script
+
+`~ Tables.ini`
+`~ Setup.php`

@@ -7,29 +7,55 @@
     // Parsing tables from Tables.ini and using them as a constant
     define('tables', parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/Resources/Settings/Tables.ini", TRUE));
 
-    
     // Function for creating the database
     function createDatabase($database = settings['server']['db']){
-        // This will return true if the database is created successfully, and false if not
-        return runQuery("CREATE DATABASE " . $database);
+        if (checkConnection() === "db_error"){
+            // checkConnection returning db_error means that the database doesn't exist
+            return runQuery("CREATE DATABASE " . $database);
+        } else {
+            return "db_exists";
+        }
     }
 
-    function createTable($table){
-        // Used to create a table from it's schema
-        return runQuery($table["SCHEMA"]);
+    // Function for creating the tables
+    function createTables($tables = tables){
+        foreach ($tables as $table => $options){
+            $result[$table] = connectToDatabase() -> query($options["SCHEMA"]);
+        }
+        return $result;
     }
 
-    // Creates database according to the one set on Settings.ini (If it doesn't exist)
-    if (checkConnection() === "db_error"){
-        // checkConnection returning db_error means that the database doesn't exist
-        createDatabase();
+    // Query for adding the test data
+    // function addTestData($data_array){
+    //     foreach($data_array as $data){
+    //         $result = runQuery($data);
+    //     }
+    //     return $result;
+    // }
+
+    function setup($tables = tables, $database = settings['server']['db']){
+        // NOTE: The variables are used for error detection
+        // First we create the Database
+        $database_result = createDatabase($database);
+        if ( $database_result === TRUE || $database_result === "db_exists"){
+            runQuery("USE $database");
+        }
+
+        // Then we create the Tables
+        $table_result = createTables($tables);
+
+        // // Then we add the test data for each table
+        // foreach($tables as $table => $options){
+        //     $data_result[$table] = addTestData($options["DATA"]);
+        // }
+
+        return array(
+            $database_result,
+            $table_result
+        );
     }
 
-    // Creating the tables
-    foreach (tables as $table => $options){
-        createTable($table);
-    }
     echo "<pre>";
-    print_r(tables);
+    print_r(setup());
     echo "</pre>";
 ?>
