@@ -26,12 +26,14 @@
     }
 
     // Query for adding the test data
-    // function addTestData($data_array){
-    //     foreach($data_array as $data){
-    //         $result = runQuery($data);
-    //     }
-    //     return $result;
-    // }
+    function addTestData($data_array){
+        $counter = 0;
+        foreach($data_array as $data){
+            $result[$counter] = runQuery($data);
+            $counter++;
+        }
+        return $result;
+    }
 
     function setup($tables = tables, $database = settings['server']['db']){
         // NOTE: The variables are used for error detection
@@ -41,18 +43,18 @@
         // Then we create the Tables
         $table_result = createTables($tables);
 
-        // // Then we add the test data for each table
-        // foreach($tables as $table => $options){
-        //     $data_result[$table] = addTestData($options["DATA"]);
-        // }
+        // Then we add the test data for each table
+        foreach($tables as $table => $options){
+            $data_result[$table] = addTestData($options["DATA"]);
+        }
 
         return array(
-            $database_result,
-            $table_result
+            "Database"  => $database_result,
+            "Tables"    => $table_result,
+            "Test Data" => $data_result
         );
     }
 
-    echo "<pre>";
-    print_r(setup());
-    echo "</pre>";
+    // Running the script
+
 ?>

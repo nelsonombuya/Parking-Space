@@ -7,10 +7,8 @@
 
 ## Current Commit Message
 
-Fix : Error running query with database
+Feature : First Time Setup Script
 
-> Added a provision to run queries with a direct link to the DB
-> Prevents some weird unknown errors 😂
+> The Script runs 👌🏾
 
-`~ SQL.php`
 `~ Setup.php`
