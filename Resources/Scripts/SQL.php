@@ -7,8 +7,8 @@
         // Returns TRUE if successful, FALSE if not 
         return mysqli_connect(
             settings["server"]["host"],     // The Host Name
-            settings["server"]["user"],    // The Host username
-            settings["server"]["password"] // The Host Password
+            settings["server"]["user"],     // The Host username
+            settings["server"]["password"]  // The Host Password
         );
     }
     
@@ -43,7 +43,7 @@
         if (checkConnection() === TRUE){
             $fetched = connectToDatabase() -> query($query);
         } else {
-            $fetched = mysqli_query(connectToServer(), $query);
+            $fetched = connectToServer() -> query($query);
         }
         
         // Outputting a boolean or associative array when necessary

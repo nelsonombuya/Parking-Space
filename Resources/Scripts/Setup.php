@@ -49,8 +49,13 @@
         $table_result = createTables($tables);
 
         // Then we add the test data for each table
-        foreach($tables as $table => $options){
-            $data_result[$table] = addTestData($options["DATA"]);
+        if (settings['setup']['add_test_data'] === TRUE){
+            foreach($tables as $table => $options){
+                $data_result[$table] = addTestData($options["DATA"]);
+            }
+        } else {
+            // If they don't need test data, we add the Admin
+            $data_result['USERS'] = addTestData($tables['USERS']["DATA"]);
         }
 
         return array(
