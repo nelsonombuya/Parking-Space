@@ -8,7 +8,13 @@
         // If there are connection problems using the default settings, send the user to the Setup Page
         header("Location: Resources/Scripts/Setup.php");
     }
-// ?>
+
+    // For redirecting to old index.php
+    if (settings['setup']['use_old_index']){
+        header("Location: oldIndex.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

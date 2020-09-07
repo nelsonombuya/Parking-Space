@@ -7,10 +7,3 @@
 4. Display Log when error occurs during first time setup
 
 ## Current Commit Message
-
-Refactor : Return warnings
-
-> Wanted the default code to show me warnings so that I know when I'm making mistakes
-
-`- show_warnings variable from the connection functions`
-`- duplicate code for when to show and not show warnings`
