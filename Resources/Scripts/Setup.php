@@ -8,7 +8,7 @@
     define('tables', parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/Resources/Settings/Tables.ini", TRUE));
 
     // Function for creating the database
-    function createDatabase($database = settings['server']['db']){
+    function createDatabase($database){
         if (checkConnection() === "db_error"){
             // checkConnection returning db_error means that the database doesn't exist
             return runQuery("CREATE DATABASE " . $database);
@@ -18,12 +18,12 @@
     }
     
     // Function for dropping the database (In case of any errors)
-    function dropDatabase($database = settings['server']['db']){
+    function dropDatabase($database){
         return runQuery("DROP DATABASE " . $database);
     }
 
     // Function for creating the tables
-    function createTables($tables = tables){
+    function createTables($tables){
         foreach ($tables as $table => $options){
             $result[$table] = runQuery($options["SCHEMA"]);
         }
@@ -69,18 +69,18 @@
         // Checking for errors
         if ($setup_results["Database"] === FALSE){
             // Error during the making of the Database
-            dropDatabase();
+            dropDatabase($database);
             return '<script type="text/JavaScript">  
-                        alert("Error creating the Database. Check the Log File for more information."); 
+                        alert("Error creating the Database. \nCheck the Log File for more information."); 
                     </script>';
         } else {
             // Checking Tables 
             foreach($setup_results["Tables"] as $table){
                 if ($table === FALSE){
                     // Error Creating Table
-                    dropDatabase();
+                    dropDatabase($database);
                     return  '<script type="text/JavaScript">  
-                                alert("Error creating the Tables. Check the Log File for more information."); 
+                                alert("Error creating the Tables. \nCheck the Log File for more information."); 
                             </script>';
                 } 
             }
@@ -90,9 +90,9 @@
                 foreach($data as $datum => $status){
                     if ($status === FALSE){
                         // Error adding data
-                        dropDatabase();
+                        dropDatabase($database);
                         return  '<script type="text/JavaScript">  
-                                    alert("Error adding test data to the Tables. Check the Log File for more information."); 
+                                    alert("Error adding data to the Tables. \nCheck the Log File for more information."); 
                                 </script>';
                     }
                 }
@@ -100,7 +100,7 @@
 
             // If no errors occured
             return  '<script type="text/JavaScript">  
-                        alert("The system has been set up, you will be redirected to the Starting Page in a moment");
+                        alert("The system has been set up. \nYou will be redirected to the Starting Page in a moment");
                         window.location.href = "../../Index.php"; 
                     </script>';
         }  
