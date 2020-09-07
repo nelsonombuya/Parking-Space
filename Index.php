@@ -1,6 +1,13 @@
-<?php   // Files to be included 
-    // require "Includes/Configuration/Connection.php";
+<?php   
+    // Files to be included 
+    require $_SERVER['DOCUMENT_ROOT'] . "Resources/Scripts/SQL.php";
     // require "Includes/Configuration/Session.php";
+    
+    // Checking if the connection is made
+    if (checkConnection() === FALSE){
+        // If there are connection problems using the default settings, send the user to the Setup Page
+        header("Location: " . $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Setup.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

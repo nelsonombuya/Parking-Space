@@ -1,14 +1,14 @@
 <?php
-    // Parsing the settings from Settings.ini
-    $settings = parse_ini_file("../Settings/Settings.ini", TRUE);
+    // Including the Settings
+    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Settings/Parser.php";
 
     // Function for connecting to the Server
     function connectToServer(){ 
         // Returns TRUE if successful, FALSE if not  
         return mysqli_connect(
-            $GLOBALS["settings"]["server"]["host"],     // The Host Name
-            $GLOBALS["settings"]["server"]["user"],    // The Host username
-            $GLOBALS["settings"]["server"]["password"] // The Host Password
+            settings["server"]["host"],     // The Host Name
+            settings["server"]["user"],    // The Host username
+            settings["server"]["password"] // The Host Password
         );
     }
     
@@ -16,10 +16,10 @@
     function connectToDatabase(){ 
         // Returns TRUE if successful, FALSE if not  
         return mysqli_connect(
-            $GLOBALS["settings"]["server"]["host"],     // The Host Name
-            $GLOBALS["settings"]["server"]["user"],     // The Host username
-            $GLOBALS["settings"]["server"]["password"], // The Host Password
-            $GLOBALS['settings']['server']['db']        // The Host Database
+            settings["server"]["host"],     // The Host Name
+            settings["server"]["user"],     // The Host username
+            settings["server"]["password"], // The Host Password
+            settings['server']['db']        // The Host Database
         );
     }
 
@@ -47,12 +47,5 @@
             $result = mysqli_fetch_all($fetched, MYSQLI_ASSOC);
         }
         return $result;
-    }
-
-    // Checking the connection each time this script is run
-    if (checkConnection() === FALSE){
-        // Since there are connection problems using the default settings, it's possibly the first time running the system
-        // So send the user to the Setup Page
-        header("Location: Resources/Scripts/Setup.php");
     }
 ?>
