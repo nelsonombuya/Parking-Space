@@ -4,11 +4,13 @@
 2. Make html in index.php use document root
 3. Create a way to mass-populate a table
     - Useful when adding a large number of users or parking spots
+4. Display Log when error occurs during first time setup
 
 ## Current Commit Message
 
-Feature : First Time Setup Script
+Refactor : Return warnings
 
-> The Script runs 👌🏾
+> Wanted the default code to show me warnings so that I know when I'm making mistakes
 
-`~ Setup.php`
+`- show_warnings variable from the connection functions`
+`- duplicate code for when to show and not show warnings`

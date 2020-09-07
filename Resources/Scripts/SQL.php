@@ -3,48 +3,31 @@
     require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Settings/Parser.php";
 
     // Function for connecting to the Server
-    function connectToServer($show_warnings = FALSE){ 
+    function connectToServer(){ 
         // Returns TRUE if successful, FALSE if not 
-        if ($show_warnings === TRUE){
-            return mysqli_connect(
-                settings["server"]["host"],     // The Host Name
-                settings["server"]["user"],    // The Host username
-                settings["server"]["password"] // The Host Password
-            );
-        } else {
-            return @mysqli_connect(
-                settings["server"]["host"],     // The Host Name
-                settings["server"]["user"],    // The Host username
-                settings["server"]["password"] // The Host Password
-            );
-        }
+        return mysqli_connect(
+            settings["server"]["host"],     // The Host Name
+            settings["server"]["user"],    // The Host username
+            settings["server"]["password"] // The Host Password
+        );
     }
     
     // Function for connecting to the Database
-    function connectToDatabase($show_warnings = FALSE){ 
+    function connectToDatabase(){ 
         // Returns TRUE if successful, FALSE if not 
-        if ($show_warnings === TRUE){
-            return mysqli_connect(
-                settings["server"]["host"],     // The Host Name
-                settings["server"]["user"],    // The Host username
-                settings["server"]["password"], // The Host Password
-                settings['server']['db']        // The Host Database
-            );
-        } else {
-            return @mysqli_connect(
-                settings["server"]["host"],     // The Host Name
-                settings["server"]["user"],    // The Host username
-                settings["server"]["password"], // The Host Password
-                settings['server']['db']        // The Host Database
-            );
-        }
+        return mysqli_connect(
+            settings["server"]["host"],     // The Host Name
+            settings["server"]["user"],     // The Host username
+            settings["server"]["password"], // The Host Password
+            settings['server']['db']        // The Host Database
+        );
     }
 
     // Function for connecting to the database
-    function checkConnection($show_warnings = FALSE){
-        if (connectToServer($show_warnings)){   
+    function checkConnection(){
+        if (connectToServer()){   
             // If the connection to the server is good, check for the database
-            if (connectToDatabase($show_warnings)){
+            if (connectToDatabase()){
                 return TRUE;
             } else {
                 return "db_error";
