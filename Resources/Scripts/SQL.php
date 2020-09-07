@@ -30,10 +30,10 @@
             if (connectToDatabase()){
                 return TRUE;
             } else {
-                return FALSE;
+                return 1;
             }
         } else {
-            return FALSE;
+            return 2;
         }
     }
 

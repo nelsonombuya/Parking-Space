@@ -7,10 +7,13 @@
 
 ## Current Commit Message
 
-Refactor : Update Setup.php and Add Tables.ini
+Refactor : Change checkConnection function outputs
 
-> Moved the tables to Tables.ini to minimize the Setup.php file
-> Organized Tables.ini into sections to maintain code functionality
+> Made the checkConnection function give outputs of
+> TRUE for a good connection
+> 0 for error connecting to server
+> 1 for error connecting to database
+> This is to provide better reporting to the user
 
-`~ Setup.php to parse tables from Tables.ini`
-`+ Tables.ini`
+`~ SQL.php`
+`~ Index.php to work with new outputs`

@@ -4,7 +4,7 @@
     // require "Includes/Configuration/Session.php";
     
     // Checking if the connection is made
-    if (checkConnection() === FALSE){
+    if (checkConnection() !== TRUE){
         // If there are connection problems using the default settings, send the user to the Setup Page
         header("Location: " . $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Setup.php");
     }
