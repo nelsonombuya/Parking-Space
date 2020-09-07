@@ -16,6 +16,11 @@
             return "db_exists";
         }
     }
+    
+    // Function for dropping the database (In case of any errors)
+    function dropDatabase($database = settings['server']['db']){
+        return runQuery("DROP DATABASE " . $database);
+    }
 
     // Function for creating the tables
     function createTables($tables = tables){
@@ -55,6 +60,47 @@
         );
     }
 
-    // Running the script
+    function errorChecker($setup_results){
+        // Checking for errors
+        if ($setup_results["Database"] === FALSE){
+            // Error during the making of the Database
+            dropDatabase();
+            return '<script type="text/JavaScript">  
+                        alert("Error creating the Database. Check the Log File for more information."); 
+                    </script>';
+        } else {
+            // Checking Tables 
+            foreach($setup_results["Tables"] as $table){
+                if ($table === FALSE){
+                    // Error Creating Table
+                    dropDatabase();
+                    return  '<script type="text/JavaScript">  
+                                alert("Error creating the Tables. Check the Log File for more information."); 
+                            </script>';
+                } 
+            }
+            
+            // Checking Data
+            foreach($setup_results["Test Data"] as $table => $data){
+                foreach($data as $datum => $status){
+                    if ($status === FALSE){
+                        // Error adding data
+                        dropDatabase();
+                        return  '<script type="text/JavaScript">  
+                                    alert("Error adding test data to the Tables. Check the Log File for more information."); 
+                                </script>';
+                    }
+                }
+            }
 
+            // If no errors occured
+            return  '<script type="text/JavaScript">  
+                        alert("The system has been set up, you will be redirected to the Starting Page in a moment");
+                        window.location.href = "../../Index.php"; 
+                    </script>';
+        }  
+    }
+    
+    // Running the script, checking for errors and displaying them
+    echo errorChecker(setup());
 ?>
