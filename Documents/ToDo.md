@@ -7,10 +7,10 @@
 
 ## Current Commit Message
 
-Fix : Error adding Tables
+Fix : Error running query with database
 
-> There was a missing closing bracket in the Tables Queries 🤦🏾‍♂️
-> Proceeding with the Setup.php script
+> Added a provision to run queries with a direct link to the DB
+> Prevents some weird unknown errors 😂
 
-`~ Tables.ini`
+`~ SQL.php`
 `~ Setup.php`

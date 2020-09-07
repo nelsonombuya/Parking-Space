@@ -56,8 +56,14 @@
 
     // Function for running queries and directly returning results
     function runQuery($query){
-        $fetched = mysqli_query(connectToServer(), $query);
+        // Picking the correct query for when the database exists
+        if (checkConnection() === TRUE){
+            $fetched = connectToDatabase() -> query($query);
+        } else {
+            $fetched = mysqli_query(connectToServer(), $query);
+        }
         
+        // Outputting a boolean or associative array when necessary
         if (is_bool($fetched)){
             $result = $fetched;
         } else {

@@ -20,7 +20,7 @@
     // Function for creating the tables
     function createTables($tables = tables){
         foreach ($tables as $table => $options){
-            $result[$table] = connectToDatabase() -> query($options["SCHEMA"]);
+            $result[$table] = runQuery($options["SCHEMA"]);
         }
         return $result;
     }
@@ -37,9 +37,6 @@
         // NOTE: The variables are used for error detection
         // First we create the Database
         $database_result = createDatabase($database);
-        if ( $database_result === TRUE || $database_result === "db_exists"){
-            runQuery("USE $database");
-        }
 
         // Then we create the Tables
         $table_result = createTables($tables);
