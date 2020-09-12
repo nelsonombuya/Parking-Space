@@ -1,6 +1,5 @@
 <?php   
     // // Includes 
-    // require "Includes/Configuration/Connection.php";
     // require "Includes/Configuration/Session.php";
     // Files to be included 
     require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/SQL.php";
@@ -11,16 +10,6 @@
     Thank you Benji 👌️ 
     NOTE: This is the old index page that I had designed
     */
-    // Checking if the connection is made
-    if (checkConnection() !== TRUE){
-        // If there are connection problems using the default settings, send the user to the Setup Page
-        header("Location: Resources/Scripts/Setup.php");
-    }
-
-    // For redirecting to new index.php
-    if (settings['setup']['use_old_index'] === FALSE){
-        header("Location: Index.php");
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

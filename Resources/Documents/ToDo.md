@@ -6,17 +6,15 @@
 
 ## Current Commit Message
 
-Feature : Version Selection
-
-> Needed a better way to manage the old and new website design while keeping everything seperate
-> Also adding a way to select what version of the page you want to use
-
-`+ Path for Root according to the version selected`
-`+ Including die() function with headers for security`
-`~ Fixed error with Adding Test data`
-
-Refactor : Old Index Page, Setup.php
+Refactor : Old Index Page (Now Beta)
 
 > Refactored the old index page to work with the newly refactored system
+> Also dropped support for Alpha
+> Made checkConnection() happen in SQL.php since all pages need SQL...
+> And therefore need to be checked for connection to server
+> Older Versions now Other Versions to include new pending releases
 
-`~ oldIndex.php`
+`~ Older Versions now Other Versions`
+`~ oldIndex.php now Index.php in Beta`
+`~ checkConnection() now happens in SQL`
+`~ Moved Current version to Gamma since it's incomplete`

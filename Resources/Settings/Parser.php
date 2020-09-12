@@ -10,12 +10,12 @@
     switch (settings['setup']['version']){
         case 'Alpha':
             // Very First version 
-            $selected_version_root_dir = "/Older Versions/Alpha";
+            $selected_version_root_dir = "/Other Versions/Alpha";
         break;
 
         case 'Beta':
             // Version after major refactor
-            $selected_version_root_dir = "/Older Versions/Beta";
+            $selected_version_root_dir = "/Other Versions/Beta";
         break;
         
         default:
