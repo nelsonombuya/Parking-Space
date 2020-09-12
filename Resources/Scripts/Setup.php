@@ -1,11 +1,12 @@
-<!--
-    First Time Setup
-    A slimmed version of the hilariously verbose file 😂
-    If you see functions you don't understand:
-    (checkConnection(), runQuery() etc) 
-    Check the SQL.php file for more info
--->
 <?php
+    /*
+        First Time Setup
+        A slimmed version of the hilariously verbose file 😂
+        If you see functions you don't understand:
+            eg. checkConnection(), runQuery() etc 
+        Check the SQL.php file for more info
+    */
+    
     // Files to Include
     require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/SQL.php";
 
@@ -67,7 +68,7 @@
         $table_result = createTables($tables);
 
         // Then we add the test data for each table (If the user wants it)
-        if (settings['setup']['add_test_data'] === TRUE){
+        if (settings['setup']['add_test_data']){
             foreach($tables as $table => $options){
                 $data_result[$table] = addTestData($options["DATA"]);
             }
