@@ -4,6 +4,23 @@
     // require "Includes/Configuration/Session.php";
     // Files to be included 
     require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/SQL.php";
+
+    /*
+    TODO: 
+    We're currently implementing changes to the Front-End
+    Thank you Benji 👌️ 
+    NOTE: This is the old index page that I had designed
+    */
+    // Checking if the connection is made
+    if (checkConnection() !== TRUE){
+        // If there are connection problems using the default settings, send the user to the Setup Page
+        header("Location: Resources/Scripts/Setup.php");
+    }
+
+    // For redirecting to new index.php
+    if (settings['setup']['use_old_index'] === FALSE){
+        header("Location: Index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +35,7 @@
 
     <!-- CSS -->
     <!-- From the Includes Folder -->
-    <link rel="stylesheet" type="text/css" href="Includes/Code/CSS/Main Style.css">
+    <link rel="stylesheet" type="text/css" href="/Pages/Index/Old/CSS/Main.css/Main.css">
     <!-- CSS for the big buttons -->
     <link rel="stylesheet" type="text/css" href="Pages/Main Page/Code/CSS/Style.css">
 

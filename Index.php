@@ -1,7 +1,7 @@
 <?php   
     // Files to be included 
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/SQL.php";
-    // require "Includes/Configuration/Session.php";
+    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/SQL.php";   // Used to check the connection to the DB
+    // TODO: require "Includes/Configuration/Session.php";
     
     // Checking if the connection is made
     if (checkConnection() !== TRUE){
@@ -9,6 +9,11 @@
         header("Location: Resources/Scripts/Setup.php");
     }
 
+    /*
+    TODO: 
+    We're currently implementing changes to the Front-End
+    Thank you Benji 👌️ 
+    */
     // For redirecting to old index.php
     if (settings['setup']['use_old_index']){
         header("Location: oldIndex.php");
@@ -44,7 +49,6 @@
                     <img src="Resources\Images\Jeep (Inverted).png" width="25" height="25" alt="Logo"
                         class="animate__bounce ">
                 </a>
-                <!-- TODO: Add Driver Number Details -->
                 <a class="navbar-brand" href="#">Parking Space</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,14 +99,8 @@
                             </div>
                         </a>
                     </div>
-
-
-
                 </div>
-
             </div>
-
-
 
             <!-- Our Vision -->
             <div class="container-fluid px-0 text-white ">
@@ -120,7 +118,6 @@
                     </div>
                 </section>
             </div>
-
 
             <!-- About -->
             <section id="about" class="text-center text-white pb-4">
@@ -167,8 +164,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img src="Resources\Profiles\Benji\User.jpg" class="card-img-top rounded mx-auto d-block"
-                        alt="...">
+                    <img src="Resources\Profiles\Benji\User.jpg" class="card-img-top rounded mx-auto d-block" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-primary">Benjamin Koimett</h5>
                         <p class="card-text"><small class="text-muted">Front-End Development</small></p>
@@ -189,12 +185,9 @@
                 </div>
             </div>
 
-            <!--FAQ-->
+            <!-- FAQ -->
             <h2 id="FAQ" class="display-4 pt-4 text-center text-white">All your questions answered</h2>
             <p class="lead text-center pb-4 text-primary">Kindly call our hotline and our tech-team will assist you</p>
-
-
-
 
             <div class="container p-4 text-white">
                 <div id="accordion">
@@ -282,11 +275,7 @@
 
             </div>
 
-
-
             <!-- Contacts -->
-
-
             <h2 id="contacts" class="display-4 py-2 text-center text-white">How may we help you today?</h2>
             <p class="lead text-center pb-4 text-primary">We are always ready to listen and willing to help</p>
 
@@ -326,8 +315,6 @@
 
 
             <!--Footer-->
-
-
             <div class="row text-white text-center bg-dark pt-4">
                 <div class="col-sm-12">
 
@@ -341,22 +328,18 @@
                             <li>Tel: 0725 088 244 / 0758 466 254 </li>
                             <li>
                                 <a class="navbar-brand" href="#">
-                                    <img src="Resources\Images\Jeep (Inverted).png" width="25" height="25"
-                                        alt="logo">
+                                    <img src="Resources\Images\Jeep (Inverted).png" width="25" height="25" alt="logo">
                                 </a>
                             </li>
                         </ul>
                     </p>
                 </div>
                 <div class="container">
-                    <div class="footer text-secondary">&#169;2020 COPYRIGHT - Nelson Ombuya, Benjamin Koimett, Victor Cheruiyot. </div>
+                    <div class="footer text-secondary">&#169;2020 COPYRIGHT - Nelson Ombuya, Benjamin Koimett, Victor
+                        Cheruiyot. </div>
                 </div>
-
             </div>
-
-
-
-
+        </div>
     </main>
 
     <!-- Optional JavaScript -->

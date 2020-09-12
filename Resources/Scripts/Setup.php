@@ -1,5 +1,10 @@
-<!--First Time Setup-->
-<!-- A slimmed version of the hilariously verbose file 😂-->
+<!--
+    First Time Setup
+    A slimmed version of the hilariously verbose file 😂
+    If you see functions you don't understand:
+    (checkConnection(), runQuery() etc) 
+    Check the SQL.php file for more info
+-->
 <?php
     // Files to Include
     require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/SQL.php";
@@ -21,6 +26,19 @@
     function dropDatabase($database){
         return runQuery("DROP DATABASE " . $database);
     }
+
+    /*  NOTE: Table design
+        You can see the actual implementation on Tables.ini
+        
+        The tables are designed as the following associative array:
+        Table               Options
+        ------              --------
+        [Table Name] =>     Schema  = "Query for table schema"
+
+                            Data    => array(
+                                        Array of Queries containing test data
+                                    )
+    */
 
     // Function for creating the tables
     function createTables($tables){
@@ -48,17 +66,19 @@
         // Then we create the Tables
         $table_result = createTables($tables);
 
-        // Then we add the test data for each table
+        // Then we add the test data for each table (If the user wants it)
         if (settings['setup']['add_test_data'] === TRUE){
             foreach($tables as $table => $options){
                 $data_result[$table] = addTestData($options["DATA"]);
             }
         } else {
-            // If they don't need test data, we add the Admin
+            // If they don't need test data, we add the Admin User(s)
             $data_result['USERS'] = addTestData($tables['USERS']["DATA"]);
         }
 
+        // Returning the errors (Or lack thereof)
         return array(
+            "Database Name" => $database,
             "Database"  => $database_result,
             "Tables"    => $table_result,
             "Test Data" => $data_result
@@ -66,6 +86,9 @@
     }
 
     function errorChecker($setup_results){
+        // Adding variable for database name (In case a different DB was used)
+        $database = $setup_results["Database Name"];
+
         // Checking for errors
         if ($setup_results["Database"] === FALSE){
             // Error during the making of the Database
