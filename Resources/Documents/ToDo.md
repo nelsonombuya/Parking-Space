@@ -3,18 +3,15 @@
 1. Create a way to mass-populate a table
     - Useful when adding a large number of users or parking spots
 2. Display Log when error occurs during first time setup
+3. Remember to organize general program security
 
 ## Current Commit Message
 
-Refactor : Old Index Page (Now Beta)
+Refactor : Link index.php in Beta
 
-> Refactored the old index page to work with the newly refactored system
-> Also dropped support for Alpha
-> Made checkConnection() happen in SQL.php since all pages need SQL...
-> And therefore need to be checked for connection to server
-> Older Versions now Other Versions to include new pending releases
+> Currently working on Beta as we wait for changes in Gamma
+> Organized file entries and directories
+> Also adding setting for time zone
 
-`~ Older Versions now Other Versions`
-`~ oldIndex.php now Index.php in Beta`
-`~ checkConnection() now happens in SQL`
-`~ Moved Current version to Gamma since it's incomplete`
+`+ Time Zone Setting`
+`+ Session.php file`

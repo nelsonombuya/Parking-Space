@@ -1,0 +1,131 @@
+/* Formatting the entire page */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Setting the font family of the page */
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Background wave layer */
+.wave {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    z-index: -1; /* Makes it come behind everything else */
+}
+
+/* Header */
+#top_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    padding: 1%;
+    flex-basis: 100%;
+}
+#top_header > div {
+    flex-basis: 30%;
+    margin: auto;
+}
+
+/* Driver Details */
+.driver_details {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+}
+.driver_number h1 {
+    font-size: 1.5em;
+    overflow: hidden;
+    font-weight: 600;
+}
+.user_id {
+    margin-left: 27px;
+    overflow: hidden;
+    font-size: 0.8em;
+    font-weight: 400;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    justify-content: center;
+}
+.logo img {
+    /* position: absolute; */
+    width: 80px;
+    height: 80px;
+    top: 2%;
+}
+
+/* User Icon */
+.settings {
+    display: flex;
+    justify-content: flex-end;
+}
+.settings img {
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+}
+.user {
+    display: flex;
+    justify-content: flex-end;
+}
+.user img {
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+}
+
+/*Formatting for smaller screens*/
+/*Tablets*/
+@media screen and (max-width: 900px) {
+    .wave {
+        display: none;
+    }
+    .driver_number h1 {
+        font-size: 120%;
+    }
+    .user_id h2 {
+        font-size: 80%;
+    }
+    .question {
+        border-top: black solid 2px;
+    }
+    .question h1 {
+        font-size: 2.5em;
+    }
+    .user_id h2 {
+        margin-left: 15%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #topheader {
+        font-size: small;
+        height: min-content;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .question {
+        border-top: none;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .question {
+        padding-top: 2em;
+        display: flex;
+        justify-content: flex-start;
+    }
+}

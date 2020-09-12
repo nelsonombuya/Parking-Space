@@ -30,4 +30,7 @@
 
     // Relative directories to be used with header methods
     define ('relative_root_dir', $selected_version_root_dir);
+
+    // Setting Default Time Zone
+    date_default_timezone_set(settings['server']['time_zone']);
 ?>

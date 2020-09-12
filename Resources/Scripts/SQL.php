@@ -1,6 +1,5 @@
 <?php
-    // Including the Settings
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Settings/Parser.php";
+    // This page contains functions pertaining to SQL Queries
 
     // Function for connecting to the Server
     function connectToServer(){ 
@@ -53,12 +52,5 @@
             $result = mysqli_fetch_all($fetched, MYSQLI_ASSOC);
         }
         return $result;
-    }
-
-    // Checking if the connection is made
-    if (checkConnection() !== TRUE){
-        // If there are connection problems using the default settings... 
-        // Send the user to the Setup Page
-        header("Location: Resources/Scripts/Setup.php") or die();
     }
 ?>

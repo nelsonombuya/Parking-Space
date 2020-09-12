@@ -8,6 +8,7 @@
     */
     
     // Files to Include
+    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Settings/Parser.php";
     require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/SQL.php";
 
     // Parsing tables from Tables.ini and using them as a constant
