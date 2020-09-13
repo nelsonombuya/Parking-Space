@@ -9,6 +9,7 @@ Our Kabarak Team Project
 ## Status
 
 `Refactoring...`
+`Currently running on` **Beta**
 
 -   `Much Work`
 -   `Much Stress`
@@ -33,5 +34,3 @@ Our Kabarak Team Project
 -   Linking Front-End with Back-End
 
 #### `Much Learning... Such Wow`
-
-> Written with [StackEdit](https://stackedit.io/).
