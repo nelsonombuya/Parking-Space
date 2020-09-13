@@ -8,6 +8,6 @@
     if (checkConnection() !== TRUE){
         // If there are connection problems using the default settings... 
         // Send the user to the Setup Page
-        header("Location: /Resources/Settings/Setup.php") or die();
+        header("Location: /Resources/Scripts/Setup.php") or die();
     }
 ?>

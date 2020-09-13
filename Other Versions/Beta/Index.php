@@ -54,7 +54,7 @@
 
         <!-- The Logo Container -->
         <div class="logo">
-            <a href="index.php">
+            <a href="Index.php">
                 <img src="Resources\Images\Jeep.png" alt="Logo">
             </a>
         </div>
@@ -62,7 +62,7 @@
         <!--The Settings Container-->
         <div class="user">
             <img src="Resources\Images\User.png" alt="User Settings">
-            <!-- TODO: Create a menu under the profile icon -->
+            <!-- TODO: Create a menu under the profile icon, include the user's photo-->
             <!-- NOTE: Make it include the Log In, Sign Up, Settings, Profile, Log Out in a context intelligent manner -->
         </div>
     </header>
