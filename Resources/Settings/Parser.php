@@ -18,6 +18,11 @@
             $selected_version_root_dir = "/Other Versions/Beta";
         break;
         
+        case 'Gamma':
+            // Version after major refactor
+            $selected_version_root_dir = "/Other Versions/Gamma";
+        break;
+        
         default:
             // Current working version
             $selected_version_root_dir = "/Parking Space";
