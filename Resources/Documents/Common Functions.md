@@ -26,3 +26,15 @@ Makes the code more readable while still maintaining functionality.
 
 > **After**
 > `$fetched = mysqli_query(connectToDatabase(), $query)`
+
+## runQuery(\$query)
+
+This runs a query given in the function parameter
+
+> It's basically a shortened version of:
+> `$conn = mysqli_connect(localhost, username, password, database)`
+> `$fetched = mysqli_query($conn, $query)`
+
+For example, to run an SQL query, you can just type in:
+
+> `runQuery("SELECT * FROM Table_Name")`
