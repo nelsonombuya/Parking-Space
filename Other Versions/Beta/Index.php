@@ -83,13 +83,13 @@
                 <a href="Pages/Check-In/Check-In.php">
                     <div class="column">
                         <img src="Resources\Images\Parking.png" alt="Check-In Terminal">
-                        <h3>Parking Terminal</h3>
+                        <h3>Check-In Terminal</h3>
                     </div>
                 </a>
                 <a href="Pages/Checkout/Checkout.php">
                     <div class="column">
                         <img src="Resources\Images\Checkout.png" alt="Checkout Terminal">
-                        <h3>Check Out Terminal</h3>
+                        <h3>Checkout Terminal</h3>
                     </div>
                 </a>
                 <a href="Pages\Login\Login.php">
