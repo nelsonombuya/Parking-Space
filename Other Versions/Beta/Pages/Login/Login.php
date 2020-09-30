@@ -84,7 +84,7 @@
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="div">
-                        <h5>Username</h5>
+                        <h5>Username/Email</h5>
                         <input type="text" name="login_username" class="input" />
                     </div>
                 </div>
