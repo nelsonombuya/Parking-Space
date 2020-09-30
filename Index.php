@@ -1,4 +1,4 @@
-<?
+<?php
     // Used to redirect the user to the page version depending on their choice
     
     // Including the SQL Script Used to check the connection to the DB 

@@ -1,4 +1,4 @@
-<?
+<?php
     // All the necessary files to be included in a page
     require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Settings/Parser.php";
     require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/SQL.php";
