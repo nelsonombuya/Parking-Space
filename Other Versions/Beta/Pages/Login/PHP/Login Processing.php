@@ -1,7 +1,6 @@
 <?php
-    // For connecting to the database
-    require "../../../../Includes/Configuration/Connection.php";
-    require "../../../../Includes/Configuration/Session.php";
+    // Required Files
+    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Includes.php"; 
 
     // Checking for user input
     if (isset($_POST['login_username']) && isset($_POST['login_password']))
@@ -13,44 +12,69 @@
     }
     else
     {
-        // Check for a user session
-        if ($_SESSION['is_logged_in'] === TRUE){
+        // If there's no user details input, check for a user session
+        if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] === TRUE){
             // Redirect to Account Management Page
-            header("Location: ../../../Management/Account Management.php");
+            header("Location: ../../Management/Account.php") or die();
         }
-        // To make the user to log in
-        header("Location: ../../Sign In.php");
+        // Else... To make the user to log in
+        header("Location: ../Login.php?error=empty") or die();
     }      
 
+    // Function for logging in
     function login($username, $password)
     {
         //The Query for checking for the user's details in the database
-        $query  = "SELECT USERNAME, PASS FROM USERS WHERE USERNAME = '$username' AND PASS = '$password'";
+        $query  =   "SELECT USERNAME, PASS 
+                    FROM USERS 
+                    WHERE USERNAME = ?";
 
-        // If data is received, check whether the user details exist
-        if (mysqli_query($GLOBALS['connect'], $query) -> num_rows == 1)
-        {
-            // Means that the user details are correct  (Otherwise, would return no rows)
-            //Session Details
-            $_SESSION['username'] = $username;
-            $_SESSION['password'] = $password;
-            // FIXME: Remember to use an auto-generated hash key
-            
-            // Setting the user as logged in
-            isLoggedIn();
-            // Removing stored variables from $_POST
-            unset($_POST);
+        // Using Prepared SQL statements for security
+        $stmt = mysqli_stmt_init(connectToDatabase());
 
-            //Redirect to Account Management Page
-            header("Location: ../../../Management/Account Management.php");
-        }
-        else
+        if (!mysqli_stmt_prepare($stmt, $query))
         {
-            //Return back to Login Page
-            session_unset();
-            unset($_POST);
-            $_SESSION['error'] = 1;
-            header("Location: ../../../Login/Sign In.php");
+            // If there's a connection error
+            header("Location: ../Login.php?error=sql_error") or die();
+        } 
+        else 
+        {
+            // Executing the Query
+            mysqli_stmt_bind_param($stmt, "s", $username);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+
+            // If the user exists
+            if ($row = mysqli_fetch_assoc($result))
+            {
+                // Checking Password
+                $password_check = password_verify($password, $row['PASS']);
+                if ($password_check === FALSE)
+                {
+                    // If the password is wrong
+                    header("Location: ../Login.php?error=wrong_pass") or die();
+                }
+                else if ($password_check === TRUE)
+                {
+                    // If the password is correct, the user is logged in successfully
+                    unset($_POST);
+                    session_start();
+                    $_SESSION['username'] = $row['USERNAME'];
+
+                    // Redirect to Account Management Page
+                    header("Location: ../../Management/Account.php") or die();
+                }
+                else 
+                {
+                    // If the password is wrong but due to a different error
+                    header("Location: ../Login.php?error=wrong_pass") or die();
+                }
+            } 
+            else 
+            {
+                // If the username doesn't exist in the database
+                header("Location: ../Login.php?error=user_dne") or die();
+            }
         }
     }
 ?>
