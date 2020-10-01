@@ -1,6 +1,4 @@
-<?php   
-    // // Includes 
-    // require "Includes/Configuration/Session.php";
+<?php
     // Files to be included 
     require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Includes.php";
 
@@ -39,29 +37,29 @@
 
 <body>
     <!-- The Background Wave Layer -->
-    <img class="wave" src="Resources\Images\Wave.png" alt="Background">
+    <img class="wave" src="Resources/Images/Wave.png" alt="Background">
 
     <header id=top_header>
         <!-- The Driver's Details Container -->
         <div class="driver_details">
             <div class="driver_number">
-                <h1>#<?php echo (driverNumber() + 1); ?></h1>
+                <h1>#<?php echo (currentDriverNumber() + 1); ?></h1>
             </div>
             <div class="user_id">
-                <a href="Pages\Management\Account.php">#<?php // TODO: echo $_SESSION['username'];?></h2></a>
+                <a href="Pages/Management/Account.php">#<?php echo (currentUsername());?></h2></a>
             </div>
         </div>
 
         <!-- The Logo Container -->
         <div class="logo">
             <a href="Index.php">
-                <img src="Resources\Images\Jeep.png" alt="Logo">
+                <img src="Resources/Images/Jeep.png" alt="Logo">
             </a>
         </div>
 
         <!--The Settings Container-->
         <div class="user">
-            <img src="Resources\Images\User.png" alt="User Settings">
+            <img src="Resources/Images/User.png" alt="User Settings">
             <!-- TODO: Create a menu under the profile icon, include the user's photo-->
             <!-- NOTE: Make it include the Log In, Sign Up, Settings, Profile, Log Out in a context intelligent manner -->
         </div>
@@ -82,19 +80,19 @@
             <div class="row">
                 <a href="Pages/Check-In/Check-In.php">
                     <div class="column">
-                        <img src="Resources\Images\Parking.png" alt="Check-In Terminal">
+                        <img src="Resources/Images/Parking.png" alt="Check-In Terminal">
                         <h3>Check-In Terminal</h3>
                     </div>
                 </a>
                 <a href="Pages/Checkout/Checkout.php">
                     <div class="column">
-                        <img src="Resources\Images\Checkout.png" alt="Checkout Terminal">
+                        <img src="Resources/Images/Checkout.png" alt="Checkout Terminal">
                         <h3>Checkout Terminal</h3>
                     </div>
                 </a>
-                <a href="Pages\Login\Login.php">
+                <a href="Pages/Login/Login.php">
                     <div class="column">
-                        <img src="Resources\Images\User.png" alt="Account Management">
+                        <img src="Resources/Images/User.png" alt="Account Management">
                         <h3>Account Management</h3>
                     </div>
                 </a>

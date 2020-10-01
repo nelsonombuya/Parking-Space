@@ -16,14 +16,14 @@
     // User Details
     // ---------------
     // Function for outputting the current username
-    function printCurrentUsername(){
+    function currentUsername(){
         if (isser($_SESSION['username'])){
             return $_SESSION['username'];
         }
     }
     
     // Function for outputting the current driver number
-    function printCurrentDriverNumber(){
+    function currentDriverNumber(){
         $query =    "SELECT DRIVER_ID FROM DRIVERS 
                     ORDER BY DRIVER_ID DESC
                     LIMIT 1";
