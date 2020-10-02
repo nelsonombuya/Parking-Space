@@ -25,9 +25,10 @@
     function login($username, $password)
     {
         //The Query for checking for the user's details in the database
-        $query  =   "SELECT USERNAME, PASS 
+        $query  =   "SELECT USERNAME, EMAIL, PASS 
                     FROM USERS 
-                    WHERE USERNAME = ?";
+                    WHERE USERNAME = ?
+                    OR EMAIL = ?";
 
         // Using Prepared SQL statements for security
         $stmt = mysqli_stmt_init(connectToDatabase());
@@ -40,7 +41,7 @@
         else 
         {
             // Executing the Query
-            mysqli_stmt_bind_param($stmt, "s", $username);
+            mysqli_stmt_bind_param($stmt, "ss", $username, $username);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
 
