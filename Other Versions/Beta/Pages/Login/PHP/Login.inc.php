@@ -13,7 +13,7 @@
     else
     {
         // If there's no user details input, check for a user session
-        if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] === TRUE){
+        if (isset($_SESSION['username'])){
             // Redirect to Account Management Page
             header("Location: ../../Management/Account.php") or die();
         }

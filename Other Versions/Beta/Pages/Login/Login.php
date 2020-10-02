@@ -74,7 +74,8 @@
         </div>
         <!--The Login Box-->
         <div class="login-content">
-            <form name="login_form" onsubmit="return login_validation();" action="PHP/Login Processing.php" method="POST">
+            <form name="login_form" onsubmit="return login_validation();" action="PHP/Login.inc.php"
+                method="POST">
                 <img src="../../Resources/Images/Avatar.svg" />
                 <h2 class="title">Account</h2>
 
