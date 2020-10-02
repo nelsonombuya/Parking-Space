@@ -17,9 +17,10 @@
     // ---------------
     // Function for outputting the current username
     function currentUsername(){
-        if (isser($_SESSION['username'])){
+        if (isset($_SESSION['username'])){
             return $_SESSION['username'];
         }
+        return "Guest";
     }
     
     // Function for outputting the current driver number
