@@ -79,13 +79,13 @@
                 <img src="../../Resources/Images/Avatar.svg" />
                 <h2 class="title">Account</h2>
 
-                <!-- Username -->
+                <!-- Username or Email -->
                 <div class="input-div username">
                     <div class="i">
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="div">
-                        <h5>Username</h5>
+                        <h5>Username/Email</h5>
                         <input type="text" name="login_username" class="input" />
                     </div>
                 </div>
