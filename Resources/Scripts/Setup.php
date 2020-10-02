@@ -60,6 +60,27 @@
         return $result;
     }
 
+    // Function for hashing test user passwords
+    function hashPasswords(){
+        // Getting the already added user data
+        $users = runQuery("SELECT * FROM USERS");
+
+        // Getting each user's details and hashing their passwords individually
+        foreach ($users as $user => $data){
+            $username = $data["USERNAME"];
+            $original_password = $data["PASS"];
+            $hashed_password = password_hash($original_password, PASSWORD_DEFAULT);
+
+            // Running update query to change their insecure passwords to the hashed password
+            $query ="UPDATE USERS 
+                    SET PASS = '$hashed_password'
+                    WHERE USERNAME = '$username'";
+            $result[$username]= runQuery($query);
+        }
+
+        return $result;
+    }
+
     function setup($tables = tables, $database = settings['server']['db']){
         // NOTE: The variables are used for error detection
         // First we create the Database
@@ -78,12 +99,16 @@
             $data_result['USERS'] = addTestData($tables['USERS']["DATA"]);
         }
 
+        // Then we hash the password for the added users
+        $hashing_results = hashPasswords();
+
         // Returning the errors (Or lack thereof)
         return array(
             "Database Name" => $database,
             "Database"  => $database_result,
             "Tables"    => $table_result,
-            "Test Data" => $data_result
+            "Test Data" => $data_result,
+            "Hash"      => $hashing_results
         );
     }
 
@@ -120,6 +145,17 @@
                                     alert("Error adding data to the Tables. \nCheck the Log File for more information."); 
                                 </script>';
                     }
+                }
+            }
+
+            // Checking whether passwords were hashed
+            foreach($setup_results["Hash"] as $username => $is_password_hashed){
+                if ($is_password_hashed === FALSE){
+                    // Error hashing a user's password, it'll be insecure
+                    dropDatabase($database);
+                    return  '<script type="text/JavaScript">  
+                                alert("Error hashing user passwords. \nCheck the Log File for more information."); 
+                            </script>';
                 }
             }
 
