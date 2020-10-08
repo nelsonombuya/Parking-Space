@@ -1,42 +1,15 @@
 <?php
-    // TODO: Refactoring this page
-    // Defining session errors and what to do if an error had occured
+    // Defining login errors and what to do if an error had occured
     // Check for a user session
-    // include("../../Includes/Configuration/Session.php");
-    
-    // Error checking
-    // function checkSessionErrors(){
-    //     // Checks the error code and displays relevant error messages
-    //     switch ($_SESSION['login_error']){
-    //         case "wrong_username_password": 
-    //             $error ='<script type="text/JavaScript">  
-    //                         alert("Incorrect username or password"); 
-    //                     </script>';
-    //         break;
-            
-    //         default:    
-    //             // If a different kind of error occurs
-    //             $error ='<script type="text/JavaScript">  
-    //                         alert("Please, sign in or continue as guest."); 
-    //                     </script>';
-    //         break;
-    //     }
-    //     // Unsets the session error after the error message has been shown
-    //     unset($_SESSION['login_error']);
-        
-    //     // Returns the error as a javascript alert
-    //     return $error;
-    // }
+    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Includes.php";
 
     // Checks if the error has happened, if not, just run the main script
-    // if (isset($_SESSION['login_error'])){
-    //     checkSessionErrors(); 
-    // }    
-
-    // // Redirecting the user to the account management page
-    // if (isLoggedIn()){
-    //     header("Location: ..\..\Pages\Management\Account Management.php");
-    // }
+    if (isset($_GET['login_error'])){
+        echo checkLoginErrors();
+        
+        // Unsets the session error after the error message has been shown
+        unset($_GET['login_error']);
+    }
 ?>
 <!DOCTYPE html>
 <html>

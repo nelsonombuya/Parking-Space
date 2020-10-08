@@ -13,6 +13,55 @@
         header("Location: ../../Index.php") or die();
     }
 
+    // Function for checking Login Errors
+    function checkLoginErrors()
+    {
+        // Checks the error code and displays relevant error messages
+        if (isset($_GET['login_error']))
+        {
+            if (fnmatch('sql_*' , $_GET['login_error']))
+            {
+                // In the case of an SQL Error
+                return  '<script type="text/JavaScript">
+                            alert("A database error has occured. \nError Code: ' . $_GET['login_error'] . '");
+                        </script>';
+            }
+
+            else if ($_GET['login_error'] === 'login_user')
+            {
+                // In case the user doesn't exist
+                return  '<script type="text/JavaScript">  
+                            alert("The username/e-mail does not have an account. \nError Code: ' . $_GET['login_error'] . '");
+                        </script>';
+            } 
+
+            else if (fnmatch('login_pas*' , $_GET['login_error']))
+            {
+                // If the user input an incorrect password
+                return  '<script type="text/JavaScript">  
+                            alert("Wrong password, try again. \nError Code: ' . $_GET['login_error'] . '");
+                        </script>';
+            }
+            
+            else if ($_GET['login_error'] === 'login_empty')
+            {
+                // If there was no data input
+                return  '<script type="text/JavaScript">  
+                            alert("Please input details and try again. \nError Code: ' . $_GET['login_error'] . '");
+                        </script>';
+            }
+
+            else 
+            {
+                // If a different kind of error occurs
+                return  '<script type="text/JavaScript">  
+                            alert("Please, sign in or continue as guest."); 
+                        </script>';
+            }
+
+        }    
+    }
+
     // User Details
     // ---------------
     // Function for outputting the current username

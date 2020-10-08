@@ -18,7 +18,7 @@
             header("Location: ../../Management/Account.php") or die();
         }
         // Else... To make the user to log in
-        header("Location: ../Login.php?error=empty") or die();
+        header("Location: ../Login.php?login_error=login_empty") or die();
     }      
 
     // Function for logging in
@@ -30,7 +30,7 @@
         if ($connection_status !== TRUE)
         {
             // If there's a connection error
-            header("Location: ../Login.php?error=$connection_status") or die();
+            header("Location: ../Login.php?login_error=$connection_status") or die();
         } 
         else 
         {
@@ -47,25 +47,25 @@
             if (!$stmt =  $conn->stmt_init())
             {
                 // Error initializing the SQL Statement
-                header("Location: ../Login.php?error=sql_init") or die();
+                header("Location: ../Login.php?login_error=sql_init") or die();
             }
 
             else if (!$stmt = $conn->prepare($query))
             {
                 // Error preparing the SQL Statement
-                header("Location: ../Login.php?error=sql_prepare") or die();
+                header("Location: ../Login.php?login_error=sql_prepare") or die();
             }
             
             else if (!$stmt->bind_param("ss", $username, $username))
             {
                 // Error binding parameters
-                header("Location: ../Login.php?error=sql_bind") or die();
+                header("Location: ../Login.php?login_error=sql_bind") or die();
             }
             
             else if (!$stmt->execute())
             {
                 // Execute query
-                header("Location: ../Login.php?error=sql_execute") or die();
+                header("Location: ../Login.php?login_error=sql_execute") or die();
             }
             
             else
@@ -74,10 +74,10 @@
                 $fetched = $stmt->get_result();
                 $result = mysqli_fetch_all($fetched, MYSQLI_ASSOC);
 
-                if (is_bool($result))
+                if (empty($result))
                 {    
                     // The username or e-mail isn't in the database
-                    header("Location: ../Login.php?error=login_user") or die();
+                    header("Location: ../Login.php?login_error=login_user") or die();
                 }
                 else 
                 {
@@ -86,7 +86,7 @@
                     if ($password_check === FALSE)
                     {
                         // If the password is wrong
-                        header("Location: ../Login.php?error=login_pass") or die();
+                        header("Location: ../Login.php?login_error=login_pass") or die();
                     }
                     else if ($password_check === TRUE)
                     {
@@ -101,7 +101,7 @@
                     else 
                     {
                         // If the password is wrong but due to a different error
-                        header("Location: ../Login.php?error=login_pass_") or die();
+                        header("Location: ../Login.php?login_error=login_pass_") or die();
                     }
                 }
             }
