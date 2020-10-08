@@ -29,10 +29,10 @@
             if (connectToDatabase()){
                 return TRUE;
             } else {
-                return "db_error";
+                return "sql_db";
             }
         } else {
-            return "server_error";
+            return "sql_server";
         }
     }
 

@@ -16,8 +16,8 @@
 
     // Function for creating the database
     function createDatabase($database){
-        if (checkConnection() === "db_error"){
-            // checkConnection returning db_error means that the database doesn't exist
+        if (checkConnection() === "sql_db"){
+            // checkConnection returning sql_db means that the database doesn't exist
             return runQuery("CREATE DATABASE " . $database);
         } else {
             return "db_exists";
