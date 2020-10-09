@@ -6,11 +6,16 @@
         session_start();
     }
 
+    // Logging out the user when needed
+    if (isset($_GET['logout']) && $_GET['logout'] = TRUE){ 
+        logout(); 
+    }
+
     // Function for logging out
     function logout(){
         session_unset();
         session_destroy();
-        header("Location: ../../Index.php") or die();
+        header("Location: /Index.php") or die();
     }
 
     // Function for checking Login Errors
@@ -69,7 +74,7 @@
         if (isset($_SESSION['username'])){
             return $_SESSION['username'];
         }
-        return "Guest";
+        return "guest";
     }
     
     // Function for outputting the current driver number
