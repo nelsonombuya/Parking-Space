@@ -10,6 +10,11 @@
         // Unsets the session error after the error message has been shown
         unset($_GET['login_error']);
     }
+
+    // If the user is already logged in, redirect to account settings
+    if (isset($_SESSION['username'])){
+        header("Location: ../Management/Dashboard") or die();
+    }
 ?>
 <!DOCTYPE html>
 <html>

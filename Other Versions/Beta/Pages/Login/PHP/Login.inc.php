@@ -93,7 +93,7 @@
                         // If the password is correct, the user is logged in successfully
                         unset($_POST);
                         session_start();
-                        $_SESSION['username'] = $row['USERNAME'];
+                        $_SESSION['username'] = $result['0']['USERNAME'];
 
                         // Redirect to Account Management Page
                         header("Location: ../../Management/Account.php") or die();
