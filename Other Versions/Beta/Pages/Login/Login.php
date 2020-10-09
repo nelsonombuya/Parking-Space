@@ -22,7 +22,7 @@
 <head>
     <title>Login Page</title>
     <!-- Validation Javascript Script -->
-    <script type="text/javascript" src="Javascript/Login Validation.js"></script>
+    <script type="text/javascript" src="Javascript/Validation.js"></script>
 
     <!-- Monsterrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
