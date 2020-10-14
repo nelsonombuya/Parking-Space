@@ -7,5 +7,9 @@
 4. Add Guest Session
 5. Using Prepared Statements
     - During First Time Setup
+6. Charging the driver for parking times
+    - Duration
+    - Cost
+    - Type
 
 ## Current Commit Message
