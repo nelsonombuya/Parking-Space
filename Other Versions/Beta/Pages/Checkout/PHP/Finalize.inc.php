@@ -12,7 +12,7 @@
 
         // Updating the Driver's Time Out
         // NOTE: We can use normal sql statements since the data is directly from the DB
-        $query =    "UPDATE DRIVERS
+        $query =    "UPDATE BOOKINGS
                     SET TIME_OUT = '$time_out'
                     WHERE DRIVER_ID = $driver_id";
         runQuery($query);         

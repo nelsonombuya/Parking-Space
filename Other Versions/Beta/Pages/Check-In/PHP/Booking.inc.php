@@ -116,8 +116,8 @@
         $parking_id = $_SESSION['P_ID'];
         $time_in = date("Y-m-d H:i:s");
 
-        // Query for storing the details in the Drivers Table
-        $booking_query =    "INSERT INTO DRIVERS (USERNAME, P_ID, TIME_IN)
+        // Query for storing the details in the Bookings Table
+        $booking_query =    "INSERT INTO BOOKINGS (USERNAME, P_ID, TIME_IN)
                             VALUES ('$username', $parking_id, '$time_in')";
 
         // The query for updating the Parking Table

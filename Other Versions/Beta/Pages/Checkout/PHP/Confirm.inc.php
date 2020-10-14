@@ -24,10 +24,10 @@
                 $conn = connectToDatabase();
 
                 //The query for checking for the parking details in the database
-                $query =    "SELECT DRIVER_ID, USERNAME, DRIVERS.P_ID, TIME_IN, TIME_OUT, P_TYPE, P_STATUS, P_LOCATION
-                            FROM DRIVERS, PARKING
-                            WHERE DRIVERS.P_ID = PARKING.P_ID 
-                            AND DRIVERS.P_ID = ?
+                $query =    "SELECT DRIVER_ID, USERNAME, BOOKINGS.P_ID, TIME_IN, TIME_OUT, P_TYPE, P_STATUS, P_LOCATION
+                            FROM BOOKINGS, PARKING
+                            WHERE BOOKINGS.P_ID = PARKING.P_ID 
+                            AND BOOKINGS.P_ID = ?
                             AND TIME_OUT IS NULL";
             
                 // Preparing and executing the query

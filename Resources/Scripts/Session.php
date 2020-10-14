@@ -79,7 +79,7 @@
     
     // Function for outputting the current driver number
     function currentDriverNumber(){
-        $query =    "SELECT DRIVER_ID FROM DRIVERS 
+        $query =    "SELECT DRIVER_ID FROM BOOKINGS 
                     ORDER BY DRIVER_ID DESC
                     LIMIT 1";
         $result = runQuery($query);
