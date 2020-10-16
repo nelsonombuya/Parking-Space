@@ -26,6 +26,7 @@
                 <br>
                 <em><?php echo $outputs["Time"]; ?></em>
                 <br>
+                <?php if (isset($outputs["Charges"])){echo "<em>" . $outputs["Charges"] . "</em><br>";} ?>
             </div>
             <div class="selection-box">
                 <div class="inputs">

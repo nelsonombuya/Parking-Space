@@ -3,11 +3,15 @@
     
     // Function for getting the parking spot details from the database
     function getParkingDetails($parking_id){
-        if (!checkWhetherParkingSpotExists($parking_id))
+        // Checking whether the parking spot exists
+        $does_parking_exist = checkWhetherParkingSpotExists($parking_id);
+
+        // What to do depending on whether it exists
+        if (!$does_parking_exist)
         {
             return FALSE;
         }
-        else if (checkWhetherParkingSpotExists($parking_id))
+        else if ($does_parking_exist)
         {
             // Using Prepared Statements to avoid SQL injections
             // Checking for connection to DB
@@ -24,7 +28,7 @@
                 $conn = connectToDatabase();
 
                 //The query for checking for the parking details in the database
-                $query =    "SELECT DRIVER_ID, USERNAME, BOOKINGS.P_ID, TIME_IN, TIME_OUT, P_TYPE, P_STATUS, P_LOCATION
+                $query =    "SELECT DRIVER_ID, USERNAME, BOOKINGS.P_ID, TIME_IN, P_LOCATION
                             FROM BOOKINGS, PARKING
                             WHERE BOOKINGS.P_ID = PARKING.P_ID 
                             AND BOOKINGS.P_ID = ?
@@ -147,6 +151,29 @@
         }
     }
 
+    function getCharges($time_in){
+        if (settings['charges']['enabled']){
+            // Calculating the time difference
+            $now = strtotime("now");
+            $time_in = strtotime($time_in);
+            $difference = $now - $time_in;
+
+            // Getting set charging duration and cost from settings
+            $charging_duration = settings['charges']['duration'];
+            $charging_cost = settings['charges']['cost'];
+
+            // Calculating difference in hours
+            $cost_multiplier = (floor($difference/(60 * $charging_duration)));
+            
+            // Getting the total cost the driver has to pay
+            $total_cost = $cost_multiplier * $charging_cost;
+
+            return $total_cost;
+        } else {
+            return FALSE;
+        }
+    }
+
     /*
         After getting the details, we display them to the user for them to confirm the spot
         We also show the amount of time they've spent on the spot
@@ -183,19 +210,25 @@
             $username = $GLOBALS['driver_and_parking_details'][0]["USERNAME"];
             $parking_id = $GLOBALS['driver_and_parking_details'][0]["P_ID"];
             $parking_location = $GLOBALS['driver_and_parking_details'][0]["P_LOCATION"];
+            $charges = getCharges($GLOBALS['driver_and_parking_details'][0]["TIME_IN"]);
             
             // Calculating and Formatting Time for Output
             $elapsed_time = time_elapsed_string($GLOBALS['driver_and_parking_details'][0]["TIME_IN"]);
 
             // Returning the driver's details for confirmation
-            return array(
+            $outputs = array(
                 "Question" => "Is this your parking spot?",
                 "Details" => "Driver #$driver_id ($username) with Parking Spot #$parking_id at $parking_location",
                 "Time" => "You parked here $elapsed_time.",
                 "Status" => TRUE,
                 "Buttons" => confirmParkingButtons(TRUE),
             );
+
+            if ($charges !== FALSE){
+                $outputs["Charges"] = "Your parking fee is Ksh.$charges";
+            }
         }
+        return $outputs;
         
     }
 
