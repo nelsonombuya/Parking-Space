@@ -13,5 +13,6 @@
     - Type
 7. Standardized Function for SQL Prepared Statements
 8. Refactor the booking and unbooking pages & scripts
+9. Extremely unecessary data hashing
 
 ## Current Commit Message
