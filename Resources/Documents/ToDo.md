@@ -11,5 +11,7 @@
     - Duration
     - Cost
     - Type
+7. Standardized Function for SQL Prepared Statements
+8. Refactor the booking and unbooking pages & scripts
 
 ## Current Commit Message
