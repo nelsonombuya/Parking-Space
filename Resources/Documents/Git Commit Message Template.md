@@ -5,6 +5,15 @@
 ### Specify the type of commit:
 
 > Feature : The new feature you're adding to a particular application
+>
+> > _Format_
+>
+> > Feature : (Feature_Name) [Current_State]
+> > For Example:
+> >
+> > > Feature : (Booking) [WIP] Add table for bookings
+> > > Feature : (Booking) [FINAL] Final Commit for Booking Feature
+
 > Fix : A bug fix
 > Style : Feature and updates related to styling
 > Refactor : Refactoring a specific section of the codebase
