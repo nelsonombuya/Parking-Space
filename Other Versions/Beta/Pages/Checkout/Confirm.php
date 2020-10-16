@@ -5,6 +5,9 @@
 
     // The relevant functions for this page
     require "PHP/Confirm.inc.php";
+
+    // Saving Outputs as Variables
+    $outputs = outputParkingDetails();
 ?>
 <head>
     <!--The Page's Unique CSS-->
@@ -14,7 +17,6 @@
 
 <body>
     <div class="container">
-        <?php $outputs = outputParkingDetails(); ?>
         <form name="confirm_checkout_form" onsubmit="<?php saveDetailsToSession(); ?>" action="Finalize.php" method="post">
             <div class="question">
                 <h1><?php echo $outputs["Question"]; ?></h1>

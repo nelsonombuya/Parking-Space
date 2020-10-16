@@ -27,6 +27,9 @@
     align-items: center;
     flex-direction: column;
 }
+.suggestion em {
+    padding-top: 1em;
+}
 
 /* The options */
 .selection-box {

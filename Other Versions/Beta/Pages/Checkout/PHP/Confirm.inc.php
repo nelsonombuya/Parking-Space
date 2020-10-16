@@ -68,7 +68,7 @@
                     if (empty($result))
                     {    
                         // The username or e-mail isn't in the database
-                        header("Location: Checkout.php?checkout_error=parkin_empty") or die();
+                        header("Location: Checkout.php?checkout_error=parking_empty") or die();
                         return FALSE;
                     }
                     else
