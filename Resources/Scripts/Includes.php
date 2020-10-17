@@ -5,7 +5,7 @@
     require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Session.php";
 
     // Including external functions and scripts
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/External/External.php";
+    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/External.php";
 
     // Checking if the connection is made
     if (checkConnection() !== TRUE){

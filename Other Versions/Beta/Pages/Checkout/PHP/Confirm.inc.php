@@ -1,4 +1,7 @@
 <?php
+    // Adding Required Script for generating Elapsed Time
+    require external_scripts . "Elapsed.php";
+
     $driver_and_parking_details = getParkingDetails(htmlentities($_POST['parking-id']));
     
     // Function for getting the parking spot details from the database
