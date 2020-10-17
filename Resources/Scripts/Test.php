@@ -1,19 +1,17 @@
-<?php
-/* 
-        -TEST-
-        Timer for testing 
-    */
-    Timer::start();
+<?php echo "<pre>";
+##################################################################################################
+    // NOTE: Stuff to use -> print_r(); -> var_dump();
+/*----------------------------------------------------------------------------------------------*/
+require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Test/Timer.inc.php"; 
+$stopwatch = new Stopwatch; $stopwatch->start();
+echo ("\n------------------------------------------------------------------------------------\n");
+/*----------------------------------------------------------------------------------------------*/ 
+                                            /* -TEST- */
 
-    // Files to Include
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Includes.php";
 
-    // Variables for testing output
-    echo "<pre>";
-    print_r();
-    var_dump();
-    echo "</pre>";
-
-    // Timer Stopped
-    print Timer::secondsToTimeString(Timer::stop());
-?>
+                                            /* -TEST- */
+/*----------------------------------------------------------------------------------------------*/
+###################################################################################################
+echo ("\n------------------------------------------------------------------------------------\n");
+$stopwatch->stop(); $stopwatch->print_time(); echo "</pre>"; ?>
