@@ -1,11 +1,11 @@
 <?php
     // All the necessary files to be included in a page
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Settings/Parser.php";
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/SQL.php";
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Session.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Settings/Parser.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/SQL.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Session.php";
 
     // Including external functions and scripts
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/External.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/External.php";
 
     // Checking if the connection is made
     if (checkConnection() !== TRUE){

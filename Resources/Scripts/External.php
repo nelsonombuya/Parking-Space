@@ -11,9 +11,9 @@
     // include external_scripts . "Elapsed.php";
 
 ###########################################################################################
+    
     /* 
-        EXTERNAL 
-        Composer
+        COMPOSER
         ---------
         This is a toolkit used to add and maintain php scripts used in the project
 
@@ -23,8 +23,12 @@
             1. matomo/ini
                 This is used for reading and writing into ini files
                 https://github.com/matomo-org/component-ini
+            2. SebastianBergmann\Timer\Timer
+                This is used to get the websites performance time
     */
     // Autoloading the Composer Scripts used in the project
     // NOTE: Comment this line to turn off scripts from Composer
-    require $_SERVER['DOCUMENT_ROOT'] . "/vendor/autoload.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/vendor/autoload.php";
+
+###########################################################################################
 ?>
