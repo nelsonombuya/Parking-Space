@@ -1,0 +1,5 @@
+{
+    "require": {
+        "matomo/ini": "^2.0"
+    }
+}

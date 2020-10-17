@@ -1,0 +1,37 @@
+[
+    {
+        "name": "matomo/ini",
+        "version": "2.0.2",
+        "version_normalized": "2.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/matomo-org/component-ini.git",
+            "reference": "f7b0d6ce594b34ead16864fbc5062c771328ac31"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/matomo-org/component-ini/zipball/f7b0d6ce594b34ead16864fbc5062c771328ac31",
+            "reference": "f7b0d6ce594b34ead16864fbc5062c771328ac31",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "athletic/athletic": "0.1.*",
+            "phpunit/phpunit": "^4.8.36"
+        },
+        "time": "2020-01-12T18:54:50+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Matomo\\Ini\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-3.0"
+        ]
+    }
+]

@@ -9,4 +9,22 @@
     // NOTE: To include individual files, uncomment the following lines as necessary
     // NOTE: The following lines can also be added directly to the page that needs them
     // include external_scripts . "Elapsed.php";
+
+###########################################################################################
+    /* 
+        EXTERNAL 
+        Composer
+        ---------
+        This is a toolkit used to add and maintain php scripts used in the project
+
+        Scipts Used
+        ------------
+        So far, we're using the following plugins:
+            1. matomo/ini
+                This is used for reading and writing into ini files
+                https://github.com/matomo-org/component-ini
+    */
+    // Autoloading the Composer Scripts used in the project
+    // NOTE: Comment this line to turn off scripts from Composer
+    require $_SERVER['DOCUMENT_ROOT'] . "/vendor/autoload.php";
 ?>
