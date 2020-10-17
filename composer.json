@@ -1,5 +1,6 @@
 {
     "require": {
-        "matomo/ini": "^2.0"
+        "matomo/ini": "^2.0",
+        "phpunit/php-timer": "^5.0"
     }
 }
