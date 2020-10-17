@@ -1,9 +1,13 @@
 <?php
     // Script for reading and modifying the system settings 
     
+    // Defining file paths to important files
+    define ('files', array(
+        'settings' => $_SERVER['DOCUMENT_ROOT'] . "/Resources/Settings/Settings.ini",
+    ));
+
     // Parsing the settings from Settings.ini and saving it as a constant
-    define('settings', parse_ini_file(
-        $_SERVER['DOCUMENT_ROOT'] . "/Resources/Settings/Settings.ini", TRUE));
+    define('settings', parse_ini_file(files['settings'], TRUE));
 
     // Version Management
     // Defining Current Root
