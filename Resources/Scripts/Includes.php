@@ -3,7 +3,9 @@
     require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Settings/Parser.php";
     require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/SQL.php";
     require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Session.php";
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/External.php";
+
+    // Including external functions and scripts
+    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/External/External.php";
 
     // Checking if the connection is made
     if (checkConnection() !== TRUE){

@@ -1,6 +1,11 @@
 <?php
     // NOTE: The contents of this file are functions obtained from external sources for use in the project
 
+    /*
+        EXTERNAL: INI FILES
+        Functions for writing into INI Files
+    */
+
     /* 
         EXTERNAL: TIME ELAPSED 
         Function to output the time elapsed as a string
