@@ -1,8 +1,8 @@
 <?php
-/*------------------------------------------------------------------------------------------------ 
-        COMPOSER TIMER
-        Timer used in tests. Based on SebastianBergmann\Timer\Timer.
-------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------
+    COMPOSER TIMER
+    Timer used in tests. Based on SebastianBergmann\Timer\Timer.
+------------------------------------------------------------------------*/
     /* Adding Timer From Composer */
     require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
     use SebastianBergmann\Timer\Timer;
