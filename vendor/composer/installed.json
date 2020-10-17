@@ -1,37 +1,51 @@
 [
     {
-        "name": "matomo/ini",
-        "version": "2.0.2",
-        "version_normalized": "2.0.2.0",
+        "name": "jelix/inifile",
+        "version": "v3.2.4",
+        "version_normalized": "3.2.4.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/matomo-org/component-ini.git",
-            "reference": "f7b0d6ce594b34ead16864fbc5062c771328ac31"
+            "url": "https://github.com/jelix/inifile.git",
+            "reference": "b0caa130f5c8329cb23f4ae19e4c7a1f7022c063"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/matomo-org/component-ini/zipball/f7b0d6ce594b34ead16864fbc5062c771328ac31",
-            "reference": "f7b0d6ce594b34ead16864fbc5062c771328ac31",
+            "url": "https://api.github.com/repos/jelix/inifile/zipball/b0caa130f5c8329cb23f4ae19e4c7a1f7022c063",
+            "reference": "b0caa130f5c8329cb23f4ae19e4c7a1f7022c063",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.3"
+            "php": ">=5.6.1"
         },
         "require-dev": {
-            "athletic/athletic": "0.1.*",
-            "phpunit/phpunit": "^4.8.36"
+            "phpunit/phpunit": "4.8.*"
         },
-        "time": "2020-01-12T18:54:50+00:00",
+        "time": "2020-03-28T12:26:54+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Matomo\\Ini\\": "src/"
+                "Jelix\\IniFile\\": "lib/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
-            "LGPL-3.0"
+            "LGPL-2.1"
+        ],
+        "authors": [
+            {
+                "name": "Laurent Jouanneau",
+                "email": "laurent@jelix.org"
+            },
+            {
+                "name": "Loic Mathaud"
+            }
+        ],
+        "description": "classes to read and modify ini files by preserving comments and empty lines",
+        "homepage": "http://jelix.org",
+        "keywords": [
+            "files",
+            "ini"
         ]
     },
     {

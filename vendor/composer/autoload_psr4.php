@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Matomo\\Ini\\' => array($vendorDir . '/matomo/ini/src'),
+    'Jelix\\IniFile\\' => array($vendorDir . '/jelix/inifile/lib'),
 );

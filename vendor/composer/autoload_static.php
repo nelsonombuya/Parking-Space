@@ -7,16 +7,16 @@ namespace Composer\Autoload;
 class ComposerStaticInit407dcd74e1c6eb4a5b929bb20465f57a
 {
     public static $prefixLengthsPsr4 = array (
-        'M' => 
+        'J' => 
         array (
-            'Matomo\\Ini\\' => 11,
+            'Jelix\\IniFile\\' => 14,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Matomo\\Ini\\' => 
+        'Jelix\\IniFile\\' => 
         array (
-            0 => __DIR__ . '/..' . '/matomo/ini/src',
+            0 => __DIR__ . '/..' . '/jelix/inifile/lib',
         ),
     );
 
