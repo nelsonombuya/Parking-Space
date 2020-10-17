@@ -5,5 +5,6 @@
     // Variables for testing output
     echo "<pre>";
     print_r();
+    var_dump();
     echo "</pre>";
 ?>
