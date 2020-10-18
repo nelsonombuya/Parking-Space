@@ -63,7 +63,7 @@
     // Function for hashing test user passwords
     function hashPasswords(){
         // Getting the already added user data
-        $users = runQuery("SELECT * FROM USERS");
+        $users = runQuery("SELECT * FROM USER");
 
         // Getting each user's details and hashing their passwords individually
         foreach ($users as $user => $data){
@@ -72,7 +72,7 @@
             $hashed_password = password_hash($original_password, PASSWORD_DEFAULT);
 
             // Running update query to change their insecure passwords to the hashed password
-            $query ="UPDATE USERS 
+            $query ="UPDATE USER 
                     SET PASS = '$hashed_password'
                     WHERE USERNAME = '$username'";
             $result[$username]= runQuery($query);
@@ -81,7 +81,7 @@
         return $result;
     }
 
-    function setup($tables = tables, $database = settings['server']['db']){
+    function setup($tables = tables, $database = settings['server']['database']){
         // NOTE: The variables are used for error detection
         // First we create the Database
         $database_result = createDatabase($database);
@@ -96,7 +96,7 @@
             }
         } else {
             // If they don't need test data, we add the Admin User(s)
-            $data_result['USERS'] = addTestData($tables['USERS']["DATA"]);
+            $data_result['USER'] = addTestData($tables['USER']["DATA"]);
         }
 
         // Then we hash the password for the added users

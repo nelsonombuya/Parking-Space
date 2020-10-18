@@ -18,7 +18,7 @@
             settings["server"]["host"],     // The Host Name
             settings["server"]["user"],     // The Host username
             settings["server"]["password"], // The Host Password
-            settings['server']['db']        // The Host Database
+            settings['server']["database"]  // The Host Database
         );
     }
 
