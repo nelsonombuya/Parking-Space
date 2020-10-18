@@ -1,11 +1,14 @@
 <?php
-    // All the necessary files to be included in a page
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Settings/Parser.php";
+    // REQUIREMENTS
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Parser.php";
     require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/SQL.php";
     require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Session.php";
 
-    // Including external functions and scripts
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/External.php";
+    // CLASSES
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Classes/SQL.class.php";
+
+    // EXTERNAL CLASSES AND SCRIPTS
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/External.inc.php";
 
     // Checking if the connection is made
     if (checkConnection() !== TRUE){

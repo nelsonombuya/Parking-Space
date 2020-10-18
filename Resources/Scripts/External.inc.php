@@ -20,11 +20,13 @@
         Scipts Used
         ------------
         So far, we're using the following plugins:
-            1. matomo/ini
+            1. jelix/inifile
                 This is used for reading and writing into ini files
-                https://github.com/matomo-org/component-ini
-            2. SebastianBergmann\Timer\Timer
+                https://github.com/jelix/inifile
+                Uses \Jelix\IniFile\IniModifier
+            2. phpunit/php-timer
                 This is used to get the websites performance time
+                Uses SebastianBergmann\Timer\Timer
     */
     // Autoloading the Composer Scripts used in the project
     // NOTE: Comment this line to turn off scripts from Composer

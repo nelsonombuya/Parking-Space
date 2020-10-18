@@ -1,6 +1,6 @@
 <?php
     // Files to be included 
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Includes.php";
+    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Includes.inc.php";
 
     /*
     TODO: 

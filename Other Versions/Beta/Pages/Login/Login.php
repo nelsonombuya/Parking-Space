@@ -1,7 +1,7 @@
 <?php
     // Defining login errors and what to do if an error had occured
     // Check for a user session
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Includes.php";
+    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Includes.inc.php";
 
     // Checks if the error has happened, if not, just run the main script
     if (isset($_GET['login_error'])){

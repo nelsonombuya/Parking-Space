@@ -5,7 +5,7 @@
 /*====================================================================================*/
 
 /*=====================================Includes=======================================*/
-require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Settings/Parser.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Parser.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Classes/SQL.class.php";
 /*====================================================================================*/
     class Setup extends SQL{

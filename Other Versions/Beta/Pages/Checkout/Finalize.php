@@ -1,6 +1,6 @@
 <?php
     // Including the required files and scripts
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Includes.php";
+    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Includes.inc.php";
     require $_SERVER['DOCUMENT_ROOT'] . relative_root_dir . "/Resources/Formats/PHP/Header.php";
 
     // The relevant functions for this page

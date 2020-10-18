@@ -1,6 +1,6 @@
 <?php
     // Required Files
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Includes.php";
+    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Includes.inc.php";
 
     // Checking for user input
     if (isset($_POST['login_username']) && isset($_POST['login_password']))

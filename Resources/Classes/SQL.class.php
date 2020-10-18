@@ -3,9 +3,10 @@
 /* Class used for SQL Commands and such. Makes Life Easier                            */
 /*====================================================================================*/
 
-/*=====================================Includes=======================================*/
-require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Settings/Parser.php";
+/*=====================================Requirements===================================*/
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Parser.php";
 /*====================================================================================*/
+
     class SQL {
         protected $_connection;
         protected $_database;
