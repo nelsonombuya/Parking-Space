@@ -1,18 +1,17 @@
 <?php
-    // Defining login errors and what to do if an error had occured
-    // Check for a user session
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Includes.inc.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Includes.inc.php";
+    require_once "PHP/LoginErrors.inc.php";
 
     // Checks if the error has happened, if not, just run the main script
-    if (isset($_GET['login_error'])){
-        echo checkLoginErrors();
+    if (isset($_GET['error'])){
+        echo checkLoginErrors($_GET['error']);
         
         // Unsets the session error after the error message has been shown
-        unset($_GET['login_error']);
+        unset($_GET['error']);
     }
 
     // If the user is already logged in, redirect to account settings
-    if (isset($_SESSION['username'])){
+    if (isset($_SESSION['username']) && $_SESSION['is_logged_in']){
         header("Location: ../Management/Dashboard") or die();
     }
 ?>
