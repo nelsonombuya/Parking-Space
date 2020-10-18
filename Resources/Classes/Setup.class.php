@@ -4,9 +4,9 @@
 /* Extends the SQL Class to be able to use SQL commands                               */
 /*====================================================================================*/
 
-/*=====================================Includes=======================================*/
-require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Parser.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Classes/SQL.class.php";
+/*================================== Requirements ====================================*/
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Parser.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/Resources/Classes/SQL.class.php";
 /*====================================================================================*/
     class Setup extends SQL{
         private $_tables;
