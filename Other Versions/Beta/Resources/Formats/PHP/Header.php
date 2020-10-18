@@ -30,11 +30,11 @@
         <!-- The Driver's Details Container -->
         <div class="driver_details">
             <div class="driver_number">
-                <h1>#<?php echo (currentDriverNumber() + 1); ?></h1>
+                <h1>#<?php echo $session->driver_number + 1; ?></h1>
             </div>
             <div class="user_id">
                 <a href="<?php echo relative_root_dir; ?>/Pages/Management/Dashboard.php">
-                    <h2>#<?php echo currentUsername(); ?></h2>
+                    <h2>#<?php echo $session->username; ?></h2>
                 </a>
             </div>
         </div>

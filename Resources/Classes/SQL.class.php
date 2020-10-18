@@ -68,7 +68,6 @@
         public function prepareQuery($query){
             if (!$this->prepared = $this->_connection->stmt_init()){
                 return $this->error = "sql_init";        // Error initializing the SQL Database connection
-
             } else if (!$this->prepared = $this->_connection->prepare($query)){
                 return $this->error = "sql_prepare";     // Error preparing the SQL Statement
             } else {
@@ -80,8 +79,7 @@
             NOTE: To Bind Data, one needs to call the bind function using the object 
                 e.g. 
                 $SQL = new SQL;
-                ;
-                if ($SQL->prepareQuery($query){
+                if ($SQL->prepareQuery($query)){
                     if ($SQL->prepared->bind_param("sss", $element, $of, $surpise)){
                         $SQL->executePreparedQuery();
         
@@ -98,12 +96,6 @@
             } else {                                
                 /* Getting the results of the query */
                 return $this->fetchResults($this->prepared->get_result());
-            }
-        }
-
-        public function redirect($page, $error_type){
-            if (!empty($this->error)){
-                return header("Location: $page?$error_type-error=$this->error") or die();
             }
         }
 
