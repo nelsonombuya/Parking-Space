@@ -1,6 +1,5 @@
 <?php
     // Including the required files and scripts
-    require "../Resources/Scripts/Settings.inc.php";
     require "../Resources/Headers/PHP/Header.php";
     
     // Scripts for this page

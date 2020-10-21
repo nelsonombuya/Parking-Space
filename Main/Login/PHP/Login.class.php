@@ -25,9 +25,7 @@
         private function login($username, $password)
         {
             /* Getting user details */
-            echo "<pre>";
-            var_dump($user_data = $this->userDetails($username));
-            echo "</pre>";
+            $user_data = $this->userDetails($username);
 
             if (empty($user_data)) 
             {
@@ -49,7 +47,6 @@
             {
                 /* Username iko sawa, Password iko sawa */
                 unset($_POST);
-                $_SESSION['is_logged_in'] = TRUE;
                 $SESSION = new Session($this->username = $username, TRUE);
                 header("Location: ../../Management/Account.php") or die();
             } 

@@ -10,7 +10,7 @@
     $Session = new Session;
     
     /* EXTERNAL CLASSES AND SCRIPTS */
-    require_once $Session->version_dir . "/Resources/Scripts/External.inc.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/System/Scripts/External.inc.php";
 /*-------------------------------------------------------------------------------------*/
 
     /* Checking if the connection to the server is made */

@@ -186,7 +186,8 @@
         }
 
         /* Function for connecting to the Server */
-        public function connectToServer(){ 
+        public function connectToServer()
+        { 
             /* Returns TRUE if successful, FALSE if not */
             return mysqli_connect(
                 $this->settings["server"]["host"],     // The Host Name
@@ -196,7 +197,8 @@
         }
         
         // Function for connecting to the Database
-        public function connectToDatabase(){ 
+        public function connectToDatabase()
+        { 
             /* Returns TRUE if successful, FALSE if not */
             return mysqli_connect(
                 $this->settings["server"]["host"],     // The Host Name
