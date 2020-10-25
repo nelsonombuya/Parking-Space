@@ -1,11 +1,10 @@
 <?php
-    // Including the required files and scripts
-    require "../Resources/Headers/PHP/Header.php";
-    
-    // Scripts for this page
-    require "PHP/Globals.inc.php";
-    require "PHP/Booking.inc.php";
-    require "PHP/Outputs.inc.php";
+/*========================================= Requirements =========================================*/
+    // require_once "PHP/CheckIn.class.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/Main/Resources/Headers/PHP/Header.php";
+    require_once "PHP/Check-In.class.php";
+    $Check_In = new CheckIn;
+/*===============================================================================================*/
 ?>
 
 <head>
@@ -17,42 +16,28 @@
 <body>
     <div class="container">
         <div class="question">
-            <h1><?php printQuestion($_GET['current_question']); ?></h1>
+            <h1><?php echo $Check_In->heading; ?></h1>
         </div>
+
         <div class="suggestion">
-            <h2><?php printSuggestion($_GET['current_question']); ?></h2>
+            <h2><?php echo $Check_In->subheading; ?></h2>
         </div>
+
         <div class="selection-box">
             <div id="back">
                 <a href="javascript:history.back()">
-                    <img src="<?php echo relative_root_dir; ?>/Resources/Images/Back.png" alt="Back">
+                    <img src="<?php echo $Check_In->version_dir_relative; ?>/Resources/Images/Back.png" alt="Back">
                 </a>
             </div>
             <div class="options">
-                <?php printAnswers($_GET['current_question']); ?>
+                <?php $Check_In->printoptions(); ?>
             </div>
         </div>
     </div>
-    <?php saveAnswers($_GET['current_question']); ?>
+
+    <!-- Saving User Selections -->
+    <?php if ($_GET['page'] > 0) $Check_In->saveSelections($_GET['page'], $_GET['selection']); ?>
+
+    <!-- If a booking occurs successfully -->
+    <?php if ($_GET['page'] > 3) header("refresh:10; url=Check-In.php") or die(); ?>
 </body>
-
-<?php
-    // Handling the driver's answers 
-    function saveAnswers($position)
-    {
-        // Stores their previously selected answer as a list in session
-        if ($position > 0)
-        {
-            $_SESSION['selection'][$position - 1] = $_GET['selection'];
-        }
-    }
-
-    // Once the parking has been confirmed, it runs the booking process
-    if ($_GET['current_question'] >= 4)
-    {
-        // Runs the booking query and stores it's output for error checking
-        bookParking();
-        $_SESSION['booked'] = TRUE;
-        header("refresh:5; url=Check-In.php");
-    }
-?>
