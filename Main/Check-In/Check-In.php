@@ -1,6 +1,5 @@
 <?php
 /*========================================= Requirements =========================================*/
-    // require_once "PHP/CheckIn.class.php";
     require_once $_SERVER['DOCUMENT_ROOT'] . "/Main/Resources/Headers/PHP/Header.php";
     require_once "PHP/Check-In.class.php";
     $Check_In = new CheckIn;

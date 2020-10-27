@@ -29,8 +29,7 @@
                 /* Heading */
                 $this->heading = $this->heading($this->_page);
 
-                /* Subheading */
-                $this->subheading = $this->subheading($this->_page);
+                /* Subheading remains blank until the user has a parking spot suggested to them */
 
                 /* Options */
                 $this->_options = $this->options($this->_page);
@@ -76,16 +75,6 @@
 
                 case 2:
                     return "Would you prefer handicapped parking?";
-                break;
-            }
-        }
-
-        private function subheading($_page)
-        {
-            switch ($_page)
-            {
-                default :
-                    return "";
                 break;
             }
         }
@@ -212,7 +201,7 @@
             }
         }
 
-        private function checkForAvailableParkingSpot($selection, $EXTRA = NULL)
+        private function checkForAvailableParkingSpot($selection, $FLAG = NULL)
         {
             /* 
                 Selections
@@ -222,7 +211,7 @@
             */
             
             /* Checking where there is an available parking spot depending on what the user has chosen */
-            if ($EXTRA === NULL)
+            if ($FLAG === NULL)
             {
                 if ($selection[2] === "Yes")
                 {
@@ -251,7 +240,7 @@
             else
             {
                 /* If the selection is not an array, we'll automatically look for the closest available parking */
-                $result = $this->runParkingQuery($selection, $EXTRA);
+                $result = $this->runParkingQuery($selection, $FLAG);
             }
 
             return $result;
@@ -264,6 +253,7 @@
                 1. If the driver want's handicapped parking, we try that first
                 2. If the driver doesn't need handicapped parking, but will only be here for a short time, we try that
                 3. If the driver doesn't need handicapped parking and won't be here long, give them regular parking
+                (The above also applies if the driver wants both handicapped parking and will be there for a short time)
             */
 
             if ($FLAG === "Both")
