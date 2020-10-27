@@ -1,4 +1,9 @@
+# VS Code Settings
 .vscode/
-Resources/Documents/Features.md
+
+# Random generated desktop.ini files
 desktop.ini
-Documentation/~$oject Guide.docx
+
+# Some documentation locks for .odt and .docx files
+.~*
+~$*

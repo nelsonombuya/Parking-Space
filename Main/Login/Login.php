@@ -1,7 +1,7 @@
 <?php
 /*==================================== Login Page =====================================*/
 /*---------------------------------- Required Files -----------------------------------*/
-    require_once "../Resources/Scripts/Settings.inc.php";
+    require_once "../Resources/Headers/PHP/Settings.inc.php";
     require_once "PHP/LoginErrors.inc.php";
 /*-------------------------------------------------------------------------------------*/
 
