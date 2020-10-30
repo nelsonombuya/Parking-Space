@@ -37,7 +37,7 @@
             else if ($this->_page == 3)
             {
                 /* Once we reach page 3+, we start the booking process */
-                $this->book($_SESSION['selections']);
+                $this->confirmation($_SESSION['selections']);
             }
             else
             {
@@ -61,9 +61,9 @@
             }
         }
 
-        private function heading($_page)
+        private function heading($page)
         {
-            switch ($_page)
+            switch ($page)
             {
                 case 0:
                     return "Where would you like to go?";
@@ -79,9 +79,9 @@
             }
         }
 
-        private function options($_page)
+        private function options($page)
         {
-            switch ($_page)
+            switch ($page)
             {
                 case 0:
                     return $this->locations();
@@ -110,14 +110,14 @@
                 if ($option === "Return")
                 {
                     echo    "<div class='option'>".
-                            "<a href='?page=0&selection=".$option."'>".$option."</a>".
-                        "</div>";
+                                "<a href='?page=0&selection=".$option."'>".$option."</a>".
+                            "</div>";
                 }
                 else
                 {
                     echo    "<div class='option'>".
-                            "<a href='?page=".($this->_page + 1)."&selection=".$option."'>".$option."</a>".
-                        "</div>";
+                                "<a href='?page=".($this->_page + 1)."&selection=".$option."'>".$option."</a>".
+                            "</div>";
                 }
             }
         }
@@ -143,23 +143,24 @@
             return $locations_array;
         }
 
-        private function book($selection)
+        private function confirmation($selection)
         {
             /* First, we check whether there is an available parking spot depending on the options they selected */
-            if (!empty($result = $this->checkForAvailableParkingSpot($selection)))
+            $result = $this->checkForAvailableParkingSpot($selection);
+            if (!empty($result))
             {
                 /* A parking spot was found */
-                $_SESSION['SPOT'] = $parking_id = $result[0]['ID'];
+                $_SESSION['PARKING_SPOT_ID'] = $parking_spot_ID = $result[0]['ID'];
                 $_SESSION['LOCATION'] = $location = $result[0]['NAME'];
 
                 /* Heading */
                 $this->heading = "Confirm Parking Spot";
 
                 /* Subheading */
-                $this->subheading = "Parking Spot Found At P#$parking_id near $location";
+                $this->subheading = "Parking Spot Found At P#$parking_spot_ID near $location";
 
                 /* Options */
-                $this->_options = array("Confirm");
+                $this->_options = array("Return", "Confirm");
 
             }
             else
@@ -168,20 +169,25 @@
                     A parking spot was not found 
                     Finding another available parking spot
                 */
-                /* This algorithm is set from settings.ini */
-                $next_closest_parking = $this->settings['system']['next_closest_spot'] ? "Next Closest Parking" : "Any";
-
-                if (!empty($result = $this->checkForAvailableParkingSpot($selection, $next_closest_parking)))
+                /* 
+                    The algorithm to be used is set from settings.ini 
+                    Can be : 
+                        Any =>  settings['system']['next_closest_spot'] will be FALSE
+                        Next Closest Parking => settings['system']['next_closest_spot'] will be TRUE
+                */
+                $FLAG = $this->settings['system']['next_closest_spot'] ? "Next Closest Parking" : "Any";
+                $result = $this->checkForAvailableParkingSpot($selection, $FLAG);
+                if (!empty($result))
                 {
                     /* A parking spot was found */
-                    $_SESSION['SPOT'] = $parking_id = $result[0]['ID'];
+                    $_SESSION['PARKING_SPOT_ID'] = $parking_spot_ID = $result[0]['ID'];
                     $_SESSION['LOCATION'] = $location = $result[0]['NAME'];
 
                     /* Heading */
                     $this->heading = "Found a different parking spot";
 
                     /* Subheading */
-                    $this->subheading = "Parking Spot Found At P#$parking_id near $location";
+                    $this->subheading = "Parking Spot Found At P#$parking_spot_ID near $location";
 
                     /* Options */
                     $this->_options = array("Return", "Confirm");
@@ -190,7 +196,7 @@
                 {
                     /* No Parking spot was found */
                     /* Heading */
-                    $this->heading = "There's no available parking spot";
+                    $this->heading = "There are no available parking spot";
 
                     /* Subheading */
                     $this->subheading = "Try again later";
@@ -239,7 +245,10 @@
             }
             else
             {
-                /* If the selection is not an array, we'll automatically look for the closest available parking */
+                /* 
+                    If the flag is added, it means that there weren't any available parking spots that meet the user's requirements.
+                    So we're using the algorithm to find the next closest parking
+                */
                 $result = $this->runParkingQuery($selection, $FLAG);
             }
 
@@ -295,38 +304,38 @@
             switch ($FLAG)
             {
                 case "Handicapped":
-                    return  "SELECT SPOT.ID, LOCATION.NAME 
-                            FROM SPOT, LOCATION
-                            WHERE SPOT.LOCATION_ID = LOCATION.ID
+                    return  "SELECT PARKING_SPOT.ID, LOCATION.NAME 
+                            FROM PARKING_SPOT, LOCATION
+                            WHERE PARKING_SPOT.LOCATION_ID = LOCATION.ID
                             AND LOCATION.NAME = ?
-                            AND SPOT.TYPE = 'Handicapped'
-                            AND SPOT.STATUS = 'Free'";
+                            AND PARKING_SPOT.TYPE = 'Handicapped'
+                            AND PARKING_SPOT.STATUS = 'Free'";
                 break;
 
                 case "Pick-Up":
-                    return  "SELECT SPOT.ID, LOCATION.NAME 
-                            FROM SPOT, LOCATION
-                            WHERE SPOT.LOCATION_ID = LOCATION.ID
+                    return  "SELECT PARKING_SPOT.ID, LOCATION.NAME 
+                            FROM PARKING_SPOT, LOCATION
+                            WHERE PARKING_SPOT.LOCATION_ID = LOCATION.ID
                             AND LOCATION.NAME = ?
-                            AND SPOT.TYPE = 'Pick-Up'
-                            AND SPOT.STATUS = 'Free'";
+                            AND PARKING_SPOT.TYPE = 'Pick-Up'
+                            AND PARKING_SPOT.STATUS = 'Free'";
                 break;
                     
                 case "Any":
-                    return  "SELECT SPOT.ID, LOCATION.NAME 
-                            FROM SPOT, LOCATION
-                            WHERE SPOT.LOCATION_ID = LOCATION.ID
-                            AND SPOT.TYPE = 'Open'
-                            AND SPOT.STATUS = 'Free'"; 
+                    return  "SELECT PARKING_SPOT.ID, LOCATION.NAME 
+                            FROM PARKING_SPOT, LOCATION
+                            WHERE PARKING_SPOT.LOCATION_ID = LOCATION.ID
+                            AND PARKING_SPOT.TYPE = 'Open'
+                            AND PARKING_SPOT.STATUS = 'Free'"; 
                 break;
 
                 default:
-                    return  "SELECT SPOT.ID, LOCATION.NAME 
-                            FROM SPOT, LOCATION
-                            WHERE SPOT.LOCATION_ID = LOCATION.ID
+                    return  "SELECT PARKING_SPOT.ID, LOCATION.NAME 
+                            FROM PARKING_SPOT, LOCATION
+                            WHERE PARKING_SPOT.LOCATION_ID = LOCATION.ID
                             AND LOCATION.NAME = ?
-                            AND SPOT.TYPE = 'Open'
-                            AND SPOT.STATUS = 'Free'";
+                            AND PARKING_SPOT.TYPE = 'Open'
+                            AND PARKING_SPOT.STATUS = 'Free'";
                 break;
             }
         }
@@ -335,18 +344,18 @@
         {
             /* Getting the necessary details ready */
             $username = isset($_SESSION['username']) ? $_SESSION['username'] : "guest";
-            $parking_id = $_SESSION['SPOT'];
+            $parking_spot_ID = $_SESSION['PARKING_SPOT_ID'];
             $location = $_SESSION['LOCATION'];
             $time_in = date("Y-m-d H:i:s");
 
             /* Query for storing the details in the Parking Transactions Table */
-            $booking_query =    "INSERT INTO PARKING_TRANSACTION (USERNAME, SPOT_ID, TIME_IN)
-                                VALUES ('$username', $parking_id, '$time_in')";
+            $booking_query =    "INSERT INTO PARKING_TRANSACTION (USERNAME, PARKING_SPOT_ID, TIME_IN)
+                                VALUES ('$username', $parking_spot_ID, '$time_in')";
 
             /* The query for updating the Parking Spots Table */
-            $updating_status_query =    "UPDATE SPOT
+            $updating_status_query =    "UPDATE PARKING_SPOT
                                         SET STATUS = 'Taken'
-                                        WHERE ID = $parking_id";
+                                        WHERE ID = $parking_spot_ID";
             
             /* Running the Queries */
             $this->runQuery($booking_query);
@@ -357,16 +366,16 @@
             $this->heading = "Parking has been booked successfully";
 
             /* Subheading */
-            $this->subheading = "Proceed to P#$parking_id near $location";
+            $this->subheading = "Proceed to P#$parking_spot_ID near $location";
 
             /* Options */
             $this->_options = array("Return");
         }
 
         /*------------------------------------------------ Inputs -------------------------------------------------*/
-        public function saveSelections($_page, $selection)
+        public function saveSelections($page, $selection)
         {
             /* Saves the user selected answers as a session variable for later access */
-            $_SESSION['selections'][$_page - 1] = $selection;
+            $_SESSION['selections'][$page - 1] = $selection;
         }
     }
