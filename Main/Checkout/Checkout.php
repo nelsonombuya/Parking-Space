@@ -1,12 +1,12 @@
 <?php
-    // Including the required files and scripts
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Includes.inc.php";
-    require $_SERVER['DOCUMENT_ROOT'] . relative_root_dir . "/Resources/Formats/PHP/Header.php";
+/*========================================= Requirements =========================================*/
+    require_once "../Resources/Headers/PHP/Header.php";
+/*===============================================================================================*/
 ?>
 
 <head>
     <!-- Validation Javascript Script -->
-    <script type="text/javascript" src="Javascript/Validation.js"></script>
+    <script type="text/javascript" src="JS/Validation.js"></script>
 
     <!--The Page's Unique CSS-->
     <link rel="stylesheet" type="text/css" href="CSS/Checkout.css">
@@ -23,11 +23,11 @@
                 <div class="inputs">
                     <div id="back">
                         <a href="javascript:history.back()">
-                            <img src="../../Resources/Images/Back.png"alt="Back">
+                            <img src="../Resources/Images/Back.png"alt="Back">
                         </a>
                     </div>
                     <div class="textbox">
-                        <input autofocus type="text" name="parking-id">
+                        <input autofocus type="text" name="parking-spot-ID">
                     </div>
                     <div class="confirm">
                         <input type="submit" value="Confirm">

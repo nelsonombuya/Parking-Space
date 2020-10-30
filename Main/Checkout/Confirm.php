@@ -1,13 +1,9 @@
 <?php
-    // Including the required files and scripts
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Includes.inc.php";
-    require $_SERVER['DOCUMENT_ROOT'] . relative_root_dir . "/Resources/Formats/PHP/Header.php";
-
-    // The relevant functions for this page
-    require "PHP/Confirm.inc.php";
-
-    // Saving Outputs as Variables
-    $outputs = outputParkingDetails();
+/*========================================= Requirements =========================================*/
+    require_once "../Resources/Headers/PHP/Header.php";
+    require_once "PHP/Checkout.class.php";
+    $Checkout = new Checkout($_POST['parking-spot-ID']);
+/*===============================================================================================*/
 ?>
 <head>
     <!--The Page's Unique CSS-->
@@ -17,26 +13,29 @@
 
 <body>
     <div class="container">
-        <form name="confirm_checkout_form" onsubmit="<?php saveDetailsToSession(); ?>" action="Finalize.php" method="post">
+        <form name="confirm_checkout_form" action="Finalize.php" method="POST">
             <div class="question">
-                <h1><?php echo $outputs["Question"]; ?></h1>
+                <h1><?php echo $Checkout->outputs["Heading"]; ?></h1>
             </div>
             <div class="suggestion">
-                <h2><?php echo $outputs["Details"]; ?></h2>
+                <h2><?php echo $Checkout->outputs["Subheading"]; ?></h2>
                 <br>
-                <em><?php echo $outputs["Time"]; ?></em>
+                <em><?php echo $Checkout->outputs["Time"]; ?></em>
                 <br>
-                <?php if (isset($outputs["Charges"])){echo "<em>" . $outputs["Charges"] . "</em><br>";} ?>
+                <?php if (isset($Checkout->outputs["Charges"])){echo "<em>" . $Checkout->outputs["Charges"] . "</em><br>";} ?>
             </div>
             <div class="selection-box">
                 <div class="inputs">
-                    <?php echo $outputs["Buttons"]; ?>
+                    <?php echo $Checkout->outputs["Buttons"]; ?>
                 </div>
                 <div class="buttons">
                 </div>
             </div>
         </form>
     </div>
+    
+    <!-- Saving the user data to session just in case they confirm the spot -->
+    <?php $Checkout->saveDetailsToSession(); ?>
 </body>
 
 </html>

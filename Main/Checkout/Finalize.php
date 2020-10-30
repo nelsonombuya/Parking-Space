@@ -1,10 +1,9 @@
 <?php
-    // Including the required files and scripts
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Includes.inc.php";
-    require $_SERVER['DOCUMENT_ROOT'] . relative_root_dir . "/Resources/Formats/PHP/Header.php";
-
-    // The relevant functions for this page
-    require "PHP/Finalize.inc.php";
+/*========================================= Requirements =========================================*/
+    require_once "../Resources/Headers/PHP/Header.php";
+    require_once "PHP/Checkout.class.php";
+    $Checkout = new Checkout($_SESSION['parking_spot_ID']);
+/*===============================================================================================*/
 ?>
 
 <head>
@@ -16,12 +15,14 @@
 <body>
     <div class="container">
         <div class="question">
-            <h1>Checkout Successful</h1>
+            <h1><?php echo $Checkout->outputs["Heading"]; ?></h1>
         </div>
         <div class="suggestion">
-            <h2>You may leave your parking spot in the next 20 minutes.</h2>
+            <h2><?php echo $Checkout->outputs["Subheading"]; ?></h2>
         </div>
     </div>
+    <!-- Once everything's done, clean up -->
+    <?php $Checkout->cleanUp(); ?>
 </body>
 
 </html>
