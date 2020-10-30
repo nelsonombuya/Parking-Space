@@ -9,10 +9,11 @@ Our Kabarak Team Project
 ## Status
 
 `Refactoring...`
-`Currently running on` **Beta**
+`Currently running on` **Gamma**
 
 -   `Much Work`
 -   `Much Stress`
+-   `Object Oriented = Amazing`
 
 #### ┻━┻ ︵ヽ(`Д´)ﾉ︵ ┻━┻
 

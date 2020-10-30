@@ -1,0 +1,6 @@
+{
+    "require": {
+        "phpunit/php-timer": "^5.0",
+        "jelix/inifile": "^3.2"
+    }
+}

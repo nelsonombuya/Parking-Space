@@ -1,9 +1,23 @@
 <?php
-    // Used to redirect the user to the page version depending on their choice
-    
-    // Including the SQL Script Used to check the connection to the DB 
-    require $_SERVER['DOCUMENT_ROOT'] . "/Resources/Scripts/Includes.php";   
+/*=====================================================================================*/
+//  Welcome to Parking Space!                                                          //
+//  This page is Used to redirect the user to the set system version.                  //
+//  You will be redirected shortly.                                                    //
+/*-------------------------------------------------------------------------------------*/
 
-    // Redirecting to correct Index.php
-    header("Location: ". relative_root_dir) or die();
+/*----------------------------------- REQUIREMENTS ------------------------------------*/
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/System/Database/SQL.class.php";
+    $SQL = new SQL;
+/*-------------------------------------------------------------------------------------*/
+    /* Checking if the connection to the server is made */
+    if ($SQL->checkConnection() !== TRUE)
+    {
+        // If there are connection problems using the default settings... 
+        // Send the user to the Setup Page
+        header("Location: /System/Setup/Setup.php") or die();
+    }
+    else
+    {
+        header("Location: ". $SQL->version_dir_relative) or die();
+    }
 ?>
