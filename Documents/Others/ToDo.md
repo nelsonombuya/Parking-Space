@@ -16,5 +16,6 @@
 9. Extremely unecessary data hashing
 10. Error checking for Username and Password over 50 Characters
 11. Restructure Databases and Scripts
+12. Change Spot to Parking_Spot
 
 ## Current Commit Message
