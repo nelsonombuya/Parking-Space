@@ -9,7 +9,7 @@ Our Kabarak Team Project
 ## Status
 
 `Refactoring...`
-`Currently running on` **Gamma**
+`Currently running on` **Beta**
 
 -   `Much Work`
 -   `Much Stress`
