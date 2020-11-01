@@ -1,0 +1,108 @@
+[
+    {
+        "name": "jelix/inifile",
+        "version": "v3.2.4",
+        "version_normalized": "3.2.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jelix/inifile.git",
+            "reference": "b0caa130f5c8329cb23f4ae19e4c7a1f7022c063"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jelix/inifile/zipball/b0caa130f5c8329cb23f4ae19e4c7a1f7022c063",
+            "reference": "b0caa130f5c8329cb23f4ae19e4c7a1f7022c063",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6.1"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.8.*"
+        },
+        "time": "2020-03-28T12:26:54+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Jelix\\IniFile\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-2.1"
+        ],
+        "authors": [
+            {
+                "name": "Laurent Jouanneau",
+                "email": "laurent@jelix.org"
+            },
+            {
+                "name": "Loic Mathaud"
+            }
+        ],
+        "description": "classes to read and modify ini files by preserving comments and empty lines",
+        "homepage": "http://jelix.org",
+        "keywords": [
+            "files",
+            "ini"
+        ]
+    },
+    {
+        "name": "phpunit/php-timer",
+        "version": "5.0.2",
+        "version_normalized": "5.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sebastianbergmann/php-timer.git",
+            "reference": "c9ff14f493699e2f6adee9fd06a0245b276643b7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/c9ff14f493699e2f6adee9fd06a0245b276643b7",
+            "reference": "c9ff14f493699e2f6adee9fd06a0245b276643b7",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^9.3"
+        },
+        "time": "2020-09-28T06:00:25+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Sebastian Bergmann",
+                "email": "sebastian@phpunit.de",
+                "role": "lead"
+            }
+        ],
+        "description": "Utility class for timing",
+        "homepage": "https://github.com/sebastianbergmann/php-timer/",
+        "keywords": [
+            "timer"
+        ],
+        "funding": [
+            {
+                "url": "https://github.com/sebastianbergmann",
+                "type": "github"
+            }
+        ]
+    }
+]

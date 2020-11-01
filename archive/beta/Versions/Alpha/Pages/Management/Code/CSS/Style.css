@@ -1,0 +1,61 @@
+/*The Page Heading*/
+.heading-space {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.heading-space h1 {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    border-bottom: 2px black solid;
+    width: max-content;
+    font-size: 2em;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.heading-space h2 {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    width: max-content;
+    font-size: 1.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    justify-self: center;
+    margin: 0 4em;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: rgba(0, 0, 0, 0.4), solid;
+    padding: 0 2em;
+}
+
+/* The menu utems on the left */
+.settings-menu li {
+    list-style: none;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+/* The page items */
+.pages {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.pages ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.pages li {
+    list-style: none;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}

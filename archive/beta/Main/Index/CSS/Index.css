@@ -1,0 +1,83 @@
+/* Page Title */
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+}
+.title h1 {
+    font-size: 3em;
+    font-weight: 400;
+    text-transform: uppercase;
+    justify-content: center;
+}
+
+/* Container */
+.container {
+    display: flex;
+    margin: 0 5%;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: rgba(0, 0, 0, 0.4), solid;
+}
+
+/* Question Box */
+.question {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+}
+
+/* Options */
+.options {
+    margin-top: 2em;
+}
+.emphasis {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.column {
+    /*Has the buttons used in the terminal*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.column img {
+    width: 120px;
+    height: 120px;
+}
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2px;
+}
+.row h3 {
+    margin-top: 1em;
+    font-family: "Poppins", sans-serif;
+    white-space: nowrap;
+}
+
+/* Links */
+.row a {
+    padding: 3%;
+    margin: 3% 2%;
+    justify-content: center;
+    text-decoration: none;
+}
+.row a:hover {
+    background-color: rgba(226, 226, 226, 0.4);
+    border: none;
+    text-decoration: underline;
+}
+.row a:active {
+    background-color: rgba(226, 226, 226, 0.9);
+    border: 1px solid grey;
+    text-decoration: underline;
+}
