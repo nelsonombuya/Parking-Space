@@ -36,6 +36,19 @@
             }
             else if ($this->_page == 3)
             {
+                /* Heading */
+                $this->heading = $this->heading($this->_page);
+
+                /* Subheading */
+                $this->subheading = "Checking for available parking spot";
+
+                /* Options */
+                $this->_options = $this->options($this->_page);
+
+                header("refresh:2; checkin.php?page=4&selection=done");
+            }
+            else if ($this->_page == 4)
+            {
                 /* Once we reach page 3+, we start the booking process */
                 $this->confirmation($_SESSION['selections']);
             }
@@ -76,6 +89,10 @@
                 case 2:
                     return "Would you prefer handicapped parking?";
                 break;
+
+                case 3:
+                    return "Please Wait";
+                break;
             }
         }
 
@@ -99,6 +116,11 @@
                         "No",
                         "Yes"
                     );
+                break;
+
+                default:
+                    return array();
+                break;
             }
         }
 
