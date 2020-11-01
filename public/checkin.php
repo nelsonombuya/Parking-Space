@@ -3,6 +3,7 @@
     require_once __DIR__ . "/inc/header.inc.php"; // The config file is already included in the header
     require_once CLASSES . "checkin.class.php";
     $Check_In = new CheckIn;
+    $back = ($_GET['page'] == 4) ? "checkin.php?page=2" : "javascript:history.back()";
 /*===============================================================================================*/
 ?>
 
@@ -24,7 +25,7 @@
 
         <div class="selection-box">
             <div id="back">
-                <a href="javascript:history.back()">
+                <a href="<?php echo $back?>">
                     <img src="images/back.png" alt="Back">
                 </a>
             </div>
@@ -38,5 +39,5 @@
     <?php if ($_GET['page'] > 0) $Check_In->saveSelections($_GET['page'], $_GET['selection']); ?>
 
     <!-- If a booking occurs successfully -->
-    <?php if ($_GET['page'] > 3) header("refresh:10; url=checkin.php") or die(); ?>
+    <?php if ($_GET['page'] > 4) header("refresh:10; url=checkin.php") or die(); ?>
 </body>

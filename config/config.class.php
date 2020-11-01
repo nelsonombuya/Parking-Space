@@ -9,8 +9,11 @@
     {
         private $_config_path_default;
         private $_config_path;
-        public $version;
         public $config;
+        public $version;
+        public $root;
+        public $web_root;
+        public $header_root;
 
         public function __construct()
         {
@@ -38,6 +41,11 @@
 
             // Setting current app version according to settings
             $this->version = $this->config['system']['version'];
+
+            // Setting current paths for use in classes
+            $this->root = ROOT;
+            $this->web_root = WEB_ROOT;
+            $this->header_root = HEADER_ROOT;
         }
     }
 ?>
