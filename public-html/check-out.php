@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Login</title>
+    <title>Checkout</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,10 +22,10 @@
 
      <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
-             <a class="navbar-brand" href="#">
-                 <img src="img/lightjeep.png" width="25" height="25"  alt="logo" ">
+             <a class="navbar-brand" href="index.php">
+                 <img src="img/lightjeep.png" width="25" height="25"  alt="logo">
              </a>
-             <a class="navbar-brand" href="#">Parking Space</a>
+             <a class="navbar-brand" href="index.php">Parking Space</a>
              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
              </button>
@@ -43,50 +43,41 @@
 </header>
 
 
-  <!--Login Section-->
+  <!--Checkout Section-->
   <div class="container-fluid px-0 py-4 mt-4 text-dark ">
   <div class="row">
 		<div class="col-md-12 col-md-offset-12">
             <div class="panel panel-default">
               <div class="panel-body">
                 <div class="text-center">
-                <a class="navbar-brand" href="#">
-                 <img src="img/account.png" width="50" height="50"  alt="logo">
-                </a>
-                  <h3><i class="fa fa-lock fa-4x"></i></h3>
-                  <h2 class="text-center">Account Login</h2>
-                  <p>Please fill in the required details.</p>
-                  <div class="panel-body">
+                <div class="checkout-head  bg-dark  py-4 text-white">
+                <img src="img/checkout2.png" width="50" height="50"  alt="logo">
+
+                <h2 class="text-center font-weight-bold ">Checkout</h2>
+                  <p class="font-italic">Input your parking ticket number</p>
+                
+                </div>
     
-                    <form id="register-form" role="form" autocomplete="off" class="form" method="post">
+                    <form id="register-form" role="form" autocomplete="off" class="form py-2" method="post">
     
+                    <div class="form-group">
+    <input type="text" class="form-control" id="ParkingTicketNumber" placeholder="Parking ticket number...">
+  </div>
+  <input name="recover-submit" class="btn btn btn-dark mb-4" value="Confirm" type="submit">
+
                       <div class="form-group">
-                        <div class="input-group">
-                          <span class="glyphicon glyphicon-envelope"></span>
-                          <input id="email" name="email" placeholder="Username/Email * " class="form-control "  type="email">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="input-group">
-                        <input id="password" name="email" placeholder="Password *" class="form-control "  type="password">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                              <p class="text-center"><a href="password-recovery.php" id="signup">Forgot password?</a></p>
+                      <div class="go-home py-2 font-italic">
+            <p class="font-italic">
+                 <a class="navbar-brand" href="index.php">
+                 <img src="img/back.png" width="30" height="30"  alt="logo">
+                 </a><small>Go back to <a href="index.php" id="signup">Homepage </small></a>
+             </p>
+
+            </div>
+                
                            </div>
-                        <input name="recover-submit" class="btn btn-lg btn-dark btn-block" value="Login" type="submit">
-                      </div>
-                      <div class="col-md-12 ">
-                              <div class="login-or">
-                                 <hr class="hr-or">
-                                 <span class="span-or">or</span>
-                              </div>
-                           </div>
-                      <div class="form-group">
-                              <p class="text-center">Don't have account? <a href="sign-up.php" id="signup">Sign up here</a></p>
-                           </div>
+
                       
-                      <input type="hidden" class="hide" name="token" id="token" value=""> 
                     </form>
     
                   </div>
@@ -96,6 +87,9 @@
           </div>
 	</div>
             </div>
+
+
+  
 
 
 

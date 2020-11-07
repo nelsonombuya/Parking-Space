@@ -72,7 +72,7 @@
         <!--The Logo Container-->
         <div class="logo">
             <a href="<?php echo HEADER_ROOT; ?>/">
-                <img src="img/jeep.png" alt="Logo">
+                <img src="img/lightjeep.png" alt="Logo">
             </a>
         </div>
 

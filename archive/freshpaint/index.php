@@ -1,7 +1,3 @@
-<?php   // Includes 
-    require "Includes/Configuration/Connection.php";
-    require "Includes/Configuration/Session.php";
-?>
 <!doctype html>
 <html lang="en">
   <head>
