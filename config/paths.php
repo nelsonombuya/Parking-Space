@@ -39,15 +39,15 @@
         else
         {
             /* 
-                Checkinng whether current document root is in public 
+                Checkinng whether current document root is in public-html 
                 or in the main folder 
             */
             if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/login.php"))
             {
-                /* Document Root is in Public */
+                /* Document Root is in public-html */
                 $directories = array(
                     "root" => $_SERVER['DOCUMENT_ROOT'] . "/../",
-                    "web_root" => "/public",
+                    "web_root" => "/public-html",
                     "header_root" => "",
                 );
             }
@@ -56,8 +56,8 @@
                 /* Document Root is in Root Folder */
                 $directories = array(
                     "root" => __DIR__ . "/..",
-                    "web_root" => "/public",
-                    "header_root" => "/public",
+                    "web_root" => "/public-html",
+                    "header_root" => "/public-html",
                 );
             }
         }

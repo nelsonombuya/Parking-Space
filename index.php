@@ -11,7 +11,7 @@
         break;
 
         default :
-            header ("Location: public/") or die();
+            header ("Location: public-html/") or die();
         break;
     }
 ?>
