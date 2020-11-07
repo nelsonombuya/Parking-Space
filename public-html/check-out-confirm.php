@@ -13,7 +13,7 @@
 
 <body>
     <div class="container">
-        <form name="confirm_checkout_form" action="checkout.finalize.php" method="POST">
+        <form name="confirm_checkout_form" action="check-out-finalize.php" method="POST">
             <div class="question">
                 <h1><?php echo $Checkout->outputs["Heading"]; ?></h1>
             </div>
@@ -28,8 +28,6 @@
                 <div class="inputs">
                     <?php echo $Checkout->outputs["Buttons"]; ?>
                 </div>
-                <div class="buttons">
-                </div>
             </div>
         </form>
     </div>
@@ -39,3 +37,8 @@
 </body>
 
 </html>
+<?php
+/*----------------------------------- REQUIREMENTS ------------------------------------*/
+    include_once "inc/footer.inc.php";
+/*-------------------------------------------------------------------------------------*/
+?>

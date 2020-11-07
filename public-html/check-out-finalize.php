@@ -23,7 +23,12 @@
     </div>
     <!-- Once everything's done, clean up -->
     <?php $Checkout->cleanUp(); ?>
-    <?php header("refresh:7; url=checkout.php") or die(); ?>
+    <?php header("refresh:7; url=check-out.php") or die(); ?>
 </body>
 
 </html>
+<?php
+/*----------------------------------- REQUIREMENTS ------------------------------------*/
+    include_once "inc/footer.inc.php";
+/*-------------------------------------------------------------------------------------*/
+?>

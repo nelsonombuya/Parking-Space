@@ -10,5 +10,8 @@
 6. Register Businesses
 7. Set locations where they can reserve spots
 8. Reserve spots for employees
+9. Javascript for Checkout Page
+10. Username and Email field not working properly
+11. Checkout Page Formatting
 
 ## Current Commit Message

@@ -30,60 +30,46 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!--------------------------------------------------------------------------------------------------------------------->
-
 <head>
-    <!-- Stuff To Include -->
-    <!-- Monsterrat Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Poppins Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 
-    <!-- CSS -->
-    <!-- From the Pages Folder -->
-    <link rel="stylesheet" type="text/css"
-        href="css/main.css">
-
-    <!-- Metadata -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Icon for Title-->
+    <link rel="icon" href="img/lightjeep.png" type="image/icon type">
 </head>
 
-<!--------------------------------------------------------------------------------------------------------------------->
-
 <body>
-    <!-- The Background Wave Layer -->
-    <img class="wave" src="img/wave.png" alt="Background">
-    <header id=top_header>
-
-        <!-- The Driver's Details Container -->
-        <div class="driver_details">
-            <div class="driver_number">
-                <h1>#<?php echo $Session->current_driver_number; ?></h1>
-            </div>
-            <div class="user_id">
-                <a href="dashboard.php">
-                    <h2>#<?php echo $Session->username; ?></h2>
+    <header>
+        <!--Navbar Section-->
+        <nav class="navbar navbar-expand-md navbar-dark sticky-top ">
+            <div class="container">
+                <a class="navbar-brand" href="index.php">
+                    <img src="img/lightjeep.png" width="25" height="25" alt="logo">
                 </a>
+                <a class="navbar-brand" href="index.php">Parking Space</a>
+                <!-- The Driver's Details Container -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ml-auto">
+                        <a class="nav-item nav-link" href="index.php">Home </a>
+                        <a class="nav-item nav-link" href="#about">About</a>
+                        <a class="nav-item nav-link" href="#FAQ">FAQ</a>
+                        <a class="nav-item nav-link" href="#contacts">Contacts</a>
+                        <a class="nav-item nav-link"
+                            href="dashboard">#<?php echo $Session->current_driver_number; ?></a>
+                        <a class="nav-item nav-link" href="dashboard"><?php echo $Session->username; ?></a>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <!--The Logo Container-->
-        <div class="logo">
-            <a href="<?php echo HEADER_ROOT; ?>/">
-                <img src="img/lightjeep.png" alt="Logo">
-            </a>
-        </div>
-
-        <!--The Settings Cog Container-->
-        <div class="settings">
-            <a href="login.php">
-                <img src="img/settings.png" alt="Settings">
-            </a>
-            <a href="?logout=true">
-                <img src="img/logout.png" alt="Logout">
-            </a>
-        </div>
+        </nav>
     </header>
 </body>
