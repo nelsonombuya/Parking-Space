@@ -44,19 +44,19 @@
 
 <body>
     <!-- The Background Wave Layer -->
-    <img class="wave" src="images/wave.png" />
+    <img class="wave" src="img/wave.png" />
 
     <!-- The Page Content Container -->
     <div class="container">
         <!-- Image on top of the wave layer -->
         <div class="img">
-            <img src="images/authentication.svg" />
+            <img src="img/authentication.svg" />
         </div>
         <!--The Login Box-->
         <div class="login-content">
             <form name="login_form" onsubmit="return login_validation();" action="inc/login.inc.php"
                 method="POST">
-                <img src="images/avatar.svg" />
+                <img src="img/avatar.svg" />
                 <h2 class="title">Account</h2>
 
                 <!-- Username or Email -->

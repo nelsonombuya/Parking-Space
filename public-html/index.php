@@ -32,7 +32,7 @@
 
 <body>
     <!-- The Background Wave Layer -->
-    <img class="wave" src="images/wave.png" alt="Background">
+    <img class="wave" src="img/wave.png" alt="Background">
 
     <header id=top_header>
         <!-- The Driver's Details Container -->
@@ -48,13 +48,13 @@
         <!-- The Logo Container -->
         <div class="logo">
             <a href="#">
-                <img src="images/jeep.png" alt="Logo">
+                <img src="img/jeep.png" alt="Logo">
             </a>
         </div>
 
         <!--The Settings Container-->
         <div class="user">
-            <a href="dashboard.php"><img src="images/user.png" alt="User Settings"></a>
+            <a href="dashboard.php"><img src="img/user.png" alt="User Settings"></a>
             <!-- TODO: Create a menu under the profile icon, include the user's photo-->
             <!-- NOTE: Make it include the Log In, Sign Up, Settings, Profile, Log Out in a context intelligent manner -->
         </div>
@@ -75,19 +75,19 @@
             <div class="row">
                 <a href="checkin.php">
                     <div class="column">
-                        <img src="images/parking.png" alt="Check-In Terminal">
+                        <img src="img/parking.png" alt="Check-In Terminal">
                         <h3>Check-In Terminal</h3>
                     </div>
                 </a>
                 <a href="checkout.php">
                     <div class="column">
-                        <img src="images/checkout.png" alt="Checkout Terminal">
+                        <img src="img/checkout.png" alt="Checkout Terminal">
                         <h3>Checkout Terminal</h3>
                     </div>
                 </a>
                 <a href="dashboard.php">
                     <div class="column">
-                        <img src="images/user.png" alt="Account Management">
+                        <img src="img/user.png" alt="Account Management">
                         <h3>Account Management</h3>
                     </div>
                 </a>

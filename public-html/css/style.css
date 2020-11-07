@@ -1,5 +1,5 @@
 
-.navbar , .card, .btn-4, .btn, #about, .container-contacts{
+.navbar , .card, .btn-4, .btn, #post,.jumbotron,#footer, .container-contacts{
     background-color: black;
 }
 
@@ -52,16 +52,10 @@
 
 
 #left-side, .checkout-head{
-    background:url('gravel.jpg');
+    background:url('../img/gravel.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
-.checkout-terminal{
-    background:url('Checkout.png');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
 
-}
 

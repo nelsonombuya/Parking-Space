@@ -23,7 +23,7 @@
                 <div class="inputs">
                     <div id="back">
                         <a href="javascript:history.back()">
-                            <img src="images/back.png"alt="Back">
+                            <img src="img/back.png"alt="Back">
                         </a>
                     </div>
                     <div class="textbox">

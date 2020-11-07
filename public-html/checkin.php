@@ -26,7 +26,7 @@
         <div class="selection-box">
             <div id="back">
                 <a href="<?php echo $back?>">
-                    <img src="images/back.png" alt="Back">
+                    <img src="img/back.png" alt="Back">
                 </a>
             </div>
             <div class="options">

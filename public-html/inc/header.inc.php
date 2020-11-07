@@ -54,7 +54,7 @@
 
 <body>
     <!-- The Background Wave Layer -->
-    <img class="wave" src="images/wave.png" alt="Background">
+    <img class="wave" src="img/wave.png" alt="Background">
     <header id=top_header>
 
         <!-- The Driver's Details Container -->
@@ -72,17 +72,17 @@
         <!--The Logo Container-->
         <div class="logo">
             <a href="<?php echo HEADER_ROOT; ?>/">
-                <img src="images/jeep.png" alt="Logo">
+                <img src="img/jeep.png" alt="Logo">
             </a>
         </div>
 
         <!--The Settings Cog Container-->
         <div class="settings">
             <a href="login.php">
-                <img src="images/settings.png" alt="Settings">
+                <img src="img/settings.png" alt="Settings">
             </a>
             <a href="?logout=true">
-                <img src="images/logout.png" alt="Logout">
+                <img src="img/logout.png" alt="Logout">
             </a>
         </div>
     </header>

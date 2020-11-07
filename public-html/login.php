@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!--Icon for Title-->
-    <link rel="icon" href="images/jeep.png" type="image/icon type">
+    <link rel="icon" href="img/jeep.png" type="image/icon type">
 
 </head>
 
@@ -45,7 +45,7 @@
         <nav class="navbar navbar-expand-md navbar-dark">
             <div class="container">
                 <a class="navbar-brand" href="index.php">
-                    <img src="images/lightjeep.png" width="25" height="25" alt="logo" class="animate__bounce ">
+                    <img src="img/lightjeep.png" width="25" height="25" alt="logo" class="animate__bounce ">
                 </a>
                 <a class="navbar-brand" href="index.php">Parking Space</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -57,7 +57,7 @@
                         <a class="nav-item nav-link" href="index.php">Home </a>
                         <a class="nav-item nav-link" href="index.php#about">About</a>
                         <a class="nav-item nav-link" href="index.php#FAQ">FAQ</a>
-                        <a class="nav-item nav-link" href="index.php#Contacts">Contacts</a>
+                        <a class="nav-item nav-link" href="index.php#contacts">Contacts</a>
                     </div>
                 </div>
 
@@ -74,7 +74,7 @@
                     <div class="panel-body">
                         <div class="text-center">
                             <a class="navbar-brand" href="#">
-                                <img src="images/account.png" width="50" height="50" alt="avatar">
+                                <img src="img/account.png" width="50" height="50" alt="avatar">
                             </a>
                             <h3><i class="fa fa-lock fa-4x"></i></h3>
                             <h2 class="text-center">Account Login</h2>
@@ -97,7 +97,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <p class="text-center"><a href="password-recovery.php" id="signup">Forgot
+                                        <p class="text-center"><a href="passwordrecovery.php" id="signup">Forgot
                                                 password?</a></p>
                                     </div>
                                     <input name="recover-submit" class="btn btn-lg btn-dark btn-block" value="Login"
@@ -110,7 +110,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <p class="text-center">Don't have account? <a href="#signup" id="signup.php">Sign up
+                                <p class="text-center">Don't have account? <a href="signup" id="signup.php">Sign up
                                         here</a></p>
                             </div>
 
