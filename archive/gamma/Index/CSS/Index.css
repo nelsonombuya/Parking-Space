@@ -1,0 +1,19 @@
+.navbar,
+.card,
+body,
+.btn-4 {
+    background-color: black;
+}
+.divider {
+    background-color: #eee;
+}
+.banner {
+    height: 100vh;
+    width: 100%;
+    margin-top: 30px; /*VERY IMPORTANT-Keeps that navbar from overlapping the banner*/
+    padding-bottom: 5px;
+    background: url("../../../Resources/Images/Top.jpg");
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
