@@ -45,7 +45,7 @@
                 /* Options */
                 $this->_options = $this->options($this->_page);
 
-                header("refresh:2; checkin.php?page=4&selection=done");
+                header("refresh:2; check-in.php?page=4&selection=done");
             }
             else if ($this->_page == 4)
             {
@@ -131,15 +131,20 @@
             {
                 if ($option === "Return")
                 {
-                    echo    "<div class='option'>".
-                                "<a href='?page=0&selection=".$option."'>".$option."</a>".
-                            "</div>";
+                    echo    "<a href='?page=0&selection=".$option."'>
+                                <button type='button' class='btn btn-secondary btn-lg btn-block'>"
+                                    .$option.
+                                "</button>
+                            </a>";
+                            
                 }
                 else
                 {
-                    echo    "<div class='option'>".
-                                "<a href='?page=".($this->_page + 1)."&selection=".$option."'>".$option."</a>".
-                            "</div>";
+                    echo    "<a href='?page=".($this->_page + 1)."&selection=".$option."'>
+                                <button type='button' class='btn btn-secondary btn-lg btn-block'>"
+                                    .$option.
+                                "</button>
+                            </a>";
                 }
             }
         }

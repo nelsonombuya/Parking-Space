@@ -10,8 +10,12 @@
             header ("Location: archive/beta/") or die();
         break;
 
+        case "freshpaint":
+            header ("Location: archive/freshpaint/") or die();
+        break;
+
         default :
-            header ("Location: public/") or die();
+            header ("Location: public-html/") or die();
         break;
     }
 ?>

@@ -1,0 +1,47 @@
+/*The Huge Question*/
+.question {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    padding-top: 4em;
+}
+.question h1 {
+    font-size: 3em;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/* Suggestions */
+.suggestion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.suggestion em {
+    padding-top: 1em;
+}
+
+/* The options */
+.selection-box {
+    display: flex;
+    justify-content: center;
+}
+.inputs {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    align-self: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+#back {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#back img {
+    width: 60px;
+    height: 60px;
+}

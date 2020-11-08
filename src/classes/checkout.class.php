@@ -178,7 +178,7 @@
             } 
             else 
             {
-                header("refresh:15; url=Checkout.php");
+                header("refresh:15; url=check-out.php");
                 return  "<div>".
                             "<a href='" . "javascript:history.back()" . "'><button type='button'>Return</button></a>".
                         "</div>";

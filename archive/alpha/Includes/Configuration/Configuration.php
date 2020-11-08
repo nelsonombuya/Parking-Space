@@ -16,7 +16,7 @@
 
     $server_mysql_server = "localhost";
     $server_username = "root";
-    $server_password = "1234";
+    $server_password = "";
     $server_db = "CarParkingSystem_Alpha";
 
     //I've defined them as constants so that I can use them throughout other scripts
