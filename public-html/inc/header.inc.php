@@ -12,7 +12,7 @@
     {
         // If there are connection problems using the default settings... 
         // Send the user to the Setup Page
-        header("Location: ". HEADER_ROOT . "/setup.php?first_time_setup=TRUE") or die();
+        header("Location: ". HEADER_ROOT . "/setup.php?state=new") or die();
     }
 
     /* Logging out the user when needed */
