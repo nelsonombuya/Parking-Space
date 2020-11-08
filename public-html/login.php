@@ -16,7 +16,7 @@
     }
 
     // If the user is already logged in, redirect to account settings
-    if (isset($_SESSION['username'])) header("Location: " . HEADER_ROOT . "dashboard.php") or die();
+    if (isset($_SESSION['username'])) header("Location: " . HEADER_ROOT . "/dashboard.php") or die();
 ?>
 
 <head>
@@ -49,13 +49,13 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <span class="glyphicon glyphicon-envelope"></span>
-                                            <input id="email" name="email" placeholder="Username/Email * "
+                                            <input id="email" name="login_username" placeholder="Username/Email * "
                                                 class="form-control " type="email">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input id="password" name="email" placeholder="Password *"
+                                            <input id="password" name="login_password" placeholder="Password *"
                                                 class="form-control " type="password">
                                         </div>
                                     </div>
