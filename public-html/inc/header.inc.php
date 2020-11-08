@@ -30,12 +30,12 @@
     {
         if (isset($_SESSION['username']))
         {
-            return "<a class='nav-item nav-link' href='dashboard'>". $_SESSION['username'] . "</a>".
+            return "<a class='nav-item nav-link' href='dashboard.php'>". $_SESSION['username'] . "</a>".
             "<a class='nav-item nav-link' href='?logout=true'>Logout</a>";
         }
         else if (basename($_SERVER['PHP_SELF']) !== "login.php")
         {
-            return "<a class='nav-item nav-link' href='login'>Login</a>";
+            return "<a class='nav-item nav-link' href='login.php'>Login</a>";
         }
     }
 /*-------------------------------------------------------------------------------------*/
@@ -66,7 +66,7 @@
                     <img src="img/lightjeep.png" width="25" height="25" alt="logo">
                 </a>
                 <a class="navbar-brand" href="index.php">Parking Space</a>
-                <a class="navbar-brand" href="reports?drivers=all">#<?php echo $Session->current_driver_number; ?></a>
+                <a class="navbar-brand" href="reports.php?drivers=all">#<?php echo $Session->current_driver_number; ?></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
