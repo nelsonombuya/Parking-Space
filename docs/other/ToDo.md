@@ -7,5 +7,8 @@
     - Type
 4. Enforcing parking fees payments
 5. QR Codes
+6. Register Businesses
+7. Set locations where they can reserve spots
+8. Reserve spots for employees
 
 ## Current Commit Message
