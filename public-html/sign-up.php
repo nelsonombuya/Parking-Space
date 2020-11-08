@@ -2,6 +2,16 @@
 /*===================================== Home Page =====================================*/
 /*----------------------------------- REQUIREMENTS ------------------------------------*/
     require_once "inc/header.inc.php";
+    require_once SCRIPTS . "errors.script.php";
+
+    /* Checks if a login error has happened, if not, just run the main script */
+    if (isset($_GET['error']))
+    {
+        echo checkSignUpErrors($_GET['error']);
+        
+        /* Unsets the error after the error message has been shown */
+        unset($_GET['error']);
+    }
 /*-------------------------------------------------------------------------------------*/
 ?>
 
@@ -33,14 +43,14 @@
             <div class="col-md-8 py-4 border-0">
                 <h2 class="font-weight-bold">Sign up</h2>
                 <h4 class="pb-4 font-italic">Please fill with your details</h4>
-                <form>
+                <form name="sign-up_form" onsubmit="return signUp_validation();" action="inc/sign-up.inc.php" method="post">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="First Name" name="First Name" placeholder="First Name *" class="form-control"
+                            <input id="First Name" name="First-Name" placeholder="First Name *" class="form-control"
                                 type="text">
                         </div>
                         <div class="form-group col-md-6">
-                            <input id="Last Name" name="Last Name" placeholder="Last Name *" class="form-control"
+                            <input id="Last Name" name="Last-Name" placeholder="Last Name *" class="form-control"
                                 type="text">
                         </div>
                     </div>
@@ -50,7 +60,23 @@
                                 type="text">
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                            <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input id="numberplate" name="numberplate" placeholder="Car Number Plate *" class="form-control"
+                                type="text">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input id="ID-No" name="ID-No" placeholder="ID Number *" class="form-control"
+                                type="text">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input id="phone" name="phone" placeholder="Phone Number *" class="form-control"
+                                type="text">
                         </div>
                     </div>
                     <div class="form-group">
@@ -61,7 +87,7 @@
                     </div>
                     <div class="form-group">
                         <div class="input-group">
-                            <input id="password" name="email" placeholder="Confirm Password *" class="form-control "
+                            <input id="password" name="password-confirm" placeholder="Confirm Password *" class="form-control "
                                 type="password">
                         </div>
                     </div>
@@ -86,7 +112,7 @@
                     </div>
 
                     <div class="form-row">
-                        <button type="button" class="btn btn-dark">Submit</button>
+                        <button type="submit" class="btn btn-dark">Submit</button>
                     </div>
                     <div class="form-group">
                         <p class="text-center py-4">Already have an account? <a href="login.php" id="signup">Login

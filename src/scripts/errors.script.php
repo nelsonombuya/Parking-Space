@@ -49,4 +49,70 @@
 
         }    
     }
+
+    function checkSignUpErrors($error)
+    {
+        // Checks the error code and displays relevant error messages
+        if (!empty($error))
+        {
+            if ($error === 'signup_user-exists')
+            {
+                // In case the user doesn't exist
+                return  '<script type="text/JavaScript">  
+                            alert("The username has been taken, try another. \nError Code: ' . $error . '");
+                        </script>';
+            } 
+
+            else if ($error === 'signup_email-exists')
+            {
+                // In case the user doesn't exist
+                return  '<script type="text/JavaScript">  
+                            alert("The email has been taken, try another. \nError Code: ' . $error . '");
+                        </script>';
+            }
+
+            else if ($error === 'signup_user')
+            {
+                // In case the user doesn't exist
+                return  '<script type="text/JavaScript">  
+                            alert("An error has occured when adding the user. \nError Code: ' . $error . '");
+                        </script>';
+            }
+
+            else if ($error === 'fail')
+            {
+                // In case the user doesn't exist
+                return  '<script type="text/JavaScript">  
+                            alert("An error has occured when signing up. \nPlease try again \nError Code: ' . $error . '");
+                        </script>';
+            }
+
+            else if ($error === 'success')
+            {
+                // In case the user doesn't exist
+                return  '<script type="text/JavaScript">  
+                            alert("You have been successfully signed up. \nYou will now be redirected to the login page \nError Code: ' . $error . '");
+
+                            var time_left = 5; // How much time before redirecting
+                            var redirect_timer = setInterval(function () {
+                                if (time_left <= 0) {
+                                    clearInterval(redirect_timer);
+                                    window.location.href = "login.php"; // Page to redirect to
+                                } else {
+                                    time_left -= 1;
+                                }
+                            }, 1000);
+                        </script>';
+            }
+
+            else 
+            {
+                // If a different kind of error occurs
+                return  '<script type="text/JavaScript">  
+                            alert("Please, try signing up again."); 
+                        </script>';
+            }
+
+        }    
+    }
 ?>

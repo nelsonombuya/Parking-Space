@@ -204,6 +204,101 @@
                     }
                 break;
 
+                case 6 :
+                    if ($this->_prepared->bind_param($value_types, 
+                        $data_array[0], 
+                        $data_array[1], 
+                        $data_array[2],
+                        $data_array[3],
+                        $data_array[4],
+                        $data_array[5]))
+                    {
+                        return TRUE;
+                    }
+                    else
+                    {
+                        return $this->error = "sql_bind";
+                    }
+                break;
+
+                case 7 :
+                    if ($this->_prepared->bind_param($value_types, 
+                        $data_array[0], 
+                        $data_array[1], 
+                        $data_array[2],
+                        $data_array[3],
+                        $data_array[4],
+                        $data_array[5],
+                        $data_array[6]))
+                    {
+                        return TRUE;
+                    }
+                    else
+                    {
+                        return $this->error = "sql_bind";
+                    }
+                break;
+
+                case 8 :
+                    if ($this->_prepared->bind_param($value_types, 
+                        $data_array[0], 
+                        $data_array[1], 
+                        $data_array[2],
+                        $data_array[3],
+                        $data_array[4],
+                        $data_array[5],
+                        $data_array[6],
+                        $data_array[7]))
+                    {
+                        return TRUE;
+                    }
+                    else
+                    {
+                        return $this->error = "sql_bind";
+                    }
+                break;
+
+                case 9 :
+                    if ($this->_prepared->bind_param($value_types, 
+                        $data_array[0], 
+                        $data_array[1], 
+                        $data_array[2],
+                        $data_array[3],
+                        $data_array[4],
+                        $data_array[5],
+                        $data_array[6],
+                        $data_array[7],
+                        $data_array[8]))
+                    {
+                        return TRUE;
+                    }
+                    else
+                    {
+                        return $this->error = "sql_bind";
+                    }
+                break;
+
+                case 10 :
+                    if ($this->_prepared->bind_param($value_types, 
+                        $data_array[0], 
+                        $data_array[1], 
+                        $data_array[2],
+                        $data_array[3],
+                        $data_array[4],
+                        $data_array[5],
+                        $data_array[6],
+                        $data_array[7],
+                        $data_array[8],
+                        $data_array[9]))
+                    {
+                        return TRUE;
+                    }
+                    else
+                    {
+                        return $this->error = "sql_bind";
+                    }
+                break;
+
                 default :
                     return $this->error = "sql_bind_overflow";
                 break;
