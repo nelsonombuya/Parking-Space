@@ -13,5 +13,8 @@
 9. Javascript for Checkout Page
 10. Username and Email field not working properly
 11. Checkout Page Formatting
+12. Discretionary access
+    - Create a new field in the database
+    - Add it to session variables
 
 ## Current Commit Message
