@@ -1,4 +1,5 @@
 <?php
+    /* Basic HTML Script for Version Selection */
     $version_settings = parse_ini_file("version.ini");
     switch ($version_settings['version'])
     {
@@ -11,7 +12,7 @@
         break;
 
         case "freshpaint":
-            header ("Location: archive/freshpaint/") or die();
+            header ("Location: archive/Team Project Front End/") or die();
         break;
 
         default :
