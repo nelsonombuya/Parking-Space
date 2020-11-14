@@ -3,7 +3,7 @@
     /* Parsing the location of the root directory from the dir.ini file */
     $directories = getDirectories();
 
-    /* Change this when necessary */
+    /* The entire project's root directory */
     defined("ROOT")
         or define("ROOT", $directories['root']);
 
@@ -31,7 +31,11 @@
 
     function getDirectories()
     {
-        /* Getting directories from dir.ini file */
+        /* 
+            Getting directories from dir.ini file 
+            Use this to override system paths for various parts of the app
+            Check the dir.default.ini for guide
+        */
         if (file_exists(__DIR__ . "/ini/dir.ini"))
         {
             $directories = parse_ini_file(__DIR__ . "/ini/dir.ini");
@@ -39,7 +43,7 @@
         else
         {
             /* 
-                Checkinng whether current document root is in public-html 
+                Checking whether current document root is in public-html 
                 or in the main folder 
             */
             if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/login.php"))

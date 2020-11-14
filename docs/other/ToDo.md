@@ -16,5 +16,7 @@
 12. Discretionary access
     - Create a new field in the database
     - Add it to session variables
+13. Re-enter the values used in signup process in case of failure
+14. Password stuff backend
 
 ## Current Commit Message

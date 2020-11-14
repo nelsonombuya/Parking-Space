@@ -199,7 +199,7 @@
                 /* 
                     The algorithm to be used is set from config.ini 
                     Can be : 
-                        Any =>  config['system']['next_closest_spot'] will be FALSE
+                        Any available spot =>  config['system']['next_closest_spot'] will be FALSE
                         Next Closest Parking => config['system']['next_closest_spot'] will be TRUE
                 */
                 $FLAG = $this->config['system']['next_closest_spot'] ? "Next Closest Parking" : "Any";
