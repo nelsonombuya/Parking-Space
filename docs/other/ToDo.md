@@ -8,15 +8,13 @@
 4. Enforcing parking fees payments
 5. QR Codes
 6. Register Businesses
-7. Set locations where they can reserve spots
-8. Reserve spots for employees
-9. Javascript for Checkout Page
-10. Username and Email field not working properly
-11. Checkout Page Formatting
-12. Discretionary access
-    - Create a new field in the database
+7. Reserve spots for employees
+8. Javascript Validation for all pages
+9. Username and Email field not working properly
+10. Checkout Page Formatting
+11. Discretionary access
+    - Set locations where they can reserve spots
     - Add it to session variables
-13. Re-enter the values used in signup process in case of failure
-14. Password stuff backend
+12. Re-enter the values used in signup process in case of failure
 
 ## Current Commit Message

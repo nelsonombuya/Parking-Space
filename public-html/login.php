@@ -48,8 +48,8 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <span class="glyphicon glyphicon-envelope"></span>
-                                            <input id="email" name="login_username" placeholder="Username/Email * "
-                                                class="form-control " type="email">
+                                            <input name="login_username" placeholder="Username/Email * "
+                                                class="form-control " type="username">
                                         </div>
                                     </div>
                                     <div class="form-group">
