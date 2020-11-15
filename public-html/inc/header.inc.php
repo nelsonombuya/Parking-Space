@@ -1,7 +1,7 @@
 <?php
 /*----------------------------------- REQUIREMENTS ------------------------------------*/
     /* Adding the config file */
-    require_once __DIR__ . "/../../config/config.php";
+    require_once __DIR__ . "/../../config/config.inc.php";
 
     /* 
         These are the scripts run on any page. 

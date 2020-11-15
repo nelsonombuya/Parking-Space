@@ -4,7 +4,7 @@
 ###################################################################################################
     // NOTE: Stuff to use -> print_r(); -> var_dump();
 /*-----------------------------------------------------------------------------------------------*/
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/../config/config.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/../config/config.inc.php';
     require_once __DIR__ . '/test.inc.php';
     require_once COMPOSER;
     use SebastianBergmann\Timer\Timer;

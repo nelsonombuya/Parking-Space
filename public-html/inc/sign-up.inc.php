@@ -1,6 +1,6 @@
 <?php
     /* Short Script for Logging In... Don't Mind Me */
-    require_once __DIR__ . "/../../config/config.php";
+    require_once __DIR__ . "/../../config/config.inc.php";
     require_once CLASSES . "sign-up.class.php";
 
     /* Adding variables as an array */
