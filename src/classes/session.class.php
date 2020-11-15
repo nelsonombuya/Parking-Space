@@ -1,5 +1,5 @@
 <!-------------- Some Javascript functions that are useful for this class ------------->
-<script type="text/Javascript" src="./../src/js/session.inc.js"></script>
+    <script type="text/Javascript" src="./../src/js/session.inc.js"></script>
 <!------------------------------------------------------------------------------------->
 
 <?php
@@ -112,5 +112,20 @@
                 return $result[0]["ID"];
             }
         }
+
+        public function changePassword($username, $new_password)
+        {
+            /* Query for changing the user's password */
+            $prepared_query =   "UPDATE USER
+                                SET PASS = ?
+                                WHERE USERNAME = ?";
+
+            /* Hashing the user's password */
+            $new_password = password_hash($new_password, PASSWORD_DEFAULT);
+
+            /* Running prepared query to avoid SQL Injections */
+            /* Prepared Queries Return false during Update Statements */
+            return $this->runPreparedQuery($prepared_query, "ss", array($new_password, $username)) ? FALSE : TRUE;
+        } 
     }
 ?>

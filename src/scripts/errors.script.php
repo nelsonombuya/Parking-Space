@@ -115,4 +115,40 @@
 
         }    
     }
+
+    function checkChangePasswordErrors($error)
+    {
+        // Checks the error code and displays relevant error messages
+        if (!empty($error))
+        {
+            switch ($error)
+            {
+                case 'success':
+                    /* If the user is logged in */
+                    if (isset($_SESSION['username']))
+                    {
+                        return  '<script type="text/JavaScript">  
+                                    alert("Your password has been changed successfully. \nYou will be taken back to the dashboard.");
+                                    window.location.href = "dashboard.php"; 
+                                </script>';
+                    }
+                    else
+                    {
+                        return  '<script type="text/JavaScript">  
+                                    alert("Your password has been changed successfully. \nYou will be taken back to the home page.");
+                                    window.location.href = "index.php"; 
+                                </script>';
+                    }   
+                break;
+
+                default:
+                    /* In case of any other failure */
+                    return  '<script type="text/JavaScript">  
+                                alert("Unable to change the password. \nPlease Try Again. \nError Code: ' . $error . '");
+                            </script>';
+                break;
+
+            }
+        }
+    }
 ?>

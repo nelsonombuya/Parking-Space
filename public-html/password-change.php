@@ -2,7 +2,16 @@
 /*===================================== Home Page =====================================*/
 /*----------------------------------- REQUIREMENTS ------------------------------------*/
     require_once "inc/header.inc.php";
+    require_once SCRIPTS . "errors.script.php";
 /*-------------------------------------------------------------------------------------*/
+    /* Checks if an error has happened, if not, just run the main script */
+    if (isset($_GET['error']))
+    {
+        echo checkChangePasswordErrors($_GET['error']);
+        
+        /* Unsets the error after the error message has been shown */
+        unset($_GET['error']);
+    }
 ?>
 
 <head>
@@ -25,22 +34,22 @@
                         <p>Please enter your new password below.</p>
                         <div class="panel-body">
 
-                            <form id="register-form" role="form" autocomplete="off" class="form" method="post">
+                            <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="inc/password-change.inc.php">
 
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input id="password" name="email" placeholder="Enter New Password *"
+                                        <input name="password" placeholder="Enter New Password *"
                                             class="form-control " type="password">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input id="password" name="email" placeholder="Confirm New Password *"
+                                        <input name="confirm-password" placeholder="Confirm New Password *"
                                             class="form-control " type="password">
                                     </div>
                                 </div>
                                 <input name="recover-submit" class="btn btn-lg btn-dark btn-block mb-4"
-                                    value="Reset Password" type="submit">
+                                    value="Change Password" type="submit">
                         </div>
                         <div class="form-group">
                             <p class="text-center">Note: Keep your password safe to avoid inconviniences</p>
