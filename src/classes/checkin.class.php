@@ -45,7 +45,7 @@
                 /* Options */
                 $this->_options = $this->options($this->_page);
 
-                header("refresh:2; check-in.php?page=4&selection=done");
+                header("refresh:0.5; check-in.php?page=4&selection=done");
             }
             else if ($this->_page == 4)
             {

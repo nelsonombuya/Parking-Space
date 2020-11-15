@@ -53,7 +53,7 @@
     <?php if ($_GET['page'] > 0) $Check_In->saveSelections($_GET['page'], $_GET['selection']); ?>
 
     <!-- If a booking occurs successfully -->
-    <?php if ($_GET['page'] > 4) header("refresh:10; url=check-in.php") or die(); ?>
+    <?php if ($_GET['page'] > 4) header("refresh:3; url=check-in.php") or die(); ?>
 <?php
 /*----------------------------------- REQUIREMENTS ------------------------------------*/
     include_once "inc/footer.inc.php";
