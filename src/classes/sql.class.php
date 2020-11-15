@@ -133,7 +133,7 @@
         }
 
         /* Function for binding values to a prepared query */
-        // NOTE: Can do a maximum of 5 values so far
+        // NOTE: Can do a maximum of 10 values so far
         private function bindPreparedQuery($value_types, $data_array)
         {
             $inputs = count($data_array);

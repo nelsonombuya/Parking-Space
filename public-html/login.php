@@ -1,9 +1,8 @@
 <?php
 /*==================================== Login Page =====================================*/
 /*---------------------------------- Required Files -----------------------------------*/
-    require_once __DIR__ . "/../config/config.inc.php";
-    require_once SCRIPTS . "errors.script.php";
     require_once "inc/header.inc.php";
+    require_once SCRIPTS . "errors.script.php";
 /*-------------------------------------------------------------------------------------*/
 
     /* Checks if a login error has happened, if not, just run the main script */
