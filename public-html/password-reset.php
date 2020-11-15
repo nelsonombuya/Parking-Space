@@ -2,7 +2,33 @@
 /*===================================== Home Page =====================================*/
 /*----------------------------------- REQUIREMENTS ------------------------------------*/
     require_once "inc/header.inc.php";
+    require_once SCRIPTS . "errors.script.php";
 /*-------------------------------------------------------------------------------------*/
+    /* 
+        Checks whether the user got the right email address for reset 
+        It should have the user's username as an encrypted $_GET variable
+        We'll use that to confirm that it's not some hack
+    */
+    if (isset($_GET['reset_key']))
+    {
+        /* Saving it to session so as to use it later */
+        $_SESSION['reset_key'] = $_GET['reset_key'];
+        $_SESSION['reset_email'] = $_GET['email'];
+    }
+    else if (!isset($_GET['error']))
+    {
+        /* Alert the user of the other errors that may be occurring */
+        header("Location: ?error=reset-password_fail");
+    }
+
+    /* Checks if an error has happened, if not, just run the main script */
+    else if (isset($_GET['error']))
+    {
+        echo checkChangePasswordErrors($_GET['error']);
+        
+        /* Unsets the error after the error message has been shown */
+        unset($_GET['error']);
+    }
 ?>
 
 <head>
@@ -25,17 +51,17 @@
                         <p>Please enter your new password below.</p>
                         <div class="panel-body">
 
-                            <form id="register-form" role="form" autocomplete="off" class="form" method="post">
+                            <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="inc/password-reset.inc.php">
 
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input id="password" name="email" placeholder="Enter New Password *"
+                                        <input name="password" placeholder="Enter New Password *"
                                             class="form-control " type="password">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input id="password" name="email" placeholder="Confirm New Password *"
+                                        <input name="confirm-password" placeholder="Confirm New Password *"
                                             class="form-control " type="password">
                                     </div>
                                 </div>

@@ -134,11 +134,39 @@
                     }
                     else
                     {
+                        /* Destroying the session so as to remove those reset details from session */
+                        session_destroy();
+
+                        /* Returning the javascript */
                         return  '<script type="text/JavaScript">  
                                     alert("Your password has been changed successfully. \nYou will be taken back to the home page.");
                                     window.location.href = "index.php"; 
                                 </script>';
                     }   
+                break;
+
+                case 'change-password_fail':
+                    return  '<script type="text/JavaScript">  
+                                alert("Unable to change the password. \nPlease Try Again. \nError Code: ' . $error . '");
+                            </script>';
+                break;
+
+                case 'reset-password_fail':
+                    return  '<script type="text/JavaScript">  
+                                alert(  "You have an incorrect link. \n
+                                        It has either timed-out or is invalid. \n
+                                        You will now be redirected to the password reset page to request for another reset link \n
+                                        Error Code: ' . $error . ');
+                                window.location.href = "password-recovery.php"; 
+                            </script>';
+                break;
+
+                case 'recover-password_email-dne':
+                    return  '<script type="text/JavaScript">  
+                                alert(  "The email you have input does not exist in the databse. \n
+                                        You could always sign up for an account if you do not have one" \n
+                                        Error Code: ' . $error . ');
+                            </script>';
                 break;
 
                 default:
