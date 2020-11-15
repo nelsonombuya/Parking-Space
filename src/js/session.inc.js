@@ -12,6 +12,7 @@ function addParamsToURL(param, value = true, url = null) {
     return url;
 }
 
+/* Function for removing parameters from the url */
 function removeParamsFromURL(param, value = true, url = null) {
     if (url === null) {
         var url = window.location.href;
