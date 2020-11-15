@@ -20,12 +20,17 @@
             /* Constructing needed variables from the Parent SQL Class */
             parent::__construct();
 
-            /* Creating list of tables to be created in the database */
-            if ($this->_tables = parse_ini_file(INI . 'database.ini', TRUE) === FALSE)
+            /* Checking whether necessary ini files exist for use */
+            if (file_exists(INI . 'database.ini'))
+            {
+                $this->_tables = parse_ini_file(INI . 'database.ini', TRUE);
+            }
+            else
             {
                 $this->_tables = parse_ini_file(INI . 'database.default.ini', TRUE);
             }
-            
+
+            /* Creating list of tables to be created in the database */
             /* Forcing the database to be created if no database has been found */
             if ($this->connection_status !== "sql_connected_db")
             {

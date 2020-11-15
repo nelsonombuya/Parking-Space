@@ -38,10 +38,18 @@
 
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input name="password" placeholder="Enter New Password *"
+                                        <input name="old-password" placeholder="Enter Old Password *"
                                             class="form-control " type="password">
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input name="new-password" placeholder="Enter New Password *"
+                                            class="form-control " type="password">
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <div class="input-group">
                                         <input name="confirm-password" placeholder="Confirm New Password *"

@@ -40,13 +40,11 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="list-group" id="list-tab" role="tablist">
-                            <!-- TODO: ADD THE CATEGORIES HERE -->
                                 <?php $Dashboard->printCategories(); ?>
                             </div>
                         </div>
                         <div class="col-8">
                             <div class="tab-content" id="nav-tabContent">
-                                <!-- TODO: ADD THE OPTIONS HERE -->
                                 <?php $Dashboard->printOptions(); ?>
                             </div>
                         </div>

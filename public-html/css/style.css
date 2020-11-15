@@ -1,15 +1,22 @@
-
-.navbar , .card, .btn-4, .btn, #post,.jumbotron,#footer, .container-contacts{
+.navbar,
+.card,
+.btn-4,
+.btn,
+#post,
+.jumbotron,
+#footer,
+.container-contacts {
     background-color: black;
 }
 
-.divider , body{
+.divider,
+body {
     background-color: #eee;
 }
-.banner{
+.banner {
     height: 100vh;
     width: 100%;
-    margin-top: 30px;   /*VERY IMPORTANT-Keeps that navbar from overlapping the banner*/
+    margin-top: 30px; /*VERY IMPORTANT-Keeps that navbar from overlapping the banner*/
     padding-bottom: 5px;
     background-position: top;
     background-size: cover;
@@ -37,25 +44,16 @@
     width: 50px;
     text-align: center;
 }
-    .hr-or {
+.hr-or {
     height: 1px;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
 }
 
-
-
-
-
-
-
-
-
-#left-side, .checkout-head{
-    background:url('../img/gravel.jpg');
+#left-side,
+.checkout-head {
+    background: url("/public-html/img/gravel.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
-
-
