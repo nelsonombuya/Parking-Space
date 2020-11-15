@@ -27,6 +27,13 @@
 
     defined("INI")
             or define("INI", ROOT . '/config/ini/');
+    
+    /* 
+        NOTE: This is to be ECHOed rather than Included 
+        It's a collection of Javascript functions
+    */
+    defined("JS.CONFIG")
+            or define("CONFIG.JS", '<script type="text/Javascript" src=' . ROOT . '"/config/config.inc.js"></script>');
     /*-------------------------------------------------------------------------------------*/
 
     function getDirectories()

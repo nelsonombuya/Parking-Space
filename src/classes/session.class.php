@@ -1,3 +1,7 @@
+<!-------------- Some Javascript functions that are useful for this class ------------->
+<script type="text/Javascript" src="./../src/js/session.inc.js"></script>
+<!------------------------------------------------------------------------------------->
+
 <?php
 /*================================== SESSION CLASS ===================================*/
 /* Class used for managing the System's Sessions                                      */
@@ -32,17 +36,63 @@
 
         /*------------------------------- METHODS ------------------------------------*/
         /* Method for Logging Out */
-        public function logout()
+        public function logout($confirmed = FALSE)
         {
-            if (isset($_SESSION['username']))
+            /* Checking whether the user has already confirmed logout */
+            if ($confirmed === TRUE)
             {
-                unset($_GET);
-                session_unset();
-                session_destroy();
-                header("Location: " . HEADER_ROOT) or die();
-                return TRUE;
+                /* Checking whether a session is present */
+                if (isset($_SESSION['username']))
+                {
+                    unset($_GET);
+                    session_unset();
+                    session_destroy();
+                    header("Location: " . HEADER_ROOT) or die();
+                    return TRUE;
+                }
+
+                /* If the user hasn't logged in */
+                else
+                {
+                    echo    '<script type="text/JavaScript">  
+                                alert("No user is currently logged in."); 
+                            </script>';
+                    return FALSE;
+                }
             }
-            return FALSE;
+
+            /* Asking the user whether they want to log out */
+            else if (isset($_SESSION['username']))
+            {
+                /* Setting up some funky JS within PHP */
+                echo    '<script type="text/JavaScript">
+                            /* Confirming whether the user wants to log out */
+                            if (confirm("Are you sure you want to log out?"))
+                            {
+                                /* Adding the logout_confirmed $_GET value to the URL */
+                                window.location = addParamsToURL("logout_confirmed", "true");
+                            }
+                            else
+                            {
+                                /* Removing the logout $_GET value from the URL */
+                                window.location = removeParamsFromURL("logout", "true");
+                            }
+                        </script>';
+                return FALSE;
+            }
+
+            /* 
+                If the user hasn't logged in 
+                and they haven't set logout to true 
+                but this function is still called 
+            */
+            else
+            {
+                echo    '<script type="text/JavaScript">  
+                            alert("No user is currently logged in."); 
+                        </script>';
+                return FALSE;
+            }
         }
 
         /* Method for outputting the current driver number */

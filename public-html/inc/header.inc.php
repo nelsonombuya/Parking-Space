@@ -10,28 +10,30 @@
     /* Checking if the connection to the server is made */
     if ($Session->connection_status !== "sql_connected_db")
     {
-        // If there are connection problems using the default settings... 
-        // Send the user to the Setup Page
+        /* 
+            If there are connection problems using the default settings... 
+            Send the user to the Setup Page
+        */
         header("Location: ". HEADER_ROOT . "/setup.php?state=new") or die();
     }
 
     /* Logging out the user when needed */
-    if (isset($_GET['logout']) && $_GET['logout'] = TRUE)
-    { 
-        if (!$Session->logout())
-        {
-            echo    '<script type="text/JavaScript">  
-                        alert("No user is currently logged in."); 
-                    </script>';
-        } 
-    }
+    if (isset($_GET['logout'])) isset($_GET['logout_confirmed']) ? $Session->logout(TRUE) : $Session->logout();
 
+    /* Provides a set of context sensitive Login and Logout Buttons */
     function dynamicLoginButtons()
     {
         if (isset($_SESSION['username']))
         {
-            return "<a class='nav-item nav-link' href='dashboard.php'>". $_SESSION['username'] . "</a>".
-            "<a class='nav-item nav-link' href='?logout=true'>Logout</a>";
+            if (basename($_SERVER['PHP_SELF']) === "dashboard.php")
+            {
+                return "<a class='nav-item nav-link' href='?logout=true'>Logout</a>";
+            }
+            else
+            {
+                return "<a class='nav-item nav-link' href='dashboard.php'>". $_SESSION['username'] . "</a>".
+                "<a class='nav-item nav-link' href='?logout=true'>Logout</a>";
+            }
         }
         else if (basename($_SERVER['PHP_SELF']) !== "login.php")
         {
