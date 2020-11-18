@@ -10,11 +10,11 @@
 6. Register Businesses
 7. Reserve spots for employees
 8. Javascript Validation for all pages
-9. Username and Email field not working properly
-10. Checkout Page Formatting
-11. Discretionary access
+9. Checkout Page Formatting
+10. Discretionary access
     - Set locations where they can reserve spots
     - Add it to session variables
-12. Re-enter the values used in signup process in case of failure
+11. Re-enter the values used in signup process in case of failure
+12. Quick Park
 
 ## Current Commit Message
