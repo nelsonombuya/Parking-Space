@@ -14,5 +14,5 @@
     $user_details['phone']   = $_POST["phone"];
 
     /* Signing Up */
-    $SignUp = new SignUp($user_details) or die();
+    new SignUp($user_details) or die();
 ?>
