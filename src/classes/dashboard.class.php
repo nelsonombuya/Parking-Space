@@ -8,9 +8,9 @@
             /* Initializing category list */
             $this->_category_list = array(
                 "Reports" => array(
-                    "All Parking Spots"     => "reports.php?type=all",
-                    "Free Parking Spots"    => "reports.php?type=free",
-                    "Reserved Parking Spots"=> "reports.php?type=reserved" 
+                    "All Parking Spots"     => "reports.php?type=parking&filter=all",
+                    "Free Parking Spots"    => "reports.php?type=parking&filter=free",
+                    "Reserved Parking Spots"=> "reports.php?type=parking&filter=reserved" 
                 ),
 
                 "Settings" => array(
