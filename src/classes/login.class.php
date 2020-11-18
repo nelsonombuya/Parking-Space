@@ -47,7 +47,7 @@
             {
                 /* Username iko sawa, Password iko sawa */
                 unset($_POST);
-                new Session($user_data[0]['USERNAME'], TRUE);
+                new Session($user_data[0]['USERNAME'], $user_data[0]['PRIVILEDGE'], TRUE);
                 header("Location: " . HEADER_ROOT . "/dashboard.php") or die();
             } 
             else 

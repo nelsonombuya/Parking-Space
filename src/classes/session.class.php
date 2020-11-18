@@ -12,11 +12,11 @@
 /*====================================================================================*/
     class Session extends SQL 
     {
-        public $username;
-        public $current_driver_number;
+        protected $username;
+        protected $priviledge;
 
         /*                              CONSTRUCTOR                                   */
-        public function __construct($username = null, $new_login = FALSE)
+        public function __construct($username = null, $priviledge = null, $new_login = FALSE)
         {
             /* Constructing the Parent Class */
             parent::__construct();
@@ -24,17 +24,23 @@
             /* Starting session if there isn't one */
             if (session_status() === PHP_SESSION_NONE) session_start();
 
-            /* Setting Username if it's a new login*/
-            if ($new_login) $_SESSION['username'] = $this->username = $username;
+            /* Setting Username and user priviledges if it's a new login */
+            if ($new_login) $this->setUserCredentials($username, $priviledge);
             
             /* Setting username carried by object */
-            $this->username = isset($_SESSION['username']) ? $_SESSION['username'] : "~guest-session~";
-            
-            /* Setting current driver number */
-            $this->current_driver_number = $this->driverNumber() + 1;
+            $this->username = isset($_SESSION['username']) ? $_SESSION['username'] : "guest";
+            $this->priviledge = isset($_SESSION['priviledge']) ? $_SESSION['priviledge'] : "user";
         }
 
         /*------------------------------- METHODS ------------------------------------*/
+        /* Method for setting the user's credentials after login  */
+        private function setUserCredentials($username, $priviledge)
+        {
+            /* Setting the username and user priviledges in the session */
+            $_SESSION['username'] = $username;
+            $_SESSION['priviledge'] = $priviledge;
+        }
+
         /* Method for Logging Out */
         public function logout($confirmed = FALSE)
         {
@@ -92,24 +98,6 @@
                             alert("No user is currently logged in."); 
                         </script>';
                 return FALSE;
-            }
-        }
-
-        /* Method for outputting the current driver number */
-        public function driverNumber()
-        {
-            $query  =   "SELECT ID FROM PARKING_TRANSACTION
-                        ORDER BY ID DESC
-                        LIMIT 1";
-            $result = $this->runQuery($query);
-
-            if (is_bool($result))
-            {
-                return "No Registered Transactions";
-            } 
-            else 
-            {
-                return $result[0]["ID"];
             }
         }
 
