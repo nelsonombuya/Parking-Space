@@ -46,8 +46,6 @@
                     <img src="img/lightjeep.png" width="25" height="25" alt="logo">
                 </a>
                 <a class="navbar-brand" href="index.php">Parking Space</a>
-                <a class="navbar-brand"
-                    href="reports.php?drivers=all">#<?php echo $Session->current_driver_number; ?></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
