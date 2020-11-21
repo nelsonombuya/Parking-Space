@@ -170,7 +170,7 @@
             if ($status === TRUE)
             {
                 return  "<div>".
-                            "<a href='" . "javascript:history.back()" . "'><button type='button'>No</button></a>".
+                            "<a href='" . "javascript:history.back()" . "'><button type='button'>Return</button></a>".
                         "</div>".
                         "<div class='confirm'>".
                             "<input type='submit' name='confirm' value='Confirm'>".

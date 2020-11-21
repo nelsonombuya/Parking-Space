@@ -187,7 +187,7 @@
                 $this->subheading = "Parking Spot Found At P#$parking_spot_ID near $location";
 
                 /* Options */
-                $this->_options = array("Return", "Confirm");
+                $this->_options = array("Confirm", "Return");
 
             }
             else
@@ -217,7 +217,7 @@
                     $this->subheading = "Parking Spot Found At P#$parking_spot_ID near $location";
 
                     /* Options */
-                    $this->_options = array("Return", "Confirm");
+                    $this->_options = array("Confirm", "Return");
                 }
                 else
                 {
