@@ -44,11 +44,12 @@
             <div class="col-md-8 py-4 border-0">
                 <h2 class="font-weight-bold">Sign up</h2>
                 <h4 class="pb-4 font-italic">Please fill with your details</h4>
-                <form name="sign-up_form" onsubmit="return signUp_validation();" action="inc/sign-up.inc.php" method="post">
+                <form name="sign-up_form" onsubmit="return signUp_validation();" action="inc/sign-up.inc.php"
+                    method="post">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <input id="First Name" name="first_name" placeholder="First Name *" class="form-control"
-                                type="text" <?php ?>>
+                                type="text">
                         </div>
                         <div class="form-group col-md-6">
                             <input id="Last Name" name="last_name" placeholder="Last Name *" class="form-control"
@@ -66,8 +67,8 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="numberplate" name="number_plate" placeholder="Car Number Plate *" class="form-control"
-                                type="text">
+                            <input id="numberplate" name="number_plate" placeholder="Car Number Plate *"
+                                class="form-control" type="text">
                         </div>
                         <div class="form-group col-md-6">
                             <input id="ID-No" name="id_number" placeholder="ID Number *" class="form-control"
@@ -88,8 +89,8 @@
                     </div>
                     <div class="form-group">
                         <div class="input-group">
-                            <input id="password" name="password-confirm" placeholder="Confirm Password *" class="form-control "
-                                type="password">
+                            <input id="password" name="password-confirm" placeholder="Confirm Password *"
+                                class="form-control " type="password">
                         </div>
                     </div>
                     <div class="form-row">

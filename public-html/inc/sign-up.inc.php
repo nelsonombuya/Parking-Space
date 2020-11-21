@@ -14,7 +14,7 @@
     $signup_details['password']   = $_POST["password"];
     
     /* Signing Up */
-    // new SignUp($signup_details) or die();
+    new SignUp($signup_details) or die();
 
     /* -TEST- */
     // header ("Location: ../sign-up.php?error=signup_user-exists");
