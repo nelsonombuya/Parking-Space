@@ -195,7 +195,7 @@
         */
         protected function getUserDetails($username_or_email)
         {
-            $query =    "SELECT USERNAME, EMAIL, PASS FROM USER WHERE USERNAME LIKE ? OR EMAIL LIKE ?";
+            $query =    "SELECT USERNAME, EMAIL, PASS, PRIVILEDGE FROM USER WHERE USERNAME LIKE ? OR EMAIL LIKE ?";
             $variable_types = "ss";
             $variables = array($username_or_email, $username_or_email);
             return $this->runPreparedQuery($query, $variable_types, $variables);

@@ -34,7 +34,6 @@
                 </div>
                 <div class="col-md-8 py-4 border-0">
                     <h3 class="font-weight-bold pb-3">WELCOME <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : "guest"; ?></h3>
-
                     <div class="row">
                         <div class="col-4">
                             <div class="list-group" id="list-tab" role="tablist">

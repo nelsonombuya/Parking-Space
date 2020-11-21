@@ -6,6 +6,7 @@
         public function __construct()
         {
             /* Initializing category list */
+            /* General User Settings */
             $this->_category_list = array(
                 "Reports" => array(
                     "All Parking Spots"     => "reports.php?type=parking&filter=all",
@@ -13,15 +14,20 @@
                     "Reserved Parking Spots"=> "reports.php?type=parking&filter=reserved" 
                 ),
 
-                "Settings" => array(
+                "User" => array(
                     "Change Password"  => "password-change.php",
                 ),
-
-                "System" => array(
+            );
+            
+            /* Admin Settings */
+            if ($_SESSION['priviledge'] === "admin")
+            {   
+                /* Adding system modification settings for admin */
+                $this->_category_list["System"] = array(
                     "Change System Settings" => "setup.php?state=modify",
                     "Restore Factory Settings" => "setup.php?state=reset"
-                )
-            );
+                );
+            }
         }
 
         public function printCategories()
