@@ -13,8 +13,7 @@
 9. Checkout Page Formatting
 10. Discretionary access
     - Set locations where they can reserve spots
-11. Re-enter the values used in signup process in case of failure
-12. Quick Park
-13. Expiring Cookies
+11. Quick Park
+12. Expiring Cookies
 
 ## Current Commit Message
