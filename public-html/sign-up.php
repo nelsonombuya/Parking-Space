@@ -7,6 +7,7 @@
     /* Checks if a login error has happened, if not, just run the main script */
     if (isset($_GET['error']))
     {
+        /* Returns Javascript depending on the error experienced */
         echo checkSignUpErrors($_GET['error']);
         
         /* Unsets the error after the error message has been shown */
@@ -46,17 +47,17 @@
                 <form name="sign-up_form" onsubmit="return signUp_validation();" action="inc/sign-up.inc.php" method="post">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="First Name" name="First-Name" placeholder="First Name *" class="form-control"
-                                type="text">
+                            <input id="First Name" name="first_name" placeholder="First Name *" class="form-control"
+                                type="text" <?php ?>>
                         </div>
                         <div class="form-group col-md-6">
-                            <input id="Last Name" name="Last-Name" placeholder="Last Name *" class="form-control"
+                            <input id="Last Name" name="last_name" placeholder="Last Name *" class="form-control"
                                 type="text">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="Username" name="Username" placeholder="Username *" class="form-control"
+                            <input id="Username" name="username" placeholder="Username *" class="form-control"
                                 type="text">
                         </div>
                         <div class="form-group col-md-6">
@@ -65,11 +66,11 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="numberplate" name="numberplate" placeholder="Car Number Plate *" class="form-control"
+                            <input id="numberplate" name="number_plate" placeholder="Car Number Plate *" class="form-control"
                                 type="text">
                         </div>
                         <div class="form-group col-md-6">
-                            <input id="ID-No" name="ID-No" placeholder="ID Number *" class="form-control"
+                            <input id="ID-No" name="id_number" placeholder="ID Number *" class="form-control"
                                 type="text">
                         </div>
                     </div>
