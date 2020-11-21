@@ -7,6 +7,7 @@
     /* Checks if a login error has happened, if not, just run the main script */
     if (isset($_GET['error']))
     {
+        /* Returns Javascript depending on the error experienced */
         echo checkSignUpErrors($_GET['error']);
         
         /* Unsets the error after the error message has been shown */
@@ -47,7 +48,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <input id="First Name" name="First-Name" placeholder="First Name *" class="form-control"
-                                type="text">
+                                type="text" <?php ?>>
                         </div>
                         <div class="form-group col-md-6">
                             <input id="Last Name" name="Last-Name" placeholder="Last Name *" class="form-control"
