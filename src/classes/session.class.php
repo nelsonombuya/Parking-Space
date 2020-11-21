@@ -191,7 +191,7 @@
 
         /* 
             Method for retrieving user details from the database 
-            Only username, email, password unless explicitly defined otherwiser
+            Only username, email, password unless explicitly defined otherwise
         */
         protected function getUserDetails($username_or_email)
         {
@@ -232,7 +232,7 @@
         /* Method for generating temporary user keys for stuff */
         public function generateTemporaryKey($username_or_email = null)
         {
-            /* Generating random number and hashing it */
+            /* Generating random number, hashing it to use it as the key, and hashing the key */
             $key = password_hash(rand(), PASSWORD_DEFAULT);
             $hashed_key = password_hash($key, PASSWORD_DEFAULT);
 

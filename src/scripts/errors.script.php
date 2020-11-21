@@ -179,4 +179,26 @@
             }
         }
     }
+
+    /* 
+        Function for inputting values in forms 
+        Useful after error's in the form
+    */
+    function formInputValue($form_variable_name)
+    {
+        /* Checking if the form array is set */
+        if (isset($_GET))
+        {
+            /* Setting the output value in case it exists in the $_GET variables */
+            $output = isset($_GET[$form_variable_name]) ? $_GET[$form_variable_name] : "";
+
+            /* Return the value for that form variable */
+            echo "value='". $output ."'";
+        }
+        else
+        {
+            /* If it's not set, return a blank value */
+            echo "value=''";
+        }
+    }
 ?>

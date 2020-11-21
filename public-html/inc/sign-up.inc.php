@@ -10,9 +10,9 @@
     $signup_details['email']        = $_POST["email"];
     $signup_details['number_plate'] = $_POST["number_plate"];
     $signup_details['id_number']    = $_POST["id_number"];
-    $signup_details['phone']        = $_POST["phone"];
+    $signup_details['phone']        = $_POST["phone"]; 
     $signup_details['password']     = $_POST["password"];
-    
+
     /* Signing Up */
     new SignUp($signup_details) or die();
 ?>

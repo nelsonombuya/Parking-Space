@@ -49,36 +49,36 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <input id="First Name" name="first_name" placeholder="First Name *" class="form-control"
-                                type="text">
+                                type="text" <?php formInputValue('first_name'); ?>>
                         </div>
                         <div class="form-group col-md-6">
                             <input id="Last Name" name="last_name" placeholder="Last Name *" class="form-control"
-                                type="text">
+                                type="text" <?php formInputValue('last_name'); ?>>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <input id="Username" name="username" placeholder="Username *" class="form-control"
-                                type="text">
+                                type="text" <?php formInputValue('username'); ?>>
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email">
+                            <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email" <?php formInputValue('email'); ?>>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <input id="numberplate" name="number_plate" placeholder="Car Number Plate *"
-                                class="form-control" type="text">
+                                class="form-control" type="text" <?php formInputValue('number_plate'); ?>>
                         </div>
                         <div class="form-group col-md-6">
                             <input id="ID-No" name="id_number" placeholder="ID Number *" class="form-control"
-                                type="text">
+                                type="text" <?php formInputValue('id_number'); ?>>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <input id="phone" name="phone" placeholder="Phone Number *" class="form-control"
-                                type="text">
+                                type="text" <?php formInputValue('phone'); ?>>
                         </div>
                     </div>
                     <div class="form-group">

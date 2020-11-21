@@ -9,51 +9,62 @@
     class SignUp extends Session
     {
         private $_new_user;
+        private $_url;
 
         public function __construct($new_user)
         {
             /* Constructing a session object */
             parent::__construct();
 
+            /* Defining the user's details */
+            $this->_new_user = $new_user;
+
+            /* Defining the URL */
+            $this->_url = HEADER_ROOT . "/sign-up.php";
+
             /* Checking whether the username or email already exists in the DB */
-            if (!$this->checkUsername($new_user['username']))
+            if (!$this->checkUsername($this->_new_user['username']))
             {
                 /* If checkUsername returns false, then the username already exists */
-                header("Location: " . HEADER_ROOT . "/sign-up.php?error=signup_user-exists") or die();
+                $redirect = $this->URLHandler(array("error" => "signup_user-exists"), TRUE, $this->_url);
             }
-            else if (!$this->checkEmail($new_user['email']))
+            else if (!$this->checkEmail($this->_new_user['email']))
             {
                 /* If checkEmail returns false, then the email already exists */
-                header("Location: " . HEADER_ROOT . "/sign-up.php?error=signup_email-exists") or die();
+                $redirect = $this->URLHandler(array("error" => "signup_email-exists"), TRUE, $this->_url);
             }
             else
             {
                 /* Signing up the user */
-                $this->_new_user = $new_user;
                 $signup_result = $this->signUp();
 
                 /* Redirecting in case of errors */
                 if ($signup_result['user'])
                 {
                     /* If there was an error adding the user, return the error */
-                    header("Location: " . HEADER_ROOT . "/sign-up.php?error=signup_user") or die();
+                    $redirect = $this->URLHandler(array("error" => "signup_user"), TRUE, $this->_url);
                 }
                 else if ($signup_result['car'])
                 {
                     /* If there was an error adding the user's cars, return the error */
-                    header("Location: " . HEADER_ROOT . "/sign-up.php?error=signup_car") or die();
+                    $redirect = $this->URLHandler(array("error" => "signup_car"), TRUE, $this->_url);
                 }
                 else if ($signup_result['user'] && $signup_result['car'])
                 {
                     /* If there was some kind of error adding both */
-                    header("Location: " . HEADER_ROOT . "/sign-up.php?error=fail") or die();
+                    $redirect = $this->URLHandler(array("error" => "fail"), TRUE, $this->_url);
                 }
                 else
                 {
                     /* If there was no error adding both */
-                    header("Location: " . HEADER_ROOT . "/sign-up.php?error=success") or die();
+                    $redirect = $this->URLHandler(array("error" => "success"), TRUE, $this->_url);
                 }
             }
+
+            /* Redirecting after the sign-up process stops */
+            unset($this->_new_user['password']);    // Removing the user password so that they have to input a new one
+            $redirect = $this->URLHandler($this->_new_user, TRUE, $redirect);
+            header("Location: " . $redirect) or die();
         }
 
         private function checkUsername($username)
@@ -107,6 +118,9 @@
 
             /* Running the prepared query */
             $number_plate_result = $this->runPreparedQuery($query, "ss", array($username, $number_plate));
+
+            /* Setting the procedure as done */
+            $_SESSION['form']['done'] = TRUE;
 
             return array(
                 "user"  =>  $result,
