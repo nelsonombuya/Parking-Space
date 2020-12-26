@@ -1,4 +1,4 @@
-/* Function for adding parameters to the url as true */
+/* Function for adding parameters to the url */
 function addParamsToURL(param, value = true, url = null) {
     if (url === null) {
         var url = window.location.href;

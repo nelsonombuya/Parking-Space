@@ -12,10 +12,10 @@ Our Kabarak Team Project
 `Currently running on` **Gamma**
 
 -   `Much Work`
--   `Much Stress`
+-   `Much Wow`
 -   `Object Oriented = Amazing`
 
-#### ┻━┻ ︵ヽ(`Д´)ﾉ︵ ┻━┻
+#### ヽ༼ ຈل͜ຈ༼ ▀̿̿Ĺ̯̿̿▀̿ ̿༽Ɵ͆ل͜Ɵ͆ ༽ﾉ
 
 ## Members
 
