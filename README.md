@@ -11,11 +11,13 @@ Our Kabarak Team Project
 `Refactoring...`
 `Currently running on` **Gamma**
 
+[![CodeFactor](https://www.codefactor.io/repository/github/neodevelopment/parking-space/badge)](https://www.codefactor.io/repository/github/neodevelopment/parking-space)
+
 -   `Much Work`
--   `Much Stress`
+-   `Much Wow`
 -   `Object Oriented = Amazing`
 
-#### ┻━┻ ︵ヽ(`Д´)ﾉ︵ ┻━┻
+#### ヽ༼ ຈل͜ຈ༼ ▀̿̿Ĺ̯̿̿▀̿ ̿༽Ɵ͆ل͜Ɵ͆ ༽ﾉ
 
 ## Members
 
