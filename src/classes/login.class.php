@@ -52,7 +52,7 @@
             } 
             else 
             {
-                header("Location: " . HEADER_ROOT . "/login.php?error=login_"."$checked_password") or die();
+                header("Location: " . HEADER_ROOT . "/login.php?error=login_$checked_password") or die();
             }
         }
     }   

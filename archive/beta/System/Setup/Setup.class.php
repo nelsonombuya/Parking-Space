@@ -5,8 +5,8 @@
 /*====================================================================================*/
 
 /*================================== Requirements ====================================*/
-    require_once __DIR__ . "/../.." . "/System/Settings/Settings.class.php";
-    require_once __DIR__ . "/../.." . "/System/Database/SQL.class.php";
+    require_once __DIR__ . "/../../System/Settings/Settings.class.php";
+    require_once __DIR__ . "/../../System/Database/SQL.class.php";
 /*====================================================================================*/
 
     class Setup extends SQL
@@ -21,9 +21,9 @@
             parent::__construct();
 
             /* Creating list of tables to be created in the database */
-            if ($this->_tables = parse_ini_file(__DIR__ . "/../.." . "/System/Database/Database.ini", TRUE) === FALSE)
+            if ($this->_tables = parse_ini_file(__DIR__ . "/../../System/Database/Database.ini", TRUE) === FALSE)
             {
-                $this->_tables = parse_ini_file(__DIR__ . "/../.." . "/System/Database/Default.ini", TRUE);
+                $this->_tables = parse_ini_file(__DIR__ . "/../../System/Database/Default.ini", TRUE);
             }
             
             /* Forcing the database to be created if no database has been found */

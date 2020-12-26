@@ -110,12 +110,12 @@
                         "<input type='submit' value='Confirm'>".
                     "</div>".
                     "<div>".
-                        "<a href='" . "javascript:history.back()" . "'><button type='button'>No</button></a>".
+                        "<a href='javascript:history.back()'><button type='button'>No</button></a>".
                     "</div>";
         } else {
             header("refresh:15; url=Checkout.php");
             return  "<div>".
-                        "<a href='" . "javascript:history.back()" . "'><button type='button'>Return</button></a>".
+                        "<a href='javascript:history.back()'><button type='button'>Return</button></a>".
                     "</div>";
                     
         }
