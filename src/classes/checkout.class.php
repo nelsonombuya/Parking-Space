@@ -170,7 +170,7 @@
             if ($status === TRUE)
             {
                 return  "<div>".
-                            "<a href='" . "javascript:history.back()" . "'><button type='button'>Return</button></a>".
+                            "<a href='javascript:history.back()'><button type='button'>Return</button></a>".
                         "</div>".
                         "<div class='confirm'>".
                             "<input type='submit' name='confirm' value='Confirm'>".
@@ -180,7 +180,7 @@
             {
                 header("refresh:15; url=check-out.php");
                 return  "<div>".
-                            "<a href='" . "javascript:history.back()" . "'><button type='button'>Return</button></a>".
+                            "<a href='javascript:history.back()'><button type='button'>Return</button></a>".
                         "</div>";
                         
             }
