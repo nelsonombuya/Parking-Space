@@ -139,7 +139,7 @@
                     {
                         return $this->error = "sql_bind";
                     }
-                break;
+                
 
                 case 2 :
                     if ($this->_prepared->bind_param($value_types, $data_array[0], $data_array[1]))
@@ -150,7 +150,7 @@
                     {
                         return $this->error = "sql_bind";
                     }
-                break;
+                
 
                 case 3 :
                     if ($this->_prepared->bind_param($value_types, $data_array[0], $data_array[1], $data_array[2]))
@@ -161,11 +161,11 @@
                     {
                         return $this->error = "sql_bind";
                     }
-                break;
+                
 
                 default :
                     return $this->error = "sql_bind_overflow";
-                break;
+                
             }
         }
 

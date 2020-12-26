@@ -67,15 +67,15 @@
             {
                 case 0:
                     return "Where would you like to go?";
-                break;
+                
 
                 case 1:
                     return "How long will you stay?";
-                break;
+                
 
                 case 2:
                     return "Would you prefer handicapped parking?";
-                break;
+                
             }
         }
 
@@ -85,14 +85,14 @@
             {
                 case 0:
                     return $this->locations();
-                break;
+                
 
                 case 1:
                     return array(
                         "Around 30 Minutes",
                         "More than 30 Minutes"
                     );
-                break;
+                
 
                 case 2:
                     return array(
@@ -310,7 +310,7 @@
                             AND LOCATION.NAME = ?
                             AND PARKING_SPOT.TYPE = 'Handicapped'
                             AND PARKING_SPOT.STATUS = 'Free'";
-                break;
+                
 
                 case "Pick-Up":
                     return  "SELECT PARKING_SPOT.ID, LOCATION.NAME 
@@ -319,7 +319,7 @@
                             AND LOCATION.NAME = ?
                             AND PARKING_SPOT.TYPE = 'Pick-Up'
                             AND PARKING_SPOT.STATUS = 'Free'";
-                break;
+                
                     
                 case "Any":
                     return  "SELECT PARKING_SPOT.ID, LOCATION.NAME 
@@ -327,7 +327,7 @@
                             WHERE PARKING_SPOT.LOCATION_ID = LOCATION.ID
                             AND PARKING_SPOT.TYPE = 'Open'
                             AND PARKING_SPOT.STATUS = 'Free'"; 
-                break;
+                
 
                 default:
                     return  "SELECT PARKING_SPOT.ID, LOCATION.NAME 
@@ -336,7 +336,7 @@
                             AND LOCATION.NAME = ?
                             AND PARKING_SPOT.TYPE = 'Open'
                             AND PARKING_SPOT.STATUS = 'Free'";
-                break;
+                
             }
         }
 
