@@ -11,7 +11,7 @@ Our Kabarak Team Project
 `Refactoring...`
 `Currently running on` **Gamma**
 
-[![CodeFactor](https://www.codefactor.io/repository/github/neodevelopment/parking-space/badge)](https://www.codefactor.io/repository/github/neodevelopment/parking-space)
+[![CodeFactor](https://www.codefactor.io/repository/github/nelsonombuya/parking-space/badge)](https://www.codefactor.io/repository/github/nelsonombuya/parking-space)
 
 -   `Much Work`
 -   `Much Wow`
