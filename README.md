@@ -9,13 +9,15 @@ Our Kabarak Team Project
 ## Status
 
 `Refactoring...`
-`Currently running on` **Gamma**
+`Currently running on` **Delta**
+
+[![CodeFactor](https://www.codefactor.io/repository/github/nelsonombuya/parking-space/badge)](https://www.codefactor.io/repository/github/nelsonombuya/parking-space)
 
 -   `Much Work`
--   `Much Stress`
+-   `Much Wow`
 -   `Object Oriented = Amazing`
 
-#### ┻━┻ ︵ヽ(`Д´)ﾉ︵ ┻━┻
+#### ヽ༼ ຈل͜ຈ༼ ▀̿̿Ĺ̯̿̿▀̿ ̿༽Ɵ͆ل͜Ɵ͆ ༽ﾉ
 
 ## Members
 

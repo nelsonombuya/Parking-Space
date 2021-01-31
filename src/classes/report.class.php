@@ -68,7 +68,7 @@
                         "Status",
                         "Location"
                     );
-                break;
+                
             }
         }
 
@@ -78,7 +78,7 @@
             {
                 case "parking":
                     return "Parking Spots";
-                break;
+                
             }
         }
 
@@ -88,7 +88,7 @@
             {
                 case "all":
                     return "All";
-                break;
+                
             }
         }
 
@@ -98,7 +98,7 @@
             {
                 case "parking":
                     return $this->getParkingSpotsData();
-                break;
+                
             }
         }
 
@@ -113,7 +113,7 @@
                         FROM PARKING_SPOT, LOCATION
                         WHERE PARKING_SPOT.LOCATION_ID = LOCATION.ID"
                     );
-                break;
+                
 
                 case "reserved":
                     return $this->runQuery(
@@ -122,7 +122,7 @@
                         WHERE PARKING_SPOT.LOCATION_ID = LOCATION.ID
                         AND PARKING_SPOT.TYPE = 'Reserved'"
                     );
-                break;
+                
 
                 case "free":
                     return $this->runQuery(
@@ -132,7 +132,7 @@
                         AND PARKING_SPOT.STATUS = 'Free'
                         AND PARKING_SPOT.TYPE != 'Reserved'"
                     );
-                break;
+                
 
                 default:
                     return $this->runQuery(
@@ -140,7 +140,7 @@
                         FROM PARKING_SPOT, LOCATION
                         WHERE PARKING_SPOT.LOCATION_ID = LOCATION.ID"
                     );
-                break;
+                
             }
         }
     }

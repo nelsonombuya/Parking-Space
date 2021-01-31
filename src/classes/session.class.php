@@ -108,7 +108,9 @@
             $query =    "SELECT USERNAME, PASS, TEMP_KEY
                         FROM USER
                         WHERE EMAIL = ?";
-            if(!empty($result = $this->runPreparedQuery($query, "s",  array($email))))
+
+            $result = $this->runPreparedQuery($query, "s",  array($email));
+            if(!empty($result))
             {
                 if ($this->verifyPassword($reset_key, $result[0]['TEMP_KEY']))
                 {

@@ -143,13 +143,13 @@
                                     window.location.href = "index.php"; 
                                 </script>';
                     }   
-                break;
+                
 
                 case 'change-password_fail':
                     return  '<script type="text/JavaScript">  
                                 alert("Unable to change the password. \nPlease Try Again. \nError Code: ' . $error . '");
                             </script>';
-                break;
+                
 
                 case 'reset-password_fail':
                     return  '<script type="text/JavaScript">  
@@ -159,7 +159,7 @@
                                         Error Code: ' . $error . ');
                                 window.location.href = "password-recovery.php"; 
                             </script>';
-                break;
+                
 
                 case 'recover-password_email-dne':
                     return  '<script type="text/JavaScript">  
@@ -167,14 +167,14 @@
                                         You could always sign up for an account if you do not have one" \n
                                         Error Code: ' . $error . ');
                             </script>';
-                break;
+                
 
                 default:
                     /* In case of any other failure */
                     return  '<script type="text/JavaScript">  
                                 alert("Unable to change the password. \nPlease Try Again. \nError Code: ' . $error . '");
                             </script>';
-                break;
+                
 
             }
         }

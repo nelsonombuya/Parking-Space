@@ -53,7 +53,11 @@
         /* Method for setting up a connection to the database */
         public function connect($host, $user, $password, $database)
         {
-            if ($this->_connection = mysqli_connect($host, $user, $password))
+            /* Connecting to the database */
+            $this->_connection = mysqli_connect($host, $user, $password);
+
+            /* Checking the connection */
+            if ($this->_connection)
             {
                 /* Checking for a connection to the database */
                 if ($this->_connection->query("USE $database"))
@@ -149,7 +153,7 @@
                     {
                         return $this->error = "sql_bind";
                     }
-                break;
+                
 
                 case 2 :
                     if ($this->_prepared->bind_param($value_types, $data_array[0], $data_array[1]))
@@ -160,7 +164,7 @@
                     {
                         return $this->error = "sql_bind";
                     }
-                break;
+                
 
                 case 3 :
                     if ($this->_prepared->bind_param($value_types, $data_array[0], $data_array[1], $data_array[2]))
@@ -171,7 +175,7 @@
                     {
                         return $this->error = "sql_bind";
                     }
-                break;
+                
 
                 case 4 :
                     if ($this->_prepared->bind_param($value_types, 
@@ -186,7 +190,7 @@
                     {
                         return $this->error = "sql_bind";
                     }
-                break;
+                
 
                 case 5 :
                     if ($this->_prepared->bind_param($value_types, 
@@ -202,7 +206,7 @@
                     {
                         return $this->error = "sql_bind";
                     }
-                break;
+                
 
                 case 6 :
                     if ($this->_prepared->bind_param($value_types, 
@@ -219,7 +223,7 @@
                     {
                         return $this->error = "sql_bind";
                     }
-                break;
+                
 
                 case 7 :
                     if ($this->_prepared->bind_param($value_types, 
@@ -237,7 +241,7 @@
                     {
                         return $this->error = "sql_bind";
                     }
-                break;
+                
 
                 case 8 :
                     if ($this->_prepared->bind_param($value_types, 
@@ -256,7 +260,7 @@
                     {
                         return $this->error = "sql_bind";
                     }
-                break;
+                
 
                 case 9 :
                     if ($this->_prepared->bind_param($value_types, 
@@ -276,7 +280,7 @@
                     {
                         return $this->error = "sql_bind";
                     }
-                break;
+                
 
                 case 10 :
                     if ($this->_prepared->bind_param($value_types, 
@@ -297,11 +301,11 @@
                     {
                         return $this->error = "sql_bind";
                     }
-                break;
+                
 
                 default :
                     return $this->error = "sql_bind_overflow";
-                break;
+                
             }
         }
 
