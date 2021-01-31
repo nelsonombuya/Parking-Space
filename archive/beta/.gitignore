@@ -1,9 +1,0 @@
-# VS Code Settings
-.vscode/
-
-# Random generated desktop.ini files
-desktop.ini
-
-# Some documentation locks for .odt and .docx files
-.~*
-~$*
