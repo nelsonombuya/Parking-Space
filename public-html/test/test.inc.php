@@ -1,4 +1,8 @@
 <?php
+    require_once __DIR__ . '/../../config/config.inc.php';
+    require_once COMPOSER;
+    use SebastianBergmann\Timer\Timer;
+
     function print_time($duration)
     {
         echo "Class Name: "  . get_class($duration) . "\n";
