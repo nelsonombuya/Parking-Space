@@ -7,10 +7,8 @@
 /*-------------------------------------------------------------------------------------*/
     class Config
     {
-        private $_config_path_default;
         private $_config_path;
         public $config;
-        public $version;
         public $root;
         public $web_root;
         public $header_root;
@@ -18,29 +16,17 @@
         public function __construct()
         {
             // Setting the path to the config.ini files
-            $this->_config_path_default = INI . "config.default.ini";
             $this->_config_path = INI . "config.ini";
             
             /* 
                 If the default config.ini file has been deleted, 
-                copy a new one containing default settings 
+                create a new config.ini file
+                then add the default settings into it
             */
-            if (!file_exists($this->_config_path))
-            {
-                copy(
-                    // Copy this file
-                    $this->_config_path_default,
-                    
-                    // Paste the file as this new file
-                    $this->_config_path
-                );
-            }
+            if (!file_exists($this->_config_path)) $this->setDefaultSettings();
 
             // Parsing the system settings from the config.ini file
             $this->config = parse_ini_file($this->_config_path, TRUE);
-
-            // Setting current app version according to settings
-            $this->version = $this->config['system']['version'];
 
             // Setting current paths for use in classes
             $this->root = ROOT;
@@ -103,6 +89,62 @@
 
             /* Returning the corrected URL */
             return $url;        
+        }
+
+        /* Method to create the config.ini file if it doesn't exist, and write the default settings into it */
+        protected function setDefaultSettings()
+        {
+            $default_settings = 
+            '
+            ; <?php die(); ?>
+            ;==========================================================================================
+            ; General settings File for the Car Parking Management System
+            ;
+            ;==========================================================================================
+            ; Server Settings
+            ; You can change these settings according to your XAMPP Server Settings
+            ;------------------------------------------------------------------------------------------
+            [server]
+            host        = "localhost"
+            user        = "root"
+            password    = ""
+            database    = "Car_Parking_System"
+            time_zone   = "Africa/Nairobi"
+
+            ;------------------------------------------------------------------------------------------
+            ; System Settings
+            ;------------------------------------------------------------------------------------------
+            [system]
+            ; Setting this to true uses the shortest path algorithm to find the next closest spot
+            ; Setting it to false makes it get any available spot instead
+            next_closest_spot = FALSE
+
+            ;------------------------------------------------------------------------------------------
+            ; Settings used during setup process
+            ;------------------------------------------------------------------------------------------
+            [setup]
+            ; Setting for adding test data to the tables during setup
+            add_test_data = TRUE
+
+            ; Checking whether the system has been setup for the first time
+            first_time = FALSE
+
+            ;------------------------------------------------------------------------------------------
+            ; Settings for the parking fees charges
+            ;------------------------------------------------------------------------------------------
+            [charges]
+            enabled = TRUE
+
+            ; Parking fees duration in minutes
+            duration = 60
+
+            ; Parking fees amount
+            ; Use Local Currency
+            cost = 20
+
+            ';
+            fopen(__DIR__ . "/config.ini", "w");
+            file_put_contents(__DIR__ . "/config.ini", $default_settings);
         }
     }
 ?>
