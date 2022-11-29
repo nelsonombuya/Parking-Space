@@ -18,18 +18,18 @@
     /* Paths for heavily used files and locations */
     defined("CLASSES")
         or define("CLASSES", ROOT . '/src/classes/');
-     
+
     defined("SCRIPTS")
         or define("SCRIPTS", ROOT . '/src/scripts/');
-        
+
     defined("COMPOSER")
         or define("COMPOSER", ROOT . '/src/composer/vendor/autoload.php');
 
     defined("INI")
             or define("INI", ROOT . '/config/ini/');
-    
-    /* 
-        NOTE: This is to be ECHOed rather than Included 
+
+    /*
+        NOTE: This is to be ECHOed rather than Included
         It's a collection of Javascript functions
     */
     defined("JS.CONFIG")
@@ -38,8 +38,8 @@
 
     function getDirectories()
     {
-        /* 
-            Getting directories from dir.ini file 
+        /*
+            Getting directories from dir.ini file
             Use this to override system paths for various parts of the app
             Check the dir.default.ini for guide
         */
@@ -49,9 +49,9 @@
         }
         else
         {
-            /* 
-                Checking whether current document root is in public-html 
-                or in the main folder 
+            /*
+                Checking whether current document root is in public-html
+                or in the main folder
             */
             if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/login.php"))
             {
@@ -74,4 +74,3 @@
         }
         return $directories;
     }
-?>
